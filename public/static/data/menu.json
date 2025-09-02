@@ -1,0 +1,27 @@
+{
+    "menuPrimary": {
+        "menu_1": [
+            {
+                "text": "Home",
+                "url": "/"
+            },
+            {
+                "text": "Shop",
+                "url": "/shops"
+            },
+            {
+                "text": "About Us",
+                "url": "/about-us"
+            },
+            {
+                "text": "Contact Us",
+                "url": "/contact-us"
+            }
+        ]
+    }
+}
+
+
+
+
+
