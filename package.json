@@ -1,15 +1,16 @@
 {
-    "name": "fishnmeat",
+    "name": "Khatishodai",
     "version": "3.0.0",
     "private": true,
-    "author": "nurtaj",
+    "author": "Khatishodai",
+
     "scripts": {
-        "dev": "next dev",
-        "turbo": "next dev --turbo",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint"
-    },
+  "dev": "next dev -p 4000",
+  "turbo": "next dev --turbo -p 4000",
+  "build": "next build",
+  "start": "next start -p 4000",
+  "lint": "next lint"
+},
     "dependencies": {
         "@reduxjs/toolkit": "^2.2.1",
         "ahooks": "^3.7.8",
