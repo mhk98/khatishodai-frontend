@@ -21,7 +21,7 @@ const Product = ({ product }) => {
         
  <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
             <Image
-    src={`http://localhost:5000${default_image}`}
+    src={`https://backend.eaconsultancy.info${default_image}`}
     alt={title || 'Product Image'}
     width={200}
     height={200}

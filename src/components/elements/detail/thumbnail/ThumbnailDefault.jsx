@@ -101,7 +101,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                                 speed={500}
                                 plugins={[lgThumbnail, lgZoom]}>
                                 <img
-                                    src={`http://localhost:5000${item}`}
+                                    src={`https://backend.eaconsultancy.info${item}`}
                                     alt={item}
                                 />
                             </LightGallery>
@@ -134,7 +134,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
             ).map((item, index) => (
                 <SwiperSlide className="item" key={index}>
                     <img
-                        src={`http://localhost:5000${item}`}
+                        src={`https://backend.eaconsultancy.info${item}`}
                         alt={item}
                         className={`swiper-slide-image ${
                             index === activeIndex ? 'active' : ''

@@ -11,7 +11,7 @@ const OnCartProduct = ({ product, children }) => {
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     <Image
-                                                src={`http://localhost:5000${product.thumbnailImage}`}
+                                                src={`https://backend.eaconsultancy.info${product.thumbnailImage}`}
                                                 alt={product.title}
                                                 width={80}
                                                 height={80}
