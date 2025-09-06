@@ -86,90 +86,44 @@ export default function Login() {
 
     const [createUser] = useCreateUserMutation();
 
-    // const handleLogin = async (values) => {
-    //     const { phoneNumber } = values;
-    //     const redirectTo = searchParams.get('redirect') || '/'; // Get redirect URL from query params
-
-    //     setLoading(true);
-
-    //     try {
-    //         const response = await axios.post('https://backend.eaconsultancy.info/api/v1/user/login', {
-    //             // phone: `${selectedCode}${phoneNumber}`,
-    //             Phone: phoneNumber
-    //         });
-    //         // const Phone = phoneNumber;
-
-    //         // const response = await createUser({ Phone });
-
-    //         if (response.data.success) {
-    //             notification.success({
-    //                 message: 'Success',
-    //                 description: response.data.message,
-    //             });
-
-    //             console.log('userId', response)
-    //             storgeUserInfo({ accessToken: response.data.data.accessToken});
-
-    //             Router.push(redirectTo); // Redirect to the intended page after login
-    //         }
-
-
-    //         console.log("response", response)
-    //     } catch (err) {
-    //         notification.error({
-    //             message: 'Login Failed',
-    //             description: err.response?.data?.message || 'Something went wrong!',
-    //         });
-    //     } finally {
-    //         setLoading(false);
-    //     }
-    // };
-
-
     const handleLogin = async (values) => {
-    const { phoneNumber } = values;
-    const redirectTo = searchParams.get('redirect') || '/';
+        const { phoneNumber } = values;
+        const redirectTo = searchParams.get('redirect') || '/'; // Get redirect URL from query params
 
-    setLoading(true);
+        setLoading(true);
 
-    try {
-        const response = await fetch('https://backend.eaconsultancy.info/api/v1/user/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                Phone: phoneNumber,
-            }),
-        });
-
-        const data = await response.json();
-
-        if (response.ok && data.success) {
-            notification.success({
-                message: 'Success',
-                description: data.message,
+        try {
+            const response = await axios.post('https://backend.eaconsultancy.info/api/v1/user/login', {
+                // phone: `${selectedCode}${phoneNumber}`,
+                Phone: phoneNumber
             });
+            // const Phone = phoneNumber;
 
-            console.log('userId', data);
-            storgeUserInfo({ accessToken: data.data.accessToken });
+            // const response = await createUser({ Phone });
 
-            Router.push(redirectTo);
-        } else {
+            if (response.data.success) {
+                notification.success({
+                    message: 'Success',
+                    description: response.data.message,
+                });
+
+                console.log('userId', response)
+                storgeUserInfo({ accessToken: response.data.data.accessToken});
+
+                Router.push(redirectTo); // Redirect to the intended page after login
+            }
+
+
+            console.log("response", response)
+        } catch (err) {
             notification.error({
                 message: 'Login Failed',
-                description: data.message || 'Something went wrong!',
+                description: err.response?.data?.message || 'Something went wrong!',
             });
+        } finally {
+            setLoading(false);
         }
-    } catch (err) {
-        notification.error({
-            message: 'Login Failed',
-            description: err.message || 'Something went wrong!',
-        });
-    } finally {
-        setLoading(false);
-    }
-};
+    };
 
     return (
         <div className="ps-my-account">
