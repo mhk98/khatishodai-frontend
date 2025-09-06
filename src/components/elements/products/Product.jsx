@@ -17,7 +17,7 @@ const Product = ({ product }) => {
               <div className="ps-product">
             <div className="ps-product__thumbnail">
                 
-                    {/* <img src={`http://localhost:5000/${default_image}`} alt="" /> */}
+                    {/* <img src={`https://backend.eaconsultancy.info/${default_image}`} alt="" /> */}
         
  <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
             <Image

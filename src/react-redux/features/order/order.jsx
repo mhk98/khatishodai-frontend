@@ -8,7 +8,7 @@ const getAuthToken = () => {
 export const orderApi = createApi({
   reducerPath: "orderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api/v1/",
+    baseUrl: "https://backend.eaconsultancy.info/api/v1/",
     prepareHeaders: (headers) => {
       const token = getAuthToken();  // Fetch the token
       if (token) {

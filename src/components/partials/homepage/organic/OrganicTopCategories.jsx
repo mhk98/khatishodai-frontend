@@ -12,7 +12,7 @@ const OrganicTopCategories = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const res = await axios.get("http://localhost:5000/api/v1/category/");
+          const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
           setCategories(res.data.data);
         } catch (err) {
           console.error(err);
@@ -34,7 +34,7 @@ const OrganicTopCategories = () => {
                    <div className="ps-block--category">
                         <div className="ps-block__thumbnail">
                             <img
-                                src={`http://localhost:5000/${category.icon}`}
+                                src={`https://backend.eaconsultancy.info/${category.icon}`}
                                 alt="martfury"
                             />
                         </div>

@@ -21,7 +21,7 @@ const OrganicNewArrivals = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/v1/product/arrival");
+                const res = await axios.get("https://backend.eaconsultancy.info/api/v1/product/arrival");
                 setProducts(res.data?.data || []); // Assuming `res.data.data` contains the products.
                 setLoading(false);
             } catch (err) {
@@ -41,7 +41,7 @@ const OrganicNewArrivals = () => {
        useEffect(() => {
          const fetchData = async () => {
            try {
-             const res = await axios.get("http://localhost:5000/api/v1/category/");
+             const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
              setCategories(res.data.data);
            } catch (err) {
              console.error(err);
