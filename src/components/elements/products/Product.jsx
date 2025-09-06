@@ -13,19 +13,23 @@ const Product = ({ product }) => {
     const {title, price, default_image} = product;
     console.log('productInfo', default_image)
     return (
-        <div className="ps-product">
+        <div>
+              <div className="ps-product">
             <div className="ps-product__thumbnail">
-                <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-                    {/* <img src={`https://backend.eaconsultancy.info/${default_image}`} alt="" /> */}
-                    <Image
+                
+                    {/* <img src={`http://localhost:5000/${default_image}`} alt="" /> */}
+        
+ <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
+            <Image
     src={`http://localhost:5000${default_image}`}
     alt={title || 'Product Image'}
     width={200}
     height={200}
     layout="responsive"
 />
+            </Link>
                     {/* {thumbnailImage} */}
-                </Link>
+           
                 {/* {badge(product)} */}
                 <ProductActions product={product} />
             </div>
@@ -39,16 +43,19 @@ const Product = ({ product }) => {
                         <Rating />
                         <span>02</span>
                     </div>
-                    {price}
+                    ৳ {price}
                 </div>
                 <div className="ps-product__content hover">
                     <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     {title} <br/>
-                    {price}
+                    ৳ {price}
                     </Link>
                     
                 </div>
             </div>
+        </div>
+           
+          
         </div>
     );
 };

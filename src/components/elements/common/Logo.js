@@ -41,7 +41,8 @@ const Logo = ({ type }) => {
     }
     return (
         <Link href={data.url} className="ps-logo">
-            <img src={data.img} alt="" />
+            {/* <img src={data.img} alt="" /> */}
+            <h3>Khatishodai</h3>
         </Link>
     );
 };

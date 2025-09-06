@@ -65,7 +65,7 @@ const DefaultMenuItem = ({ item }) => {
         <Link href={`/category/${item.categoryId}`}>
             {item.icon && (
                 <img
-                    src={`https://backend.eaconsultancy.info/${item.icon}`} // Dynamically constructing image URL
+                    src={`http://localhost:5000/${item.icon}`} // Dynamically constructing image URL
                     alt={item.text} // Alt text for accessibility
                     width={23}
                   

@@ -35,10 +35,11 @@ export default function HeaderMobileOrganic() {
             <div className="navigation--mobile">
                 <div className="navigation__left">
                     <Link href="/" className="ps-logo">
-                        <img
+                        {/* <img
                             src="/static/img/logo-organic.png"
                             alt="martfury"
-                        />
+                        /> */}
+                        <h3>Khatishodai</h3>
                     </Link>
                 </div>
                 <MobileHeaderActions />

@@ -20,7 +20,7 @@ const ModuleDetailTopInformation = ({ product }) => {
                             minimumFractionDigits: 2,
                         })}
                     </del>
-                    $
+                    ৳
                     {sale_price.toLocaleString('en-US', {
                         minimumFractionDigits: 2,
                     })}
@@ -29,7 +29,7 @@ const ModuleDetailTopInformation = ({ product }) => {
         } else {
             return (
                 <h4 className="ps-product__price">
-                    $
+                    ৳ 
                     {price.toLocaleString('en-US', {
                         minimumFractionDigits: 2,
                     })}
@@ -57,7 +57,7 @@ const ModuleDetailTopInformation = ({ product }) => {
                     <span>(1 review)</span>
                 </div>
             </div>
-            {productPrice}
+             {productPrice}
         </header>
     );
 };

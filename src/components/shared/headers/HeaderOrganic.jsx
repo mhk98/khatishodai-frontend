@@ -32,10 +32,11 @@ const HeaderOrganic = () => {
                             </div>
                         </div>
                         <Link href="/home/organic" className="ps-logo">
-                            <img
+                            {/* <img
                                 src="/static/img/logo-organic.png"
                                 alt="martfury"
-                            />
+                            /> */}
+                        <h3>Khatishodai</h3>
                         </Link>
                     </div>
                     <div className="header__center">

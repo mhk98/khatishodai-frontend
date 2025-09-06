@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useCreateCartMutation, useGetAllCartQuery } from '~/react-redux/features/cart/cart';
 import toast from 'react-hot-toast';
+import { isLoggedIn } from '~/components/services/auth.service';
+import { useRouter } from 'next/navigation';
 
 const ModuleDetailShoppingActions = ({product}) => {
     // const [quantity, setQuantity] = useState(1);
-    // const Router = useRouter();
-   
-    
-
+    const router = useRouter();
+    const userLoggedIn = isLoggedIn();
 
     // function handleAddItemToCart(e) {
     //     e.preventDefault();
@@ -63,35 +63,66 @@ const ModuleDetailShoppingActions = ({product}) => {
     //   }
     // };
 
-    const handleAddItemToCart = (product) => {
-        console.log("productId", product)
-        if (cart.some((item) => item.product_id === product.id)) {
-            alert("This product is already in the cart.");
-        } else {
-            const updatedCart = [...cart, {
-                title: product.title,
-                price: product.price,
-                default_image: product.default_image,
-                weight:1,
-                quantity: 1,
-            }];
+    // const handleAddItemToCart = (product) => {
+    //     console.log("productId", product)
+    //     if (cart.some((item) => item.product_id === product.id)) {
+    //         alert("This product is already in the cart.");
+    //     } else {
+    //         const updatedCart = [...cart, {
+    //             title: product.title,
+    //             price: product.price,
+    //             default_image: product.default_image,
+    //             weight:1,
+    //             quantity: 1,
+    //         }];
     
-            setCart(updatedCart);
+    //         setCart(updatedCart);
     
-            // Save only the serializable cart data
-            localStorage.setItem("cart", JSON.stringify(updatedCart));
-            createCart({
-                title: product.title,
-                price: product.price,
-                default_image: product.default_image,
-                weight:1,
-                quantity: 1,
-            });
+    //         // Save only the serializable cart data
+    //         localStorage.setItem("cart", JSON.stringify(updatedCart));
+    //         createCart({
+    //             title: product.title,
+    //             price: product.price,
+    //             default_image: product.default_image,
+    //             weight:1,
+    //             quantity: 1,
+    //         });
             
-            toast.success("This product has been added to your cart");
-        }
-    };
+    //         toast.success("This product has been added to your cart");
+    //     }
+    // };
     
+ const handleAddItemToCart = (product) => {
+    console.log('productAction', product)
+    if (cart.some((item) => item.product_id === product.id)) {
+      alert("This product is already in the cart.");
+    } else if(!userLoggedIn){
+      router.push("/account/login");
+
+    }else {
+      // Create a new cart with the added product
+      const updatedCart = [...cart, product];
+
+      setCart(updatedCart);
+      const data = {
+        title: product.title,
+        price: product.price,
+        default_image: product.default_image,
+        weight:1,
+        product_id:product.id,
+        user_id:id,
+       
+      };
+      console.log("cart data here", product);
+      createCart(data);
+      // Save the updated cart data to local storage
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+      // Show a success toast message to indicate that the product has been added
+      toast.success("Product added to the cart");
+    }
+  };
+
     // function handleBuynow(e) {
     //     e.preventDefault();
     //     addItem(
@@ -212,8 +243,10 @@ const ModuleDetailShoppingActions = ({product}) => {
                 </figure> */}
                 <a
                     className="ps-btn ps-btn--black"
-                    href="#"
+                    href=""
+                    // onClick={() => handleAddItemToCart(product)}
                     onClick={() => handleAddItemToCart(product)}>
+                    
                     Add to cart
                 </a>
                 {/* <div className="ps-product__actions">

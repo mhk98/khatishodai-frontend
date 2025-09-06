@@ -74,6 +74,8 @@ import DOMPurify from 'dompurify';
 
 const PartialDescription = ({ product }) => {
 
+  console.log("PartialDescription", product)
+
     const sanitizedHTML = DOMPurify.sanitize(product.description);
 
     return (

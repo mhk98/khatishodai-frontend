@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { Modal } from 'antd';
+import { Button, Modal } from 'antd';
 import { useSelector } from 'react-redux';
 import ProductDetailQuickView from '~/components/elements/detail/ProductDetailQuickView';
 import toast from 'react-hot-toast';
@@ -115,8 +115,6 @@ const ProductActions = ({ product }) => {
     // };
 
     const router = useRouter();
-
-
     const userLoggedIn = isLoggedIn();
 
 
@@ -194,24 +192,24 @@ const ProductActions = ({ product }) => {
      
 
             <li>
-                <a
-                    href='#'
+                <Button
+                    // href='#'
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Add To Cart"
                     onClick={() => handleAddItemToCart(product)}>
                     <i className="icon-bag2" />
-                </a>
+                </Button>
             </li>
             <li>
-                <a
-                    href="#"
+                <Button
+                    // href="#"
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Quick View"
                     onClick={handleShowQuickView}>
                     <i className="icon-eye" />
-                </a>
+                </Button>
             </li>
             {/* <li>
                 <a
