@@ -20,7 +20,7 @@ const Product = ({ product }) => {
                     {/* <img src={`https://backend.eaconsultancy.info/${default_image}`} alt="" /> */}
         
  <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-            <Image
+            <img
     src={`https://backend.eaconsultancy.info${default_image}`}
     alt={title || 'Product Image'}
     width={200}
