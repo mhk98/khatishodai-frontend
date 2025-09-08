@@ -35,28 +35,6 @@ console.log('products', products)
         Router.push(`/search/${keyword}`);
     }
 
-   
-
-    // const searchQuery = useMemo(() => {
-    //     if (keywordDebounce.length > 0) {
-    //         return {
-    //             filters: {
-    //                 title: {
-    //                     $contains: keywordDebounce,
-    //                 },
-    //             },
-    //             fields: ['id', 'slug', 'title'],
-    //         };
-    //     }
-    // }, [keywordDebounce]);
-
-    // useEffect(() => {
-    //     if (searchQuery) {
-    //         getStrapiProducts(searchQuery);
-    //     }
-    // }, [searchQuery]);
-
-    
 
     const resultProducts = useMemo(() => {
         if (isLoading) return [];

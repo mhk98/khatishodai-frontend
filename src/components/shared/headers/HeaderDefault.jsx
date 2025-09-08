@@ -24,7 +24,7 @@ const HeaderDefault = () => {
                     <div className="header__left">
                         {/* <Logo /> */}
                     <h3><Link href="/">
-                    Khatishodai
+                    Khatishodais
                     </Link></h3>
 
                         <MenuCategoriesDropdown />

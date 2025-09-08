@@ -31,7 +31,7 @@ const HeaderMobileProduct = () => {
             data-sticky="true">
             <div className="navigation--mobile">
                 <div className="navigation__left">
-                    <Link href={'/shop'} className="header__back">
+                    <Link href={'/'} className="header__back">
                         <i className="icon-chevron-left" />
                         <strong>Back to previous</strong>
                     </Link>
