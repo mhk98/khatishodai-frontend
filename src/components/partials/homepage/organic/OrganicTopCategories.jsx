@@ -4,49 +4,49 @@ import React, { useEffect, useState } from 'react';
 import { useGetAllCategoryQuery } from '~/react-redux/features/category/category';
 
 const OrganicTopCategories = () => {
-    
-
- const [categories, setCategories] = useState([])
- console.log("categories", categories)
+    const [categories, setCategories] = useState([]);
+    console.log('categories', categories);
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
-          setCategories(res.data.data);
-        } catch (err) {
-          console.error(err);
-        } 
-      };
-    
-      fetchData();
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(
+                    'https://backend.eaconsultancy.info/api/v1/category/'
+                );
+                setCategories(res.data.data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchData();
     }, []);
 
     return (
         <div className="ps-top-categories">
-        <div className="container">
-            <h3>Top categories of the month</h3>
-            <div className="row">
-               {
-                categories.map((category)=>(
-                    <div key={category.id} className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
-                   <Link href={`/category/${category.categoryId}`}>
-                   <div className="ps-block--category">
-                        <div className="ps-block__thumbnail">
-                            <img
-                                src={`https://backend.eaconsultancy.info/${category.icon}`}
-                                alt="martfury"
-                            />
+            <div className="container">
+                <h3>Top categories of the month</h3>
+                <div className="row">
+                    {categories.map((category) => (
+                        <div
+                            key={category.id}
+                            className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+                            <Link href={`/category/${category.categoryId}`}>
+                                <div className="ps-block--category">
+                                    <div className="ps-block__thumbnail">
+                                        <img
+                                            src={`https://backend.eaconsultancy.info/${category.icon}`}
+                                            alt="martfury"
+                                        />
+                                    </div>
+                                    <div className="ps-block__content">
+                                        <p>{category.text}</p>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
-                        <div className="ps-block__content">
-                            <p>{category.text}</p>
-                        </div>
-                    </div>
-                   </Link>
-                </div>
-                ))
-               }
-                {/* <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
+                    ))}
+                    {/* <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12">
                     <div className="ps-block--category">
                         <div className="ps-block__thumbnail">
                             <img
@@ -111,10 +111,10 @@ const OrganicTopCategories = () => {
                         </div>
                     </div>
                 </div> */}
+                </div>
             </div>
         </div>
-    </div>
-    )
-}
+    );
+};
 
 export default OrganicTopCategories;

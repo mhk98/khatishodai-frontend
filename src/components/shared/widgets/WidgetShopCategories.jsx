@@ -4,7 +4,7 @@ import useProducCategory from '~/hooks/useProducCategory';
 import { useGetAllCategoryQuery } from '~/react-redux/features/category/category';
 import axios from 'axios';
 
-const WidgetShopCategories = ({id}) => {
+const WidgetShopCategories = ({ id }) => {
     // const { loading, categories, getCategories } = useProducCategory();
     // const [test, setSet] = useState(0);
 
@@ -12,40 +12,39 @@ const WidgetShopCategories = ({id}) => {
     //     getCategories();
     // }, []);
 
-
     //   const { data, error, isLoading } = useGetAllCategoryQuery({
     //         category_id: id,
     //     });
-          
+
     //     const categories = data?.data || [];
 
     //     console.log('categories', categories)
-        
-        // useEffect(() => {
-        //     fetchProducts();
-        // }, [fetchProducts]);
-        
-        //     useEffect(() => {
-        //         fetchProducts();
-        //         handleSetColumns();
-        //     }, [fetchProducts, pageIndex]);
-      
 
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, [fetchProducts]);
 
-        const [categories, setCategories] = useState([])
- console.log("maincategories", categories)
+    //     useEffect(() => {
+    //         fetchProducts();
+    //         handleSetColumns();
+    //     }, [fetchProducts, pageIndex]);
+
+    const [categories, setCategories] = useState([]);
+    console.log('maincategories', categories);
 
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
-          setCategories(res.data.data);
-        } catch (err) {
-          console.error(err);
-        } 
-      };
-    
-      fetchData();
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(
+                    'https://backend.eaconsultancy.info/api/v1/category/'
+                );
+                setCategories(res.data.data);
+            } catch (err) {
+                console.error(err);
+            }
+        };
+
+        fetchData();
     }, []);
 
     const categoriesView = useMemo(() => {

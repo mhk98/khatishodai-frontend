@@ -97,7 +97,6 @@
 
 // export default PartialReview;
 
-
 import React, { useState, useEffect } from 'react';
 import { Rate, message } from 'antd';
 import toast from 'react-hot-toast';
@@ -114,16 +113,18 @@ const PartialReview = ({ product }) => {
     // Load existing reviews
     const fetchReviews = async () => {
         try {
-            const res = await fetch(`https://backend.eaconsultancy.info/api/v1/review/${product.id}`);
+            const res = await fetch(
+                `https://backend.eaconsultancy.info/api/v1/review/${product.id}`
+            );
             const data = await res.json();
-            console.log("fetchReviews", data)
+            console.log('fetchReviews', data);
             if (data) {
                 setReviews(data?.data || []);
             } else {
-                console.error("Failed to load reviews");
+                console.error('Failed to load reviews');
             }
         } catch (err) {
-            console.error("Error loading reviews:", err);
+            console.error('Error loading reviews:', err);
         }
     };
 
@@ -133,7 +134,7 @@ const PartialReview = ({ product }) => {
         }
     }, [product?.id]);
 
-    console.log("reviews", reviews);
+    console.log('reviews', reviews);
 
     // Handle form submit
     const handleSubmit = async (e) => {
@@ -146,11 +147,20 @@ const PartialReview = ({ product }) => {
 
         try {
             setLoading(true);
-            const res = await fetch("https://backend.eaconsultancy.info/api/v1/review/create", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ content, name, email, rating, product_id: product.id }),
-            });
+            const res = await fetch(
+                'https://backend.eaconsultancy.info/api/v1/review/create',
+                {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        content,
+                        name,
+                        email,
+                        rating,
+                        product_id: product.id,
+                    }),
+                }
+            );
 
             const response = await res.json();
 
@@ -174,8 +184,7 @@ const PartialReview = ({ product }) => {
 
     return (
         <div className="row">
-
-           <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
+            <div className="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-12">
                 <div className="ps-block--average-rating">
                     <div className="ps-block__header">
                         <h3>4.00</h3>
@@ -237,8 +246,9 @@ const PartialReview = ({ product }) => {
                             rows="6"
                             placeholder="Write your review here"
                             value={content}
-                            onChange={(e) => setContent(e.target.value)}
-                        ></textarea>
+                            onChange={(e) =>
+                                setContent(e.target.value)
+                            }></textarea>
                     </div>
                     <div className="row">
                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -278,10 +288,21 @@ const PartialReview = ({ product }) => {
                         <p>No reviews yet.</p>
                     ) : (
                         reviews.map((rev) => (
-                            <div key={rev._id} className="review-item" style={{ marginBottom: '20px', borderBottom: '1px solid #eee', paddingBottom: '10px' }}>
-                                <div style={{ fontWeight: 'bold' }}>{rev.name}</div>
+                            <div
+                                key={rev._id}
+                                className="review-item"
+                                style={{
+                                    marginBottom: '20px',
+                                    borderBottom: '1px solid #eee',
+                                    paddingBottom: '10px',
+                                }}>
+                                <div style={{ fontWeight: 'bold' }}>
+                                    {rev.name}
+                                </div>
                                 <Rate disabled defaultValue={rev.rating} />
-                                <p style={{ marginTop: '5px' }}>{rev.content}</p>
+                                <p style={{ marginTop: '5px' }}>
+                                    {rev.content}
+                                </p>
                             </div>
                         ))
                     )}

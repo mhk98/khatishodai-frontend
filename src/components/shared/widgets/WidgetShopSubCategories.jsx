@@ -5,7 +5,7 @@ import { useGetAllCategoryQuery } from '~/react-redux/features/category/category
 import axios from 'axios';
 import { useGetAllSubCategoryItemQuery } from '~/react-redux/features/subCategoryItem/subCategoryItem';
 
-const WidgetShopSubCategories = ({category_id, subCategoryItemId}) => {
+const WidgetShopSubCategories = ({ category_id, subCategoryItemId }) => {
     // const { loading, categories, getCategories } = useProducCategory();
     // const [test, setSet] = useState(0);
 
@@ -13,76 +13,67 @@ const WidgetShopSubCategories = ({category_id, subCategoryItemId}) => {
     //     getCategories();
     // }, []);
 
-
     //   const { data, error, isLoading } = useGetAllCategoryQuery({
     //         category_id: id,
     //     });
-          
+
     //     const categories = data?.data || [];
 
     //     console.log('categories', categories)
-        
-        // useEffect(() => {
-        //     fetchProducts();
-        // }, [fetchProducts]);
-        
-        //     useEffect(() => {
-        //         fetchProducts();
-        //         handleSetColumns();
-        //     }, [fetchProducts, pageIndex]);
-      
 
+    // useEffect(() => {
+    //     fetchProducts();
+    // }, [fetchProducts]);
 
-//         const [categories, setCategories] = useState([])
-//  console.log("categories", categories)
+    //     useEffect(() => {
+    //         fetchProducts();
+    //         handleSetColumns();
+    //     }, [fetchProducts, pageIndex]);
 
-//     useEffect(() => {
-//       const fetchData = async () => {
-//         try {
-//           const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
-//           setCategories(res.data);
-//         } catch (err) {
-//           console.error(err);
-//         } 
-//       };
-    
-//       fetchData();
-//     }, []);
+    //         const [categories, setCategories] = useState([])
+    //  console.log("categories", categories)
 
+    //     useEffect(() => {
+    //       const fetchData = async () => {
+    //         try {
+    //           const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
+    //           setCategories(res.data);
+    //         } catch (err) {
+    //           console.error(err);
+    //         }
+    //       };
 
-// const [subCategoriesItem, setSubCategoriesItem] = useState([]);
+    //       fetchData();
+    //     }, []);
 
-// useEffect(() => {
-//   const fetchData = async () => {
-//     try {
-//       const res = await axios.get("https://backend.eaconsultancy.info/api/v1/subCategoryItem", {
-//         params: {
-//           category_id: category_id, // Replace `category_id` with the actual variable or state holding the value.
-//           subCategoryItemId: subCategoryItemId, // Replace `subCategoryItemId` with the actual variable or state.
-//         },
-//       });
-//       setSubCategoriesItem(res.data);
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   };
+    // const [subCategoriesItem, setSubCategoriesItem] = useState([]);
 
-//   fetchData();
-// }, [category_id, subCategoryItemId]); // Use relevant dependencies, such as `category_id` and `subCategoryItemId`.
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     try {
+    //       const res = await axios.get("https://backend.eaconsultancy.info/api/v1/subCategoryItem", {
+    //         params: {
+    //           category_id: category_id, // Replace `category_id` with the actual variable or state holding the value.
+    //           subCategoryItemId: subCategoryItemId, // Replace `subCategoryItemId` with the actual variable or state.
+    //         },
+    //       });
+    //       setSubCategoriesItem(res.data);
+    //     } catch (err) {
+    //       console.error(err);
+    //     }
+    //   };
 
+    //   fetchData();
+    // }, [category_id, subCategoryItemId]); // Use relevant dependencies, such as `category_id` and `subCategoryItemId`.
 
-
-
-
- const { data, error, isLoading } = useGetAllSubCategoryItemQuery({
+    const { data, error, isLoading } = useGetAllSubCategoryItemQuery({
         category_id: category_id,
         subCategoryItemId: subCategoryItemId,
     });
 
+    const subCategoriesItem = data?.data || [];
 
-    const subCategoriesItem = data?.data || []
-
-    console.log("subCategoriesItemData", subCategoriesItem)
+    console.log('subCategoriesItemData', subCategoriesItem);
 
     const categoriesView = useMemo(() => {
         if (!subCategoriesItem) {
@@ -95,7 +86,10 @@ const WidgetShopSubCategories = ({category_id, subCategoryItemId}) => {
                 const title = item.subCategoryItemTitle || '';
                 return (
                     <li key={index}>
-                        <Link href={`/subCategory/${category_id}/${subCategoryItemId}`}>{title}</Link>
+                        <Link
+                            href={`/subCategory/${category_id}/${subCategoryItemId}`}>
+                            {title}
+                        </Link>
                     </li>
                 );
             });

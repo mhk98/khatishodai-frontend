@@ -7,7 +7,8 @@ const MegaMenuColumn = ({ item }) => (
         <ul className="mega-menu__list">
             {item.megaItems.map((subItem) => (
                 <li key={subItem.text}>
-                    <Link href={`/subCategory/${subItem.categoryId}/${subItem.subCategoryItemId}`}>
+                    <Link
+                        href={`/subCategory/${subItem.categoryId}/${subItem.subCategoryItemId}`}>
                         {subItem.text}
                     </Link>
                 </li>
@@ -27,15 +28,13 @@ const MegaMenu = ({ source }) => {
                 {/* {source.icon && <i className={source.icon} />} */}
 
                 {source.icon && (
-                <img
-                    src={`https://backend.eaconsultancy.info/${source.icon}`} // Dynamically constructing image URL
-                    alt={source.text} // Alt text for accessibility
-                    width={23}
-                  
-                />
-            )}
-                            <span className="ml-3">{source.text}</span>
-
+                    <img
+                        src={`https://backend.eaconsultancy.info/${source.icon}`} // Dynamically constructing image URL
+                        alt={source.text} // Alt text for accessibility
+                        width={23}
+                    />
+                )}
+                <span className="ml-3">{source.text}</span>
             </Link>
             <div className="mega-menu">
                 {source.megaContent.map((item) => (

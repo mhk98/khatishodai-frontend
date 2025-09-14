@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AccountMenuSidebar from './modules/AccountMenuSidebar';
 import TableNotifications from './modules/TableNotifications';
 
@@ -10,32 +10,64 @@ export default function Notifications() {
             icon: 'icon-user',
         },
         {
-            text: 'Notifications',
+            text: 'Order',
             url: '/account/notifications',
             icon: 'icon-alarm-ringing',
             active: true,
         },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-            icon: 'icon-papers',
-        },
+        // {
+        //     text: 'Invoices',
+        //     url: '/account/invoices',
+        //     icon: 'icon-papers',
+        // },
+        // {
+        //     text: 'Address',
+        //     url: '/account/addresses',
+        //     icon: 'icon-papers',
+        // },
+        // {
+        //     text: 'Recent Viewed Product',
+        //     url: '/account/recent-viewed-product',
+        //     icon: 'icon-papers',
+        // },
         // {
         //     text: 'Wishlist',
         //     url: '/account/wishlist',
         //     icon: 'icon-papers',
         // },
     ];
+
+    const userId = localStorage.getItem('userId');
+    const [order, setOrder] = useState(null);
+
+    
+    // Fetch user info when component loads
+  useEffect(() => {
+    const fetchOrder = async () => {
+        try {
+            const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
+            const json = await res.json();
+
+            if (res.ok && json.data) {
+                const parsedOrder = {
+                    ...json.data,
+                    cartProducts: JSON.parse(json.data.cartProducts), // ✅ parse here
+                };
+
+                setOrder(parsedOrder);
+            }
+        } catch (err) {
+            console.error('Error fetching order:', err);
+        }
+    };
+
+    if (userId) fetchOrder();
+}, [userId]);
+
+
+    console.log('user information', order);
+
+
     return (
         <section className="ps-my-account ps-page--account">
             <div className="container">
@@ -49,10 +81,10 @@ export default function Notifications() {
                         <div className="ps-page__content">
                             <div className="ps-section--account-setting">
                                 <div className="ps-section__header">
-                                    <h3>Notifications</h3>
+                                    <h3>Product</h3>
                                 </div>
                                 <div className="ps-section__content">
-                                    <TableNotifications />
+                                    <TableNotifications data={order}/>
                                 </div>
                             </div>
                         </div>
@@ -62,3 +94,8 @@ export default function Notifications() {
         </section>
     );
 }
+
+
+
+
+

@@ -34,10 +34,9 @@
 //         fetchData();
 //     }, []);
 
-
 //     const [categories, setCategories] = useState([])
 //     console.log("categories", categories)
-   
+
 //        useEffect(() => {
 //          const fetchData = async () => {
 //            try {
@@ -45,9 +44,9 @@
 //              setCategories(res.data.data);
 //            } catch (err) {
 //              console.error(err);
-//            } 
+//            }
 //          };
-       
+
 //          fetchData();
 //        }, []);
 
@@ -98,8 +97,6 @@
 
 // export default OrganicNewArrivals;
 
-
-
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Product from '~/components/elements/products/Product';
@@ -114,15 +111,17 @@ const OrganicNewArrivals = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch("https://backend.eaconsultancy.info/api/v1/product/arrival");
+                const response = await fetch(
+                    'https://backend.eaconsultancy.info/api/v1/product/arrival'
+                );
                 if (!response.ok) {
-                    throw new Error("Network response was not ok");
+                    throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 setProducts(data?.data || []);
             } catch (err) {
-                console.error("Error fetching products:", err);
-                setError("Failed to fetch new arrivals.");
+                console.error('Error fetching products:', err);
+                setError('Failed to fetch new arrivals.');
             } finally {
                 setLoading(false);
             }
@@ -134,14 +133,16 @@ const OrganicNewArrivals = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch("https://backend.eaconsultancy.info/api/v1/category/");
+                const response = await fetch(
+                    'https://backend.eaconsultancy.info/api/v1/category/'
+                );
                 if (!response.ok) {
-                    throw new Error("Network response was not ok");
+                    throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
                 setCategories(data?.data || []);
             } catch (err) {
-                console.error("Error fetching categories:", err);
+                console.error('Error fetching categories:', err);
             }
         };
 

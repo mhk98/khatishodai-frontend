@@ -15,22 +15,22 @@ export default function InvoiceDetail() {
             url: '/account/notifications',
             icon: 'icon-alarm-ringing',
         },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-            icon: 'icon-papers',
-            active: true,
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-            icon: 'icon-papers',
-        },
+        // {
+        //     text: 'Invoices',
+        //     url: '/account/invoices',
+        //     icon: 'icon-papers',
+        //     active: true,
+        // },
+        // {
+        //     text: 'Address',
+        //     url: '/account/addresses',
+        //     icon: 'icon-papers',
+        // },
+        // {
+        //     text: 'Recent Viewed Product',
+        //     url: '/account/recent-viewed-product',
+        //     icon: 'icon-papers',
+        // },
         // {
         //     text: 'Wishlist',
         //     url: '/account/wishlist',

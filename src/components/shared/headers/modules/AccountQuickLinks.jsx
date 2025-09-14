@@ -18,14 +18,14 @@ const accountLinks = [
         text: 'Order Tracking',
         url: '/account/order-tracking',
     },
-    {
-        text: 'Address',
-        url: '/account/addresses',
-    },
-    {
-        text: 'Recent Viewed Product',
-        url: '/account/recent-viewed-product',
-    },
+    // {
+    //     text: 'Address',
+    //     url: '/account/addresses',
+    // },
+    // {
+    //     text: 'Recent Viewed Product',
+    //     url: '/account/recent-viewed-product',
+    // },
     // {
     //     text: 'Wishlist',
     //     url: '/account/wishlist',

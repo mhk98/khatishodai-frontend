@@ -62,7 +62,6 @@ export default function Login() {
         { code: '+356', name: '+356 (MT)' },
         { code: '+372', name: '+372 (EE)' },
     ];
-    
 
     const validatePhoneNumber = (_, value) => {
         const regexMap = {
@@ -76,9 +75,7 @@ export default function Login() {
         }
 
         if (!regexMap[selectedCode]?.test(`${selectedCode}${value}`)) {
-            return Promise.reject(
-                `Invalid phone number for ${selectedCode}!`
-            );
+            return Promise.reject(`Invalid phone number for ${selectedCode}!`);
         }
 
         return Promise.resolve();
@@ -113,7 +110,6 @@ export default function Login() {
     //             Router.push(redirectTo); // Redirect to the intended page after login
     //         }
 
-
     //         console.log("response", response)
     //     } catch (err) {
     //         notification.error({
@@ -125,60 +121,59 @@ export default function Login() {
     //     }
     // };
 
+    const handleLogin = async (values) => {
+        const { phoneNumber } = values;
+        const redirectTo = searchParams.get('redirect') || '/';
 
+        setLoading(true);
 
-        const handleLogin = async (values) => {
-    const { phoneNumber } = values;
-    const redirectTo = searchParams.get('redirect') || '/';
+        try {
+            const response = await fetch(
+                'https://backend.eaconsultancy.info/api/v1/user/login',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        Phone: phoneNumber,
+                    }),
+                }
+            );
 
-    setLoading(true);
+            const data = await response.json();
 
-    try {
-        const response = await fetch('https://backend.eaconsultancy.info/api/v1/user/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                Phone: phoneNumber,
-            }),
-        });
+            if (response.ok && data.success === true) {
+                notification.success({
+                    message: 'Success',
+                    description: data.message,
+                });
 
-        const data = await response.json();
+                console.log('loginResponse', data.data.user.Id);
+                localStorage.setItem('userId', data.data.user.Id);
+                storgeUserInfo({ accessToken: data.data.accessToken });
 
-        if (response.ok && data.success === true) {
-            notification.success({
-                message: 'Success',
-                description: data.message,
-            });
-
-            console.log('loginResponse', data);
-            storgeUserInfo({ accessToken: data.data.accessToken });
-
-            Router.push(redirectTo);
-        } else {
+                Router.push(redirectTo);
+            } else {
+                notification.error({
+                    message: 'Login Failed',
+                    description: data.message || 'Something went wrong!',
+                });
+            }
+        } catch (err) {
             notification.error({
                 message: 'Login Failed',
-                description: data.message || 'Something went wrong!',
+                description: err.message || 'Something went wrong!',
             });
+        } finally {
+            setLoading(false);
         }
-    } catch (err) {
-        notification.error({
-            message: 'Login Failed',
-            description: err.message || 'Something went wrong!',
-        });
-    } finally {
-        setLoading(false);
-    }
-};
+    };
 
     return (
         <div className="ps-my-account">
             <div className="container">
-                <Form
-                    className="ps-form--account"
-                    onFinish={handleLogin}
-                >
+                <Form className="ps-form--account" onFinish={handleLogin}>
                     <ul className="ps-tab-list">
                         <li className="active">
                             <Link href={'/account/login'}>Login</Link>
@@ -186,7 +181,9 @@ export default function Login() {
                     </ul>
                     <div className="ps-tab active" id="sign-in">
                         <div className="ps-form__content">
-                            <h5 className="text-center">Please Enter Your Mobile Phone Number</h5>
+                            <h5 className="text-center">
+                                Please Enter Your Mobile Phone Number
+                            </h5>
                             <div className="form-group">
                                 <Form.Item
                                     name="phoneNumber"
@@ -194,20 +191,19 @@ export default function Login() {
                                         {
                                             validator: validatePhoneNumber,
                                         },
-                                    ]}
-                                >
+                                    ]}>
                                     <Input
                                         addonBefore={
                                             <Select
                                                 defaultValue={selectedCode}
                                                 style={{ width: 160 }}
-                                                onChange={(value) => setSelectedCode(value)}
-                                            >
+                                                onChange={(value) =>
+                                                    setSelectedCode(value)
+                                                }>
                                                 {countryCodes.map((country) => (
                                                     <Select.Option
                                                         key={country.code}
-                                                        value={country.code}
-                                                    >
+                                                        value={country.code}>
                                                         {country.name}
                                                     </Select.Option>
                                                 ))}
@@ -221,23 +217,23 @@ export default function Login() {
                                 <button
                                     type="submit"
                                     className="ps-btn ps-btn--fullwidth"
-                                    disabled={loading}
-                                >
-                                    {loading ? 'Logging in...' : 'Login / Sign Up'}
+                                    disabled={loading}>
+                                    {loading
+                                        ? 'Logging in...'
+                                        : 'Login / Sign Up'}
                                 </button>
                                 <p className="mt-4 text-xs text-center text-gray-500">
-                                    This site is protected by reCAPTCHA and the Google{' '}
+                                    This site is protected by reCAPTCHA and the
+                                    Google{' '}
                                     <a
                                         href="https://policies.google.com/privacy"
-                                        style={{ color: "#5fa30f" }}
-                                    >
+                                        style={{ color: '#5fa30f' }}>
                                         Privacy Policy
                                     </a>{' '}
                                     and{' '}
                                     <a
                                         href="https://policies.google.com/terms"
-                                        style={{ color: "#5fa30f" }}
-                                    >
+                                        style={{ color: '#5fa30f' }}>
                                         Terms of Service
                                     </a>{' '}
                                     apply.
