@@ -146,7 +146,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import FormChangeUserInformation from '../shared/FormChangeUserInformation';
+import FormChangeUserInformation from '~/components/shared/FormChangeUserInformation';
+
 
 const UserInformation = () => {
     const accountLinks = [
