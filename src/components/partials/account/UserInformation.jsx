@@ -53,7 +53,7 @@ useEffect(() => {
         const fetchUserInfo = async () => {
             try {
                 const res = await fetch(
-                    `http://localhost:5000/api/v1/user/${userId}`
+                    `https://backend.eaconsultancy.info/api/v1/user/${userId}`
                 );
                 const data = await res.json();
 
@@ -98,7 +98,7 @@ useEffect(() => {
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
                                 <div className="ps-widget__header">
-                                    <img src={`http://localhost:5000/${user?.image}`} />
+                                    <img src={`https://backend.eaconsultancy.info/${user?.image}`} />
                                     <figure>
                                         <figcaption>{user?.FirstName} {user?.LastName}</figcaption>
                                         <p>{user?.Email}</p>

@@ -36,7 +36,7 @@ const WidgetShopCategories = ({ id }) => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(
-                    'http://localhost:5000/api/v1/category/'
+                    'https://backend.eaconsultancy.info/api/v1/category/'
                 );
                 setCategories(res.data.data);
             } catch (err) {

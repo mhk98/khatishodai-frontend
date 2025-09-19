@@ -50,7 +50,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchOrder = async () => {
         try {
-            const res = await fetch(`http://localhost:5000/api/v1/order/${userId}`);
+            const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
             const json = await res.json();
 
             if (res.ok && json.data) {
