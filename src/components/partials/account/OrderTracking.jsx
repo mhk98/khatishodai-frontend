@@ -71,12 +71,15 @@ const OrderTracking = () => {
         } else if (!isLoading) {
             if (data && data.data) {
                 // Ensure that 'data.data' exists before setting it
+                console.log("order", data)
                 setOrder(data.data);
             } else {
                 console.log("No data found for order tracking.");
             }
         }
     }, [data, isLoading, isError, error]);
+
+
 
     return (
         <div className="ps-order-tracking">
@@ -104,7 +107,7 @@ const OrderTracking = () => {
                             <Input
                                 className="form-control"
                                 type="text"
-                                placeholder="Found in your order confirmation email"
+                                placeholder="Please enter your order ID"
                             />
                         </Form.Item>
 
@@ -127,7 +130,36 @@ const OrderTracking = () => {
                     {order && order.orderStatus ? (
                         <div className="ps-order-status text-center">
                             <h4>Order Status:</h4>
-                            <p>{order.orderStatus}</p> {/* Safely access orderStatus */}
+                            <p 
+                            
+                    //         className={`px-3 py-1 rounded-full inline-block ${
+                    //   order.orderStatus === "Processing"
+                    //     ? "text-yellow-500"
+                    //     : order.orderStatus === "Shipped"
+                    //     ? "text-blue-500"
+                    //     : order.orderStatus === "Completed"
+                    //     ? "text-green-600"
+                    //     : order.orderStatus === "Cancelled"
+                    //     ? "text-red-500"
+                    //     : "text-gray-400"
+                    // }`}
+
+                    style={{
+                padding: '0.25rem 0.5rem',
+                borderRadius: '0.25rem',
+                fontWeight: '600',
+                color:
+                    order.orderStatus === "Processing"
+                        ? '#D97706' // yellow-500
+                        : order.orderStatus === "Shipped"
+                        ? '#3B82F6' // blue-500
+                        : order.orderStatus === "Completed"
+                        ? '#16A34A' // green-600
+                        : order.orderStatus === "Cancelled"
+                        ? '#EF4444' // red-500
+                        : '#9CA3AF' // gray-400
+            }}
+                            >Order {order.orderStatus}</p> {/* Safely access orderStatus */}
                         </div>
                     ) : (
                         <p className='text-center'>No order status available.</p>

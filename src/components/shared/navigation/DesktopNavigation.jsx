@@ -27,7 +27,7 @@ export default function DesktopNavigation() {
                     <ul className="navigation__extra">
                         <li>
                             <Link href={'/vendor/become-a-vendor'}>
-                                Sell on Mach-Mangso
+                                Sell on Khatishodai
                             </Link>
                         </li>
                         <li>

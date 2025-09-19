@@ -39,7 +39,12 @@ const UserInformation = () => {
 
 
 
-    const userId = localStorage.getItem('userId');
+   const [userId, setUserId] = useState(null);
+
+useEffect(() => {
+  setUserId(localStorage.getItem('userId'));
+}, []);
+
     const [user, setUser] = useState(null);
 
     
@@ -48,7 +53,7 @@ const UserInformation = () => {
         const fetchUserInfo = async () => {
             try {
                 const res = await fetch(
-                    `https://backend.eaconsultancy.info/api/v1/user/${userId}`
+                    `http://localhost:5000/api/v1/user/${userId}`
                 );
                 const data = await res.json();
 
@@ -93,7 +98,7 @@ const UserInformation = () => {
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
                                 <div className="ps-widget__header">
-                                    <img src={`https://backend.eaconsultancy.info/${user?.image}`} />
+                                    <img src={`http://localhost:5000/${user?.image}`} />
                                     <figure>
                                         <figcaption>{user?.FirstName} {user?.LastName}</figcaption>
                                         <p>{user?.Email}</p>

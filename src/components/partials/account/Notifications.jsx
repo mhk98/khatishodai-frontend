@@ -37,7 +37,12 @@ export default function Notifications() {
         // },
     ];
 
-    const userId = localStorage.getItem('userId');
+ const [userId, setUserId] = useState(null);
+
+useEffect(() => {
+  setUserId(localStorage.getItem('userId'));
+}, []);
+
     const [order, setOrder] = useState(null);
 
     
@@ -45,7 +50,7 @@ export default function Notifications() {
   useEffect(() => {
     const fetchOrder = async () => {
         try {
-            const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
+            const res = await fetch(`http://localhost:5000/api/v1/order/${userId}`);
             const json = await res.json();
 
             if (res.ok && json.data) {
