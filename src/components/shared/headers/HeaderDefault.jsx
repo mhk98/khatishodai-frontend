@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import Logo from '~/components/elements/common/Logo';
 import SearchHeader from '~/components/shared/headers/modules/SearchHeader';
 import DesktopNavigation from '~/components/shared/navigation/DesktopNavigation';
 import HeaderActions from '~/components/shared/headers/modules/HeaderActions';
@@ -22,10 +21,15 @@ const HeaderDefault = () => {
             <div className="header__top">
                 <div className="ps-container">
                     <div className="header__left">
-                        {/* <Logo /> */}
-                    <h3><Link href="/">
-                    Khatishodais
-                    </Link></h3>
+                    <Link href="/">
+                    <img
+                            src="/static/img/logo.png"
+                            width={156}
+                            height={32}
+                            alt="martfury"
+                        />
+
+                    </Link>
 
                         <MenuCategoriesDropdown />
                     </div>

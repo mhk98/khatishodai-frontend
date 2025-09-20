@@ -8,7 +8,7 @@ const OrganicPromotions = () => (
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <Link href={'/shop'} className="ps-collection">
                         <img
-                            src="/static/img/promotions/home-9/1.jpg"
+                            src="/static/img/promotions/home-9/2.png"
                             alt="martfury"
                         />
                     </Link>
@@ -16,7 +16,7 @@ const OrganicPromotions = () => (
                 <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                     <Link href={'/shop'} className="ps-collection">
                         <img
-                            src="/static/img/promotions/home-9/2.jpg"
+                            src="/static/img/promotions/home-9/5.png"
                             alt="martfury"
                         />
                     </Link>

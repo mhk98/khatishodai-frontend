@@ -15,7 +15,7 @@ export default function HeaderMobileOrganic() {
                     <ul className="navigation__extra">
                         <li>
                             <Link href={'/vendor/become-a-vendor'}>
-                                Sell on Martfury
+                                Sell on Khatishodai
                             </Link>
                         </li>
                         <li>
@@ -35,11 +35,13 @@ export default function HeaderMobileOrganic() {
             <div className="navigation--mobile">
                 <div className="navigation__left">
                     <Link href="/" className="ps-logo">
-                        {/* <img
-                            src="/static/img/logo-organic.png"
+                        <img
+                            src="/static/img/logo.png"
+                            width={156}
+                            height={32}
                             alt="martfury"
-                        /> */}
-                        <h3>Khatishodai</h3>
+                        />
+                   
                     </Link>
                 </div>
                 <MobileHeaderActions />

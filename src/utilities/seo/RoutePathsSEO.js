@@ -5,8 +5,8 @@ export const CREATOR_ID = 'Nouthemes';
 
 const mainHeadData = {
     '/': {
-        title: 'Khatishodai - Online Organic Food Delivery in Bangladesh | Buy fresh food items and more',
-        desc: "Elevate your online store with Khatishodai E-commerce. Unleash your store's potential.",
+        title: 'Khatishodai - Organic Food Delivery in Bangladesh | Fresh & Healthy Online Grocery',
+        desc: 'Shop fresh organic food, groceries, and more with Khatishodai. Experience fast delivery, premium quality, and a healthier lifestyle online.',
         canonical: SITE_URL,
         isIndexed: true,
         followLinks: true,

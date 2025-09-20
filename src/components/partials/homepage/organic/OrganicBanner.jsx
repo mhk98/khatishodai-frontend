@@ -7,6 +7,16 @@ class OrganicBanner extends Component {
     }
 
     render() {
+        // const carouselSettings = {
+        //     dots: false,
+        //     arrows: false,
+        //     infinite: true,
+        //     speed: 1000,
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        // };
+
+
         const carouselSettings = {
             dots: false,
             arrows: false,
@@ -14,51 +24,75 @@ class OrganicBanner extends Component {
             speed: 1000,
             slidesToShow: 1,
             slidesToScroll: 1,
+            autoplay: true,          // 🔥 Enable auto sliding
+            autoplaySpeed: 3000,     // ⏱️ 3 seconds per slide
+            pauseOnHover: false,     // 🚫 Don’t stop when hovering
         };
-
         return (
             <section className="ps-home-banner">
                 <Slider {...carouselSettings}>
                     <div
                         className="ps-banner--organic"
                         style={{
-                            backgroundImage: `url(/static/img/slider/home-9/1.jpg)`,
+                            backgroundImage: `url(/static/img/slider/home-9/8.png)`,
                         }}>
                         <img
-                            src="/static/img/slider/home-9/1.jpg"
+                            src="/static/img/slider/home-9/8.png"
                             alt="martfury"
                         />
                         <div className="ps-banner__content">
-                            <h4>Weekend Promotions</h4>
+                            {/* <h4>Weekend Promotions</h4>
                             <h3>
                                 Happy Summer <br /> combo super discount <br />{' '}
                                 up to
                                 <strong>40% Off</strong>
-                            </h3>
-                            <a className="ps-btn" href="#">
+                            </h3> */}
+                            {/* <a className="ps-btn" href="#">
                                 Shop Now
-                            </a>
+                            </a> */}
                         </div>
                     </div>
                     <div
                         className="ps-banner--organic"
                         style={{
-                            backgroundImage: `url(/static/img/slider/home-9/2.jpg)`,
+                            backgroundImage: `url(/static/img/slider/home-9/3.png)`,
                         }}>
                         <img
-                            src="/static/img/slider/home-9/2.jpg"
+                            src="/static/img/slider/home-9/3.png"
                             alt="martfury"
                         />
                         <div className="ps-banner__content">
-                            <h4>Weekend Promotions</h4>
+                            {/* <h4>Weekend Promotions</h4>
                             <h3>
                                 Fresh vegetables & <br /> fruits basket <br />{' '}
                                 up to
                                 <strong>40% Off</strong>
-                            </h3>
-                            <a className="ps-btn" href="#">
+                            </h3> */}
+                            {/* <a className="ps-btn" href="#">
                                 Shop Now
-                            </a>
+                            </a> */}
+                        </div>
+                    </div>
+
+                    <div
+                        className="ps-banner--organic"
+                        style={{
+                            backgroundImage: `url(/static/img/slider/home-9/5.png)`,
+                        }}>
+                        <img
+                            src="/static/img/slider/home-9/5.png"
+                            alt="martfury"
+                        />
+                        <div className="ps-banner__content">
+                            {/* <h4>Weekend Promotions</h4>
+                            <h3>
+                                Fresh vegetables & <br /> fruits basket <br />{' '}
+                                up to
+                                <strong>40% Off</strong>
+                            </h3> */}
+                            {/* <a className="ps-btn" href="#">
+                                Shop Now
+                            </a> */}
                         </div>
                     </div>
                 </Slider>

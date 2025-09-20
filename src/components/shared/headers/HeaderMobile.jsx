@@ -36,11 +36,13 @@ class HeaderMobile extends Component {
                 <div className="navigation--mobile">
                     <div className="navigation__left">
                         <Link href="/" className="ps-logo">
-                            {/* <img
-                                src="/static/img/logo_light.png"
-                                alt="martfury"
-                            /> */}
-            <h3>Khatishodai</h3>
+                            <img
+                            src="/static/img/logo.png"
+                            width={156}
+                            height={32}
+                            alt="martfury"
+                        />
+      
 
                         </Link>
                     </div>
