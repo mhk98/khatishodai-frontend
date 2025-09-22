@@ -25,7 +25,7 @@ export default function HomeOrganic() {
         <PageContainer
             header={headers}
             footer={footer}
-            title="Homepage Organic">
+            title="Khatishodai">
             <OrganicBanner />
             <OrganicSiteFeatures />
             <OrganicTopCategories />

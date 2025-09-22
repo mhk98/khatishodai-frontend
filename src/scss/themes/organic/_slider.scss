@@ -56,13 +56,13 @@
     }
     @include media('<lg') {
         min-height: 400px;
-        img {
-            display: none;
-            @include hidden;
-        }
-        .ps-banner__content {
-            padding: 0 30px;
-        }
+        // img {
+        //     display: none;
+        //     @include hidden;
+        // }
+        // .ps-banner__content {
+        //     padding: 0 30px;
+        // }
     }
     @include media('<xs') {
         h3 {

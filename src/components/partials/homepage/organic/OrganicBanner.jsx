@@ -40,17 +40,17 @@ class OrganicBanner extends Component {
                             src="/static/img/slider/home-9/8.png"
                             alt="martfury"
                         />
-                        <div className="ps-banner__content">
-                            {/* <h4>Weekend Promotions</h4>
+                        {/* <div className="ps-banner__content">
+                            <h4>Weekend Promotions</h4>
                             <h3>
                                 Happy Summer <br /> combo super discount <br />{' '}
                                 up to
                                 <strong>40% Off</strong>
-                            </h3> */}
-                            {/* <a className="ps-btn" href="#">
+                            </h3>
+                            <a className="ps-btn" href="#">
                                 Shop Now
-                            </a> */}
-                        </div>
+                            </a>
+                        </div> */}
                     </div>
                     <div
                         className="ps-banner--organic"
@@ -59,19 +59,19 @@ class OrganicBanner extends Component {
                         }}>
                         <img
                             src="/static/img/slider/home-9/3.png"
-                            alt="martfury"
+                            alt="khatishodai"
                         />
-                        <div className="ps-banner__content">
-                            {/* <h4>Weekend Promotions</h4>
+                        {/* <div className="ps-banner__content">
+                            <h4>Weekend Promotions</h4>
                             <h3>
                                 Fresh vegetables & <br /> fruits basket <br />{' '}
                                 up to
                                 <strong>40% Off</strong>
-                            </h3> */}
-                            {/* <a className="ps-btn" href="#">
+                            </h3>
+                            <a className="ps-btn" href="#">
                                 Shop Now
-                            </a> */}
-                        </div>
+                            </a>
+                        </div> */}
                     </div>
 
                     <div
@@ -81,19 +81,19 @@ class OrganicBanner extends Component {
                         }}>
                         <img
                             src="/static/img/slider/home-9/5.png"
-                            alt="martfury"
+                            alt="khatishodai"
                         />
-                        <div className="ps-banner__content">
-                            {/* <h4>Weekend Promotions</h4>
+                        {/* <div className="ps-banner__content">
+                            <h4>Weekend Promotions</h4>
                             <h3>
                                 Fresh vegetables & <br /> fruits basket <br />{' '}
                                 up to
                                 <strong>40% Off</strong>
-                            </h3> */}
-                            {/* <a className="ps-btn" href="#">
+                            </h3>
+                            <a className="ps-btn" href="#">
                                 Shop Now
-                            </a> */}
-                        </div>
+                            </a>
+                        </div> */}
                     </div>
                 </Slider>
             </section>
