@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import PostGrid from '~/components/elements/post/PostGrid';
 import CustomPagination from '~/components/elements/common/CustomPagination';
+import useBlog from '~/hooks/useBlog';
 
 const categories = [
     {
@@ -11,6 +12,7 @@ const categories = [
     {
         text: 'Review Product',
         url: '/blog/review-product',
+
     },
     {
         text: 'News',
@@ -30,35 +32,40 @@ const categories = [
     },
 ];
 
-const BlogItemsGridView = ({ collectionSlug, columns }) => {
+const ReviewProductGridView = ({ collectionSlug, columns }) => {
 
-    const [category, setCategory] = useState(categories[0]);
+    const [category, setCategory] = useState(categories[1]);
 
         const [posts, setPosts] = useState([]);
-        const [loading, setLoading] = useState(true);
-        const [error, setError] = useState(null);
-    
-        useEffect(() => {
-            const fetchBlogs = async () => {
-                try {
-                    const response = await fetch(
-                        'https://backend.eaconsultancy.info/api/v1/blog'
-                    );
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    const data = await response.json();
-                    setPosts(data?.data || []);
-                } catch (err) {
-                    console.error('Error fetching products:', err);
-                    setError('Failed to fetch new arrivals.');
-                } finally {
-                    setLoading(false);
-                }
-            };
-    
-            fetchBlogs();
-        }, []);
+const [loading, setLoading] = useState(true);
+const [error, setError] = useState(null);
+
+useEffect(() => {
+  const fetchBlogs = async () => {
+    try {
+      const response = await fetch("https://backend.eaconsultancy.info/api/v1/blog");
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+
+      // ✅ Filter only "News" type posts
+      const newsPosts = (data?.data || []).filter(
+        (post) => post.type === "Review Product"
+      );
+
+      setPosts(newsPosts);
+    } catch (err) {
+      console.error("Error fetching products:", err);
+      setError("Failed to fetch new arrivals.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchBlogs();
+}, []);
+
 
     const blogContent = useMemo(() => {
         if (loading) return <p>Loading...</p>;
@@ -111,4 +118,4 @@ const BlogItemsGridView = ({ collectionSlug, columns }) => {
     );
 };
 
-export default BlogItemsGridView;
+export default ReviewProductGridView;

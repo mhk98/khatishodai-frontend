@@ -52,7 +52,7 @@ const formatDate = (dateString) => {
                             blogs.map((blog) => (
                                 <li key={blog.id}>
 
-                                <Link href={`/blog/${blog.id}`}>{blog.type}</Link>
+                                <Link href={`/blog`}>{blog.type}</Link>
 
                                 </li>
                             ))

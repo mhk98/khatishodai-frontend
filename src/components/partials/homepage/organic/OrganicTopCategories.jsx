@@ -36,7 +36,7 @@ const OrganicTopCategories = () => {
                                     <div className="ps-block__thumbnail">
                                         <img
                                             src={`https://backend.eaconsultancy.info/${category.icon}`}
-                                            alt="martfury"
+                                            alt="Khatishodai"
                                         />
                                     </div>
                                     <div className="ps-block__content">
