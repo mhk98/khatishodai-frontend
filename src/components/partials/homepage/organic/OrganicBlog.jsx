@@ -1,124 +1,101 @@
-import React from 'react';
 import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
-const OrganicBlog = () => (
-    <div className="ps-section--default ps-home-blog">
+const OrganicBlog = () => {
+
+    const [blogs, setBlogs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchBlogs = async () => {
+            try {
+                const response = await fetch(
+                    'https://backend.eaconsultancy.info/api/v1/blog'
+                );
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                setBlogs(data?.data || []);
+            } catch (err) {
+                console.error('Error fetching products:', err);
+                setError('Failed to fetch new arrivals.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchBlogs();
+    }, []);
+
+
+
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+    return (
+
+        <div className="ps-section--default ps-home-blog">
         <div className="container">
             <div className="ps-section__header">
                 <h3>News</h3>
-                {/* <ul className="ps-section__links">
-                    <li>
-                        <Link href={'/blog'}>News</Link>
-                    </li>
-                    <li>
-                        <Link href={'/blog'}>Review Products</Link>
-                    </li>
-                    <li>
-                        <Link href={'/blog'}>Tips & Tricks</Link>
-                    </li>
-                    <li>
-                        <Link href={'/blog'}>Promotions</Link>
-                    </li>
-                    <li>
-                        <Link href={'/blog'}>Videos</Link>
-                    </li>
-                    <li>
-                        <Link href={'/blog'}>See All</Link>
-                    </li>
-                </ul> */}
+                <ul className="ps-section__links">
+                    
+                        {
+                            blogs.map((blog) => (
+                                <li key={blog.id}>
+
+                                <Link href={`/blog/${blog.id}`}>{blog.type}</Link>
+
+                                </li>
+                            ))
+                        }
+                   
+                    
+                </ul>
             </div>
             <div className="ps-section__content">
                 <div className="row">
-                    <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                   {
+                    blogs.slice(0, 3).map((blog) => (
+                         <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                         <div className="ps-post">
                             <div className="ps-post__thumbnail">
                                 <a
                                     className="ps-post__overlay"
                                     href="blog-detail.html"></a>
                                 <img
-                                    src="/static/img/blog/organic/1.jpg"
-                                    alt="martfury"
+                                    src={`https://backend.eaconsultancy.info/${blog.image}`}
+                                    alt="Khatishodai"
                                 />
                             </div>
                             <div className="ps-post__content">
                                 <a className="ps-post__meta" href="#">
-                                    Tips & Tricks
+                                   {blog.type}
                                 </a>
                                 <a className="ps-post__title" href="#">
-                                    How To Make A Fresh Juice Blended For Your
-                                    Family?
+                                    {blog.title}
                                 </a>
                                 <p>
-                                    December 17, 2024 by
-                                    <a href="#"> Martfury</a>
+                                    {formatDate(blog.createdAt)} by
+                                    <a href="#"> Khatishodai</a>
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                        <div className="ps-post">
-                            <div className="ps-post__thumbnail">
-                                <div className="ps-post__badge">
-                                    <i className="icon-volume-high" />
-                                </div>
-                                <a
-                                    className="ps-post__overlay"
-                                    href="blog-detail.html"></a>
-                                <img
-                                    src="/static/img/blog/organic/2.jpg"
-                                    alt="martfury"
-                                />
-                            </div>
-                            <div className="ps-post__content">
-                                <a className="ps-post__meta" href="#">
-                                    Review Product
-                                </a>
-                                <a className="ps-post__title" href="#">
-                                    Fresh Eggs From Caroline’s Farm
-                                </a>
-                                <p>
-                                    December 17, 2024 by
-                                    <a href="#"> Martfury</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                        <div className="ps-post">
-                            <div className="ps-post__thumbnail">
-                                <div className="ps-post__badge">
-                                    <i className="icon-volume-high" />
-                                </div>
-                                <div className="ps-post__badge">
-                                    <i className="icon-volume-high" />
-                                </div>
-                                <a
-                                    className="ps-post__overlay"
-                                    href="blog-detail.html"></a>
-                                <img
-                                    src="/static/img/blog/organic/3.jpg"
-                                    alt="martfury"
-                                />
-                            </div>
-                            <div className="ps-post__content">
-                                <a className="ps-post__meta" href="#">
-                                    News
-                                </a>
-                                <a className="ps-post__title" href="#">
-                                    Discover Fresh Organic Farms In Switzeland
-                                    Villages
-                                </a>
-                                <p>
-                                    December 17, 2024 by
-                                    <a href="#"> Martfury</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    ))
+                   }
                 </div>
             </div>
         </div>
     </div>
-);
+        )}
 
 export default OrganicBlog;

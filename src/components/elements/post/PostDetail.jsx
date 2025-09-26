@@ -9,7 +9,7 @@ const PostDetail = () => (
                     Harman Kadon Onyx Studio Mini, <br /> Reviews & Experiences
                 </h1>
                 <p>
-                    December 17/ 2017 / By Martfury / in
+                    December 17/ 2017 / By Khatishodai / in
                     <Link href={'/blog'}>Life Style</Link>
                     <Link href={'/blog'}>Others</Link>
                 </p>
@@ -65,21 +65,21 @@ const PostDetail = () => (
                         <img
                             className="mb-30"
                             src="/static/img/blog/detail/2.jpg"
-                            alt="martfury"
+                            alt="Khatishodai"
                         />
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                         <img
                             className="mb-30"
                             src="/static/img/blog/detail/3.jpg"
-                            alt="martfury"
+                            alt="Khatishodai"
                         />
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                         <img
                             className="mb-30"
                             src="/static/img/blog/detail/4.jpg"
-                            alt="martfury"
+                            alt="Khatishodai"
                         />
                     </div>
                 </div>
