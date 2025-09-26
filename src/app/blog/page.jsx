@@ -27,7 +27,7 @@ export default function Page() {
                     <BlogItemsGridView columns={4} />
                 </div>
             </div>
-            <Newletters layout="container" />
+            {/* <Newletters layout="container" /> */}
         </PageContainer>
     );
 }
