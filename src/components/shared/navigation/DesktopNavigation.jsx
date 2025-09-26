@@ -22,7 +22,7 @@ export default function DesktopNavigation() {
         <li><Link href='/'>Home</Link></li>
         <li><Link href='/shops'>Shop</Link></li>
         <li><Link href='/shops'>Contact</Link></li>
-        <li><Link href='/shops'>Blog</Link></li>
+        <li><Link href='/blog'>Blog</Link></li>
         </ul>
                     <ul className="navigation__extra">
                         <li>
