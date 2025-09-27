@@ -11,7 +11,7 @@ const OrganicTopCategories = () => {
         const fetchData = async () => {
             try {
                 const res = await axios.get(
-                    'https://backend.eaconsultancy.info/api/v1/category/'
+                    'http://localhost:5000/api/v1/category/'
                 );
                 setCategories(res.data.data);
             } catch (err) {
@@ -35,7 +35,7 @@ const OrganicTopCategories = () => {
                                 <div className="ps-block--category">
                                     <div className="ps-block__thumbnail">
                                         <img
-                                            src={`https://backend.eaconsultancy.info/${category.icon}`}
+                                            src={`http://localhost:5000/${category.icon}`}
                                             alt="Khatishodai"
                                         />
                                     </div>

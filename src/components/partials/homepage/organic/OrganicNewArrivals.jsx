@@ -21,7 +21,7 @@
 //     useEffect(() => {
 //         const fetchData = async () => {
 //             try {
-//                 const res = await axios.get("https://backend.eaconsultancy.info/api/v1/product/arrival");
+//                 const res = await axios.get("http://localhost:5000/api/v1/product/arrival");
 //                 setProducts(res.data?.data || []); // Assuming `res.data.data` contains the products.
 //                 setLoading(false);
 //             } catch (err) {
@@ -40,7 +40,7 @@
 //        useEffect(() => {
 //          const fetchData = async () => {
 //            try {
-//              const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
+//              const res = await axios.get("http://localhost:5000/api/v1/category/");
 //              setCategories(res.data.data);
 //            } catch (err) {
 //              console.error(err);
@@ -112,7 +112,7 @@ const OrganicNewArrivals = () => {
         const fetchProducts = async () => {
             try {
                 const response = await fetch(
-                    'https://backend.eaconsultancy.info/api/v1/product/arrival'
+                    'http://localhost:5000/api/v1/product/arrival'
                 );
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -134,7 +134,7 @@ const OrganicNewArrivals = () => {
         const fetchCategories = async () => {
             try {
                 const response = await fetch(
-                    'https://backend.eaconsultancy.info/api/v1/category/'
+                    'http://localhost:5000/api/v1/category/'
                 );
                 if (!response.ok) {
                     throw new Error('Network response was not ok');

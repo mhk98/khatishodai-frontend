@@ -14,11 +14,11 @@ const Product = ({ product }) => {
         <div>
             <div className="ps-product">
                 <div className="ps-product__thumbnail">
-                    {/* <img src={`https://backend.eaconsultancy.info/${default_image}`} alt="" /> */}
+                    {/* <img src={`http://localhost:5000/${default_image}`} alt="" /> */}
 
                     <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                         <img
-                            src={`https://backend.eaconsultancy.info${default_image}`}
+                            src={`http://localhost:5000${default_image}`}
                             alt={title || 'Product Image'}
                             width={200}
                             height={200}
