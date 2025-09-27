@@ -29,7 +29,7 @@ const MegaMenu = ({ source }) => {
 
                 {source.icon && (
                     <img
-                        src={`http://localhost:5000/${source.icon}`} // Dynamically constructing image URL
+                        src={`https://backend.eaconsultancy.info/${source.icon}`} // Dynamically constructing image URL
                         alt={source.text} // Alt text for accessibility
                         width={23}
                     />

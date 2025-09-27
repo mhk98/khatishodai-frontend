@@ -23,7 +23,7 @@ const PostGrid = ({ post }) => {
                     className="ps-post__overlay"
                 />
                  <img
-                                    src={`http://localhost:5000/${post.image}`}
+                                    src={`https://backend.eaconsultancy.info/${post.image}`}
                                     alt="Khatishodai"
                                 />
             </div>

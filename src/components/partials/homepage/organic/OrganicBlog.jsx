@@ -11,7 +11,7 @@ const OrganicBlog = () => {
         const fetchBlogs = async () => {
             try {
                 const response = await fetch(
-                    'http://localhost:5000/api/v1/blog'
+                    'https://backend.eaconsultancy.info/api/v1/blog'
                 );
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -72,7 +72,7 @@ const formatDate = (dateString) => {
                                     className="ps-post__overlay"
                                     href="blog-detail.html"></a>
                                 <img
-                                    src={`http://localhost:5000/${blog.image}`}
+                                    src={`https://backend.eaconsultancy.info/${blog.image}`}
                                     alt="Khatishodai"
                                 />
                             </div>

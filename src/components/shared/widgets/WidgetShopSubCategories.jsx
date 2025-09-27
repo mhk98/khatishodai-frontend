@@ -36,7 +36,7 @@ const WidgetShopSubCategories = ({ category_id, subCategoryItemId }) => {
     //     useEffect(() => {
     //       const fetchData = async () => {
     //         try {
-    //           const res = await axios.get("http://localhost:5000/api/v1/category/");
+    //           const res = await axios.get("https://backend.eaconsultancy.info/api/v1/category/");
     //           setCategories(res.data);
     //         } catch (err) {
     //           console.error(err);
@@ -51,7 +51,7 @@ const WidgetShopSubCategories = ({ category_id, subCategoryItemId }) => {
     // useEffect(() => {
     //   const fetchData = async () => {
     //     try {
-    //       const res = await axios.get("http://localhost:5000/api/v1/subCategoryItem", {
+    //       const res = await axios.get("https://backend.eaconsultancy.info/api/v1/subCategoryItem", {
     //         params: {
     //           category_id: category_id, // Replace `category_id` with the actual variable or state holding the value.
     //           subCategoryItemId: subCategoryItemId, // Replace `subCategoryItemId` with the actual variable or state.

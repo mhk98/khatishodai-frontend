@@ -90,7 +90,7 @@ export default function Login() {
     //     setLoading(true);
 
     //     try {
-    //         const response = await axios.post('http://localhost:5000/api/v1/user/login', {
+    //         const response = await axios.post('https://backend.eaconsultancy.info/api/v1/user/login', {
     //             // phone: `${selectedCode}${phoneNumber}`,
     //             Phone: phoneNumber
     //         });
@@ -129,7 +129,7 @@ export default function Login() {
 
         try {
             const response = await fetch(
-                'http://localhost:5000/api/v1/user/login',
+                'https://backend.eaconsultancy.info/api/v1/user/login',
                 {
                     method: 'POST',
                     headers: {
