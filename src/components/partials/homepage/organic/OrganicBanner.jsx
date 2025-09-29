@@ -161,10 +161,10 @@ class OrganicBanner extends Component {
                         />
                         <div className="ps-banner__content">
                             <h4 className='text-center'>Weekend Promotions</h4>
-                            <h3 className='text-white text-center'>
+                            <h3 className='text-center'>
                                 Fresh & Care  <br /> For Every Home <br />{' '}                           
                             </h3>
-                            <h3 className='text-center text-white'>
+                            <h3 className='text-center'>
                                 up to <br />
                                 <strong>10% Off</strong>
 
