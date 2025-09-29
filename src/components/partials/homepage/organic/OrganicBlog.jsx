@@ -40,9 +40,12 @@ const formatDate = (dateString) => {
   });
 };
 
+
+console.log("blogs", blogs)
+
     return (
 
-        <div className="ps-section--default ps-home-blog">
+        <div className="ps-section--default ps-home-blog mt-5">
         <div className="container">
             <div className="ps-section__header">
                 <h3>News</h3>
@@ -61,12 +64,12 @@ const formatDate = (dateString) => {
                     
                 </ul>
             </div>
-            <div className="ps-section__content">
+            <div className="ps-section__content mt-4">
                 <div className="row">
                    {
-                    blogs.slice(0, 3).map((blog) => (
+                    blogs.slice(0, 3).map((post) => (
                          <div className="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                        <div className="ps-post">
+                        {/* <div className="ps-post">
                             <div className="ps-post__thumbnail">
                                 <a
                                     className="ps-post__overlay"
@@ -90,7 +93,34 @@ const formatDate = (dateString) => {
                                     <a href={`/post/${blog.id}`}> Khatishodai</a>
                                 </p>
                             </div>
-                        </div>
+                        </div> */}
+
+                        <article className="ps-post">
+                                    <div className="ps-post__thumbnail">
+                                        <Link
+                                            href={'/post/[pid]'}
+                                            as={`/post/${post.id}`}
+                                            className="ps-post__overlay"
+                                        />
+                                         <img
+                                                            src={`https://backend.eaconsultancy.info/${post.image}`}
+                                                            alt="Khatishodai"
+                                                        />
+                                    </div>
+                                    <div className="ps-post__content">
+                                        <div className="ps-post__meta">{post.type}</div>
+                                        <Link
+                                            href={'/post/[pid]'}
+                                            as={`/post/${post.id}`}
+                                            className="ps-post__title">
+                                            {post.title}
+                                        </Link>
+                                        <p>
+                                            {formatDate(post.createdAt)} by
+                                            <Link href={'/blog'}> Khatishodai</Link>
+                                        </p>
+                                    </div>
+                                </article>
                     </div>
                     ))
                    }

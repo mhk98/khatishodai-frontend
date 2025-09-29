@@ -32,7 +32,7 @@ export default function HomeOrganic() {
             <OrganicPromotions />
             {/* <ProductGroupDealHot collectionSlug="organic-deals" /> */}
             <OrganicNewArrivals collectionSlug="organic-deals" />
-            {/* <OrganicClientSay /> */}
+            <OrganicClientSay />
             <OrganicBlog />
         </PageContainer>
     );
