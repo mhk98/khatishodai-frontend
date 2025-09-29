@@ -70,22 +70,24 @@ const formatDate = (dateString) => {
                             <div className="ps-post__thumbnail">
                                 <a
                                     className="ps-post__overlay"
-                                    href="blog-detail.html"></a>
-                                <img
+                                    href={`/post/${blog.id}`}>
+<img
                                     src={`https://backend.eaconsultancy.info/${blog.image}`}
                                     alt="Khatishodai"
                                 />
+                                    </a>
+                                
                             </div>
                             <div className="ps-post__content">
-                                <a className="ps-post__meta" href="#">
+                                <a className="ps-post__meta" href={`/post/${blog.id}`}>
                                    {blog.type}
                                 </a>
-                                <a className="ps-post__title" href="#">
+                                <a className="ps-post__title" href={`/post/${blog.id}`}>
                                     {blog.title}
                                 </a>
                                 <p>
                                     {formatDate(blog.createdAt)} by
-                                    <a href="#"> Khatishodai</a>
+                                    <a href={`/post/${blog.id}`}> Khatishodai</a>
                                 </p>
                             </div>
                         </div>
