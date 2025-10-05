@@ -1,17 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
 import { Dropdown, Menu } from 'antd';
-import { userChangeIsLoggedIn } from '~/redux/features/userSlide';
-import { useDispatch } from 'react-redux';
+import { useRouter } from 'next/navigation';
+import { removeUserInfo } from '~/components/services/auth.service';
+
 
 const accountLinks = [
-    {
-        text: 'Account Information',
+     {
+        text: 'Account',
         url: '/account/user-information',
     },
     {
-        text: 'Order',
+        text: 'Your Orders',
         url: '/account/notifications',
+    },
+    {
+        text: 'Order Tracking',
+        url: '/account/order-tracking',
     },
     // {
     //     text: 'Invoices',
@@ -32,9 +37,17 @@ const accountLinks = [
 ];
 
 export default function AccountQuickLinks() {
-    const dispatch = useDispatch();
-    const handleLogout = (e) => {
-        dispatch(userChangeIsLoggedIn(false));
+    // const dispatch = useDispatch();
+    // const handleLogout = (e) => {
+    //     dispatch(userChangeIsLoggedIn(false));
+    // };
+
+
+     const Router = useRouter()
+    const handleLogout = () => {
+        removeUserInfo('accessToken')
+        Router.push('/account/login');
+
     };
 
     const menu = (

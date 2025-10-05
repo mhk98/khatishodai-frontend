@@ -89,7 +89,7 @@ const ProductDefaultPage = () => {
                             <ProductWidgets />
                         </div>
                     </div>
-                    <RelatedProduct />
+                    {/* <RelatedProduct /> */}
                 </div>
             </div>
             <Newletters />

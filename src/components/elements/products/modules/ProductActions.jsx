@@ -342,7 +342,8 @@ const ProductActions = ({ product }) => {
             <li>
                 <Button
                     title="Add To Cart"
-                    onClick={() => handleAddItemToCart(product)}>
+                    onClick={() => handleAddItemToCart(product)}
+                    >
                     <i className="icon-bag2" />
                 </Button>
             </li>

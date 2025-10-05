@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import useProducCategory from '~/hooks/useProducCategory';
 import { useGetAllCategoryQuery } from '~/react-redux/features/category/category';
-import axios from 'axios';
 import { useGetAllSubCategoryItemQuery } from '~/react-redux/features/subCategoryItem/subCategoryItem';
 
 const WidgetShopSubCategories = ({ category_id, subCategoryItemId }) => {
