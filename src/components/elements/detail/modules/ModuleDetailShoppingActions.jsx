@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useCreateCartMutation, useGetAllCartQuery } from '~/react-redux/features/cart/cart';
 import toast from 'react-hot-toast';
-import { isLoggedIn } from '~/components/services/auth.service';
+import { getUserInfo, isLoggedIn } from '~/components/services/auth.service';
 import { useRouter } from 'next/navigation';
+import { notification } from 'antd';
 
 const ModuleDetailShoppingActions = ({product}) => {
     // const [quantity, setQuantity] = useState(1);
     const router = useRouter();
-    const userLoggedIn = isLoggedIn();
+      const userLoggedIn = isLoggedIn();
+    const token = getUserInfo();
+    const id = token?.userId; // user id যদি থাকে
 
     // function handleAddItemToCart(e) {
     //     e.preventDefault();
@@ -92,7 +95,7 @@ const ModuleDetailShoppingActions = ({product}) => {
     //     }
     // };
     
- const handleAddItemToCart = (product) => {
+ const handleAddItemToCart = async(product) => {
     console.log('productAction', product)
     if (cart.some((item) => item.product_id === product.id)) {
       alert("This product is already in the cart.");
@@ -113,13 +116,40 @@ const ModuleDetailShoppingActions = ({product}) => {
         user_id:id,
        
       };
-      console.log("cart data here", product);
-      createCart(data);
-      // Save the updated cart data to local storage
-      localStorage.setItem("cart", JSON.stringify(updatedCart));
+      // console.log("cart data here", product);
+      // createCart(data);
+      // // Save the updated cart data to local storage
+      // localStorage.setItem("cart", JSON.stringify(updatedCart));
 
-      // Show a success toast message to indicate that the product has been added
-      toast.success("Product added to the cart");
+      // // Show a success toast message to indicate that the product has been added
+      // toast.success("Product added to the cart");
+
+
+       try {
+              const res = await createCart(data);
+              console.log("createCart response:", res);
+      
+              if (res?.data?.success) {
+                localStorage.setItem("cart", JSON.stringify(updatedCart));
+      
+                notification.success({
+                  message: "Success",
+                  description: "Product added to your cart successfully!",
+                });
+              } else {
+                notification.error({
+                  message: "Error",
+                  description:
+                    res?.error?.data?.message || "Failed to add product to cart.",
+                });
+              }
+            } catch (err) {
+              console.error("Cart add error:", err);
+              notification.error({
+                message: "Error",
+                description: "Something went wrong while adding to cart.",
+              });
+            }
     }
   };
 
@@ -243,7 +273,8 @@ const ModuleDetailShoppingActions = ({product}) => {
                 </figure> */}
                 <a
                     className="ps-btn ps-btn--black"
-                    href=""
+                            type="button"
+
                     // onClick={() => handleAddItemToCart(product)}
                     onClick={() => handleAddItemToCart(product)}>
                     
