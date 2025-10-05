@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Form, Input, Select, notification } from 'antd';
 import { useRouter, useSearchParams } from 'next/navigation';
-import axios from 'axios';
 import { storgeUserInfo } from '~/components/services/auth.service';
 import { useCreateUserMutation } from '~/react-redux/features/user/user';
 
@@ -147,7 +146,8 @@ export default function Login() {
                 notification.success({
                     message: 'Success',
                     description: data.message,
-                });
+                }
+            );
 
                 console.log('loginResponse', data.data.user.Id);
                 localStorage.setItem('userId', data.data.user.Id);

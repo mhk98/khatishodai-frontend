@@ -6,12 +6,15 @@ import Image from 'next/image';
 const OnCartProduct = ({ product, children }) => {
     const { thumbnailImage } = useProduct(product.attributes, product.id);
 
+    console.log("default_image", product.default_image)
+
+
     return (
         <div className="ps-product--cart-mobile">
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     <Image
-                                                src={`https://backend.eaconsultancy.info${product.thumbnailImage}`}
+                                                src={`https://backend.eaconsultancy.info/${product.default_image}`}
                                                 alt={product.title}
                                                 width={80}
                                                 height={80}

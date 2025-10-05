@@ -17,6 +17,7 @@ import '~/scss/autopart.scss';
 import getHeadData, {
     generatePageMetadata,
 } from '~/utilities/seo/RoutePathsSEO';
+import { Toaster } from 'react-hot-toast';
 
 
 export const metadata = generatePageMetadata(getHeadData('/'));
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
      
           <html lang="en">
             <body>{children}</body>
+            <Toaster/>
         </html>
    
     );
