@@ -3,6 +3,7 @@ import CurrencyDropdown from './modules/CurrencyDropdown';
 import Link from 'next/link';
 import LanguageSwicher from './modules/LanguageSwicher';
 import MobileHeaderActions from './modules/MobileHeaderActions';
+import PanelSearch from '../panel/PanelSearch';
 
 class HeaderMobile extends Component {
     render() {
@@ -49,7 +50,7 @@ class HeaderMobile extends Component {
                     <MobileHeaderActions />
                 </div>
                 <div className="ps-search--mobile">
-                    <form
+                    {/* <form
                         className="ps-form--search-mobile"
                         action="/"
                         method="get">
@@ -63,7 +64,9 @@ class HeaderMobile extends Component {
                                 <i className="icon-magnifier" />
                             </button>
                         </div>
-                    </form>
+                    </form> */}
+
+                    <PanelSearch/>
                 </div>
             </header>
         );

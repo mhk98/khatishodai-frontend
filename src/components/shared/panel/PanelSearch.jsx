@@ -47,7 +47,7 @@ import SearchResultProduct from '~/components/elements/products/SearchResultProd
 import Link from 'next/link';
 import cx from 'classnames';
 
-const SearchMobile = () => {
+const PanelSearch = () => {
     const inputEl = useRef(null);
     const [keyword, setKeyword] = useState('');
     const keywordDebounce = useDebounce(keyword, { wait: 800 });
@@ -137,4 +137,4 @@ const SearchMobile = () => {
     );
 };
 
-export default SearchMobile;
+export default PanelSearch;
