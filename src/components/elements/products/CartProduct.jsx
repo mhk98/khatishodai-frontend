@@ -12,12 +12,19 @@ const CartProduct = ({ product }) => {
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     {/* {thumbnailImage} */}
-                     <Image
+                     {/* <Image
                             src={`https://backend.eaconsultancy.info${product.default_image}`}
                             alt={product.title}
                             width={80}
                             height={80}
-                          />
+                          /> */}
+                            <img
+                            src={`https://backend.eaconsultancy.info${product.default_image}`}
+                            alt={product.title || 'Product Image'}
+                            width={80}
+                            height={80}
+                            layout="responsive"
+                        />
                 </Link>
             </div>
             <div className="ps-product__content">{product.title}</div>

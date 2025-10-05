@@ -17,6 +17,8 @@ const MobileHeaderActions = ({ auth }) => {
                     const { data, isLoading, isError, error } = useGetCartDataByIdQuery(id);
             
                     const carts = data?.data || [];
+
+                    console.log("mobile cart", carts)
     
 
     return (
@@ -24,7 +26,7 @@ const MobileHeaderActions = ({ auth }) => {
             <Link href="/account/shopping-cart" className="header__extra">
                 <i className="icon-bag2" />
                 <span>
-                    <i>{carts ? carts.length : 0}</i>
+                    <i>{ carts.length}</i>
                 </span>
             </Link>
 
