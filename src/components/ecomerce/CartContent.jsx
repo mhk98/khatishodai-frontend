@@ -157,6 +157,7 @@ import {
 import { getUserInfo, isLoggedIn } from "../services/auth.service";
 import { useCreateOrderMutation } from "~/react-redux/features/order/order";
 import CartProduct from "../elements/products/CartProduct";
+import { notification } from "antd";
 
 function CartContent() {
   const router = useRouter();
@@ -193,7 +194,10 @@ function CartContent() {
       if (res) {
         const updatedCart = cart.filter((item) => item.id !== id);
         setCart(updatedCart);
-        toast.success("Item removed from cart");
+        notification.success({
+          message: "Success",
+          description: "Product removed from your cart successfully!",
+        });
       }
     }
   };
@@ -211,9 +215,15 @@ function CartContent() {
     if (couponCode === "OCT20") {
       const discount = (calculateTotal() * 20) / 100;
       setAppliedDiscount(discount);
-      toast.success("Coupon applied successfully!");
+      notification.success({
+          message: "Success",
+          description: "Coupon applied successfully!",
+        });
     } else {
-      toast.error("Invalid coupon code!");
+      notification.error({
+        message: "Error",
+        description: "Invalid coupon code!",
+      });
     }
   };
 

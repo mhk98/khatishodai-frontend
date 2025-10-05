@@ -98,7 +98,7 @@
 // export default PartialReview;
 
 import React, { useState, useEffect } from 'react';
-import { Rate, message } from 'antd';
+import { Rate, message, notification } from 'antd';
 import toast from 'react-hot-toast';
 import Rating from '../../Rating';
 
@@ -165,7 +165,12 @@ const PartialReview = ({ product }) => {
             const response = await res.json();
 
             if (response.data.success === true) {
-                toast.success('Review submitted successfully!');
+                // toast.success('Review submitted successfully!');
+
+                notification.success({
+          message: "Success",
+          description: "Review submitted successfully!",
+        });
                 setContent('');
                 setName('');
                 setEmail('');

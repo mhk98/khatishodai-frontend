@@ -80,12 +80,12 @@ const ModuleDetailShoppingActionsSidebar = ({ ecomerce, product }) => {
                 onClick={(e) => handleAddItemToCart(e)}>
                 Add to cart
             </a>
-            <a
+            {/* <a
                 className="ps-btn"
                 href="#"
                 onClick={(e) => handleAddItemToCart(e)}>
                 Buy Now
-            </a>
+            </a> */}
             {/* <div className="ps-product__actions">
                 <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
                     <i className="icon-heart mr-1" />
