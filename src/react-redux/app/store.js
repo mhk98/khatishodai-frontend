@@ -3,10 +3,10 @@ import { productApi } from '../features/products/products';
 import { brandApi } from '../features/brand/brand';
 import { cartApi } from '../features/cart/cart';
 import { orderApi } from '../features/order/order';
-import { userApi } from '~/redux/services/userApi';
 import { categoryApi } from '../features/category/category';
 import { subCategoryItemApi } from '../features/subCategoryItem/subCategoryItem';
 import { reviewApi } from '../features/review/review';
+import { authApi } from '../features/auth/auth';
 
 export const store = configureStore({
     reducer: {
@@ -15,8 +15,8 @@ export const store = configureStore({
         [brandApi.reducerPath]: brandApi.reducer,
         [cartApi.reducerPath]: cartApi.reducer,
         [orderApi.reducerPath]: orderApi.reducer,
-        [userApi.reducerPath]: userApi.reducer,
-        [categoryApi.reducerPath]: userApi.reducer,
+        [authApi.reducerPath]: authApi.reducer,
+        [categoryApi.reducerPath]: categoryApi.reducer,
         [subCategoryItemApi.reducerPath]: subCategoryItemApi.reducer,
     },
 
@@ -27,7 +27,7 @@ export const store = configureStore({
             brandApi.middleware,
             cartApi.middleware,
             orderApi.middleware,
-            userApi.middleware,
+            authApi.middleware,
             categoryApi.middleware,
             subCategoryItemApi.middleware
         ),
