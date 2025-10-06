@@ -11,11 +11,12 @@ const MobileCartProduct = ({ product }) => {
         <div className="ps-product--cart-mobile">
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-                    <Image
+                    <img
                                                 src={`https://backend.eaconsultancy.info${product.default_image}`}
                                                 alt={product.title}
                                                 width={80}
                                                 height={80}
+                                                layout="responsive"
                                               />
                 </Link>
             </div>
