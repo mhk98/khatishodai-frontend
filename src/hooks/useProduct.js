@@ -78,7 +78,7 @@ export default function useProduct(product, productID) {
     };
 
     const productBrand = (
-        <Link href={'/shop'} className="text-capitalize">
+        <Link href={'/shops'} className="text-capitalize">
             {product?.brands?.[0]?.name ?? 'No Brand'}
         </Link>
     );

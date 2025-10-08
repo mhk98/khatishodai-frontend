@@ -27,7 +27,7 @@ const ProductDefaultPage = () => {
         },
         {
             text: 'Shop',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: product?.attributes.title || 'Untitled Product',

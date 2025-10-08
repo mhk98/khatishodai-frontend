@@ -12,7 +12,7 @@ const FurnitureCategories = () => {
                     <div className="row">
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/1.png"
                                     alt="martfury"
@@ -22,7 +22,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/2.png"
                                     alt="martfury"
@@ -32,7 +32,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/3.png"
                                     alt="martfury"
@@ -42,7 +42,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/4.png"
                                     alt="martfury"
@@ -52,7 +52,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/5.png"
                                     alt="martfury"
@@ -62,7 +62,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/6.png"
                                     alt="martfury"
@@ -72,7 +72,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/7.png"
                                     alt="martfury"
@@ -82,7 +82,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/8.png"
                                     alt="martfury"
@@ -92,7 +92,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/9.png"
                                     alt="martfury"
@@ -102,7 +102,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/10.png"
                                     alt="martfury"
@@ -112,7 +112,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/11.png"
                                     alt="martfury"
@@ -122,7 +122,7 @@ const FurnitureCategories = () => {
                         </div>
                         <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6 ">
                             <div className="ps-block--category">
-                                <Link href={'/shop'} />
+                                <Link href={'/shops'} />
                                 <img
                                     src="/static/img/categories/furniture/12.png"
                                     alt="martfury"

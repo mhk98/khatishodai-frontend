@@ -22,7 +22,7 @@ const MartketPlace2Banner = () => {
                 <div className="ps-section__left">
                     <Slider {...carouselSettings} className="ps-carousel">
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-4/1.jpg"
                                     alt="martfury"
@@ -31,7 +31,7 @@ const MartketPlace2Banner = () => {
                         </div>
 
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-4/2.jpg"
                                     alt="martfury"
@@ -40,7 +40,7 @@ const MartketPlace2Banner = () => {
                         </div>
 
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-4/3.jpg"
                                     alt="martfury"
@@ -50,7 +50,7 @@ const MartketPlace2Banner = () => {
                     </Slider>
                 </div>
                 <div className="ps-section__right">
-                    <Link href={'/shop'} className="ps-collection">
+                    <Link href={'/shops'} className="ps-collection">
                         <img
                             src="/static/img/slider/home-4/left.jpg"
                             alt="martfury"

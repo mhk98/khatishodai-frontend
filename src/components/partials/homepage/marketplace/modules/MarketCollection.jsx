@@ -35,47 +35,47 @@ const MarketCollection = ({ collectionSlug, carouselImages, title, links }) => {
                 {title && <h3>{title}</h3>}
                 <ul>
                     <li>
-                        <Link href={'/shop'} as="/shop/best-seller">
+                        <Link href={'/shops'} as="/shop/best-seller">
                             Best Seller
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/new-arrivals">
+                        <Link href={'/shops'} as="/shop/new-arrivals">
                             New Arrivals
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/women">
+                        <Link href={'/shops'} as="/shop/women">
                             Women
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/men">
+                        <Link href={'/shops'} as="/shop/men">
                             Men
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/girls">
+                        <Link href={'/shops'} as="/shop/girls">
                             Girls
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/boys">
+                        <Link href={'/shops'} as="/shop/boys">
                             Boys
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/baby">
+                        <Link href={'/shops'} as="/shop/baby">
                             Baby
                         </Link>
                     </li>
                     <li>
-                        <Link href={'/shop'} as="/shop/sale-and-deal">
+                        <Link href={'/shops'} as="/shop/sale-and-deal">
                             Sales & Deals
                         </Link>
                     </li>
                 </ul>
-                <Link href={'/shop'} className="ps-block__more-link">
+                <Link href={'/shops'} className="ps-block__more-link">
                     View All
                 </Link>
             </div>

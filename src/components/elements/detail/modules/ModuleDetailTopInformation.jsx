@@ -48,7 +48,7 @@ const ModuleDetailTopInformation = ({ product }) => {
             <div className="ps-product__meta">
                 <p>
                     Brand:
-                    <Link href={'/shop'} className="ml-2 text-capitalize">
+                    <Link href={'/shops'} className="ml-2 text-capitalize">
                         {productBrandName}
                     </Link>
                 </p>

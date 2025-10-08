@@ -64,7 +64,7 @@ const ProductGroupDealOfDay = ({ collectionSlug, boxed = false }) => {
                             </figure>
                         </div>
                     </div>
-                    <Link href={'/shop'}>View all</Link>
+                    <Link href={'/shops'}>View all</Link>
                 </div>
                 <div className="ps-section__content">{productsView}</div>
             </div>

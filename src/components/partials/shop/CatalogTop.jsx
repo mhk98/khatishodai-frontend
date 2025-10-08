@@ -21,7 +21,7 @@ const CatalogTop = () => (
                                             <li
                                                 className={catalog.extraClass}
                                                 key={catalog.text}>
-                                                <Link href={'/shop'}>
+                                                <Link href={'/shops'}>
                                                     {catalog.text}
                                                 </Link>
                                                 <ul
@@ -37,7 +37,7 @@ const CatalogTop = () => (
                                                                 key={item.text}>
                                                                 <Link
                                                                     href={
-                                                                        '/shop'
+                                                                        '/shops'
                                                                     }>
                                                                     {item.text}
                                                                 </Link>
@@ -50,7 +50,7 @@ const CatalogTop = () => (
                                     } else {
                                         return (
                                             <li>
-                                                <Link href={'/shop'}>
+                                                <Link href={'/shops'}>
                                                     {catalog.text}
                                                 </Link>
                                             </li>
@@ -86,8 +86,8 @@ const CatalogTop = () => (
                                                 category.links.map((link) => (
                                                     <li key={link}>
                                                         <Link
-                                                            href={'/shop'}
-                                                            as={`/shop`}>
+                                                            href={'/shops'}
+                                                            as={`/shops`}>
                                                             {link}
                                                         </Link>
                                                     </li>

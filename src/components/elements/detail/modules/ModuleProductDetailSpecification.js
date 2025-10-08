@@ -29,7 +29,7 @@ const ModuleProductDetailSpecification = ({ product }) => {
             </p>
             <p className="tags">
                 <strong>Tags:</strong>
-                <Link href={'/shop'}>{product.tag}</Link>
+                <Link href={'/shops'}>{product.tag}</Link>
                
             </p> */}
         </div>

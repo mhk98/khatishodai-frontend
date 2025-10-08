@@ -94,7 +94,7 @@ class ElectronicTopCategories extends Component {
                                         <ul>
                                             {category.links.map((link) => (
                                                 <li key={link}>
-                                                    <Link href={'/shop'}>
+                                                    <Link href={'/shops'}>
                                                         {link}
                                                     </Link>
                                                 </li>

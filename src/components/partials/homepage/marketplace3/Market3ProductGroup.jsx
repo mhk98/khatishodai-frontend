@@ -69,7 +69,7 @@ const Market3ProductGroup = ({ categorySlug, banners, links, heading }) => {
 
             linksList = links.map((item) => (
                 <li key={item}>
-                    <Link href={'/shop'}>{item}</Link>
+                    <Link href={'/shops'}>{item}</Link>
                 </li>
             ));
         }

@@ -20,7 +20,7 @@ const ShopCategories = () => (
                                 {category.links &&
                                     category.links.map((link) => (
                                         <li key={link}>
-                                            <Link href={'/shop'} as={`/shop`}>
+                                            <Link href={'/shops'} as={`/shops`}>
                                                 {link}
                                             </Link>
                                         </li>

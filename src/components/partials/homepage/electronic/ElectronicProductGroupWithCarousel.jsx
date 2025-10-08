@@ -20,7 +20,7 @@ const ElectronicProductGroupWithCarousel = ({
     const linkItems = useMemo(() => {
         return links.map((item) => (
             <li key={item}>
-                <Link href={'/shop'}>{item}</Link>
+                <Link href={'/shops'}>{item}</Link>
             </li>
         ));
     }, []);
@@ -58,7 +58,7 @@ const ElectronicProductGroupWithCarousel = ({
                     <ul className="ps-section__links">
                         {linkItems}
                         <li>
-                            <Link href={'/shop'}>View All</Link>
+                            <Link href={'/shops'}>View All</Link>
                         </li>
                     </ul>
                 </div>

@@ -22,7 +22,7 @@ const ShoppingCart = ({ source }) => {
                     <ModuleEcomerceCartItems cartItems={cartItems} />
 
                     <div className="ps-section__cart-actions">
-                        <Link href={'/shop'}>
+                        <Link href={'/shops'}>
                             <i className="icon-arrow-left mr-2" />
                             Back to Shop
                         </Link>

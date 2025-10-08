@@ -50,13 +50,13 @@ const NewArrivals = ({ collectionSlug }) => {
                     <ul className="ps-section__links">
                         {categories?.map((category) => (
                             <li key={category.id}>
-                                <Link href={'/shop'}>
+                                <Link href={'/shops'}>
                                     {category.attributes.title}
                                 </Link>
                             </li>
                         ))}
                         <li>
-                            <Link href={'/shop'}>View All</Link>
+                            <Link href={'/shops'}>View All</Link>
                         </li>
                     </ul>
                 </div>

@@ -87,7 +87,7 @@ const FooterSecond = ({ classes }) => (
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href={'/shop'}>Shop</Link>
+                                            <Link href={'/shops'}>Shop</Link>
                                         </li>
                                     </ul>
                                 </aside>

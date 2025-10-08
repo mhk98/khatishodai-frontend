@@ -142,7 +142,7 @@ const PanelCartMobile = () => {
                 {carts.length === 0 ? (
                     <div className="ps-cart__empty">
                         <p>Your cart is empty</p>
-                        <Link href="/shop" className="ps-btn ps-btn--fullwidth">
+                        <Link href="/shops" className="ps-btn ps-btn--fullwidth">
                             Shop Now
                         </Link>
                     </div>

@@ -53,7 +53,7 @@ const MarketPlace3SearchTrending = () => {
                                     <div className="ps-block__item">
                                         {trendingCategories.map((category) => (
                                             <Link
-                                                href={'/shop'}
+                                                href={'/shops'}
                                                 key={category.text}>
                                                 <img
                                                     src={category.imagePath}

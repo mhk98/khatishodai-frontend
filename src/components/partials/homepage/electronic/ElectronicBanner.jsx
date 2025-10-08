@@ -18,7 +18,7 @@ export default function ElectronicBanner() {
                 <div className="ps-section__left">
                     <Slider {...carouselSettings}>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-7/1.jpg"
                                     alt="martfury"
@@ -26,7 +26,7 @@ export default function ElectronicBanner() {
                             </Link>
                         </div>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-7/2.jpg"
                                     alt="martfury"
@@ -34,7 +34,7 @@ export default function ElectronicBanner() {
                             </Link>
                         </div>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-7/3.jpg"
                                     alt="martfury"
@@ -44,13 +44,13 @@ export default function ElectronicBanner() {
                     </Slider>
                 </div>
                 <div className="ps-section__right">
-                    <Link href={'/shop'} className="ps-collection">
+                    <Link href={'/shops'} className="ps-collection">
                         <img
                             src="/static/img/slider/home-7/promotion-1.jpg"
                             alt="martfury"
                         />
                     </Link>
-                    <Link href={'/shop'} className="ps-collection">
+                    <Link href={'/shops'} className="ps-collection">
                         <img
                             src="/static/img/slider/home-7/promotion-2.jpg"
                             alt="martfury"

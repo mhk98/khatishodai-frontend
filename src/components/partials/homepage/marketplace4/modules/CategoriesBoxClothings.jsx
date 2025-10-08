@@ -7,10 +7,10 @@ const CategoriesBoxClothings = () => (
             <h3>Clothing & Apparel</h3>
             <ul>
                 <li>
-                    <Link href={'/shop'}>New Arrivals</Link>
+                    <Link href={'/shops'}>New Arrivals</Link>
                 </li>
                 <li>
-                    <Link href={'/shop'}>Best Seller</Link>
+                    <Link href={'/shops'}>Best Seller</Link>
                 </li>
             </ul>
         </div>

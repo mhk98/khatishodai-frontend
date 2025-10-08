@@ -10,7 +10,7 @@ const Promotion = ({ link, image }) => {
         );
     } else {
         return (
-            <Link href={link ? link : '/shop'} className="ps-collection">
+            <Link href={link ? link : '/shops'} className="ps-collection">
                 <img src="/static/img/not-found.jpg" alt="martfury" />
             </Link>
         );

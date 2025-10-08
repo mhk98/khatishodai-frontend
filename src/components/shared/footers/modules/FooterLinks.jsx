@@ -5,173 +5,173 @@ const Links = {
     consumerElectric: [
         {
             text: 'Air Conditioners',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Audios & Theaters',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Car Electronics',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Office Electronics',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'TV Televisions',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Washing Machines',
-            url: '/shop',
+            url: '/shops',
         },
     ],
     clothingAndApparel: [
         {
             text: 'Printers',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Projectors',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Scanners',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Store & Business',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: '4K Ultra HD TVs',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'LED TVs',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'OLED TVs',
-            url: '/shop',
+            url: '/shops',
         },
     ],
     gardenAndKitchen: [
         {
             text: 'Cookware',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Decoration',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Furniture',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Garden Tools',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Garden Equipments',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Powers And Hand Tools',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Utensil & Gadget',
-            url: '/shop',
+            url: '/shops',
         },
     ],
     healthAndBeauty: [
         {
             text: 'Hair Care',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Decoration',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Makeup',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Body Shower',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Skin Care',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Cologine',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Perfume',
-            url: '/shop',
+            url: '/shops',
         },
     ],
     jewelryAndWatch: [
         {
             text: 'Necklace',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Pendant',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Diamond Ring',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Sliver Earing',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Leather Watcher',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Gucci',
-            url: '/shop',
+            url: '/shops',
         },
     ],
     computerAndTechnology: [
         {
             text: 'Desktop PC',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Laptop',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Smartphones',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Tablet',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Game Controller',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Audio & Video',
-            url: '/shop',
+            url: '/shops',
         },
         {
             text: 'Wireless Speaker',
-            url: '/shop',
+            url: '/shops',
         },
     ],
 };

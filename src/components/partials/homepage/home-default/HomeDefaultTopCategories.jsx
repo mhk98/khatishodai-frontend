@@ -8,7 +8,7 @@ const HomeDefaultTopCategories = () => (
             <div className="row">
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/1.jpg"
                             alt="martfury"
@@ -18,7 +18,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/2.jpg"
                             alt="martfury"
@@ -28,7 +28,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/3.jpg"
                             alt="martfury"
@@ -38,7 +38,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/4.jpg"
                             alt="martfury"
@@ -48,7 +48,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/5.jpg"
                             alt="martfury"
@@ -58,7 +58,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/6.jpg"
                             alt="martfury"
@@ -68,7 +68,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/7.jpg"
                             alt="martfury"
@@ -78,7 +78,7 @@ const HomeDefaultTopCategories = () => (
                 </div>
                 <div className="col-xl-2 col-lg-3 col-md-4 col-sm-4 col-6 ">
                     <div className="ps-block--category">
-                        <Link href={'/shop'} className="ps-block__overlay" />
+                        <Link href={'/shops'} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/8.jpg"
                             alt="martfury"

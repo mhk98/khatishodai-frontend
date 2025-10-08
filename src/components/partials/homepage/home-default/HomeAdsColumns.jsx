@@ -34,7 +34,7 @@ const HomeAdsColumns = () => {
                         <div
                             className="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12"
                             key={index}>
-                            <Promotion link="/shop" image={item} />
+                            <Promotion link="/shops" image={item} />
                         </div>
                     ))}
                 </div>

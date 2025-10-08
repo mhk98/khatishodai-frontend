@@ -54,16 +54,16 @@ const Market2ProductGroupByCategory = ({ categorySlug, title }) => {
                     <h3>{title}</h3>
                     <ul className="ps-section__links">
                         <li className="active">
-                            <Link href={'/shop'}>New Arrivals</Link>
+                            <Link href={'/shops'}>New Arrivals</Link>
                         </li>
                         <li>
-                            <Link href={'/shop'}>Best seller</Link>
+                            <Link href={'/shops'}>Best seller</Link>
                         </li>
                         <li>
-                            <Link href={'/shop'}>Must Popular</Link>
+                            <Link href={'/shops'}>Must Popular</Link>
                         </li>
                         <li>
-                            <Link href={'/shop'}>View All</Link>
+                            <Link href={'/shops'}>View All</Link>
                         </li>
                     </ul>
                 </div>

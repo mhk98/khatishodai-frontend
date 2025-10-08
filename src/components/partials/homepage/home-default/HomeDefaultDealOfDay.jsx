@@ -62,7 +62,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug, fullWidth = true }) => {
                             </figure>
                         </div>
                     </div>
-                    <Link href={'/shop'}>View all</Link>
+                    <Link href={'/shops'}>View all</Link>
                 </div>
                 <div className="ps-section__content">{productContent}</div>
             </div>

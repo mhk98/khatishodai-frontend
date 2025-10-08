@@ -52,7 +52,7 @@ const FurnitureShopByRoom = (props) => {
                                 key={room.title}>
                                 <div className="ps-block--category-room">
                                     <div className="ps-block__thumbnail">
-                                        <Link href={'/shop'}>
+                                        <Link href={'/shops'}>
                                             <img
                                                 src={room.imagePath}
                                                 alt="martfury"
@@ -60,7 +60,7 @@ const FurnitureShopByRoom = (props) => {
                                         </Link>
                                     </div>
                                     <div className="ps-block__content">
-                                        <Link href={'/shop'}>{room.title}</Link>
+                                        <Link href={'/shops'}>{room.title}</Link>
                                     </div>
                                 </div>
                             </div>

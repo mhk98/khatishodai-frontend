@@ -61,7 +61,7 @@ const HomeDefaultBanner = () => {
                 {primaryBannerItems.map((item, index) => (
                     <div className="slide-item" key={item.id}>
                         <Link
-                            href={'/shop'}
+                            href={'/shops'}
                             className="ps-banner-item--default bg--cover"
                             style={{
                                 backgroundImage: `url(${item})`,
@@ -84,7 +84,7 @@ const HomeDefaultBanner = () => {
                         ? secondBannerItems.map((item, index) => (
                               <Promotion
                                   key={index}
-                                  link="/shop"
+                                  link="/shops"
                                   image={item}
                               />
                           ))

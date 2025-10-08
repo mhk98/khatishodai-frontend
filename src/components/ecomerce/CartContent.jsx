@@ -73,7 +73,7 @@ export default function CartContent() {
                         <p className="mb-0">Your cart is currently empty.</p>
                     </div>
                     <div className="ps-section__cart-actions">
-                        <Link href={'/shop'} className="ps-btn">
+                        <Link href={'/shops'} className="ps-btn">
                             Back to Shop
                         </Link>
                     </div>
@@ -88,7 +88,7 @@ export default function CartContent() {
                         onDelete={handleDelete} // Pass delete handler
                     />
                     <div className="ps-section__cart-actions">
-                        <Link href={'/shop'} className="ps-btn">
+                        <Link href={'/shops'} className="ps-btn">
                             Back to Shop
                         </Link>
                     </div>

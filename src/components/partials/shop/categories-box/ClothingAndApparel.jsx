@@ -7,10 +7,10 @@ const ClothingAndApparel = ({ data }) => (
             <h3>Consumer Electronics</h3>
             <ul>
                 <li>
-                    <Link href={'/shop'}>New Arrivals</Link>
+                    <Link href={'/shops'}>New Arrivals</Link>
                 </li>
                 <li>
-                    <Link href={'/shop'}>Best Sellers</Link>
+                    <Link href={'/shops'}>Best Sellers</Link>
                 </li>
             </ul>
         </div>
@@ -29,7 +29,7 @@ const ClothingAndApparel = ({ data }) => (
                         return (
                             <div className="ps-block__item" key={category.text}>
                                 <Link
-                                    href={'/shop'}
+                                    href={'/shops'}
                                     className="ps-block__overlay"
                                 />
                                 <img src={category.imagePath} alt="martfury" />

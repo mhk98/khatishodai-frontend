@@ -20,7 +20,7 @@ const WideProduct = ({ product }) => {
                     {title}
                     <p className="ps-product__vendor">
                         Sold by:
-                        <Link href={'/shop'}>{product.vendor}</Link>
+                        <Link href={'/shops'}>{product.vendor}</Link>
                     </p>
                     <ul className="ps-product__desc">
                         <li>Unrestrained and portable active stereo speaker</li>

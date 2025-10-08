@@ -57,7 +57,7 @@ const MarketPlaceDealOfDay = ({ collectionSlug }) => {
                             </figure>
                         </div>
                     </div>
-                    <Link href={'/shop'}>View all</Link>
+                    <Link href={'/shops'}>View all</Link>
                 </div>
                 <div className="ps-section__content">{renderProducts}</div>
             </div>

@@ -21,7 +21,7 @@ export default function MartketPlace3Banner() {
                 <div className="ps-section__center">
                     <Slider {...carouselSettings}>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-5/1.jpg"
                                     alt="martfury"
@@ -29,7 +29,7 @@ export default function MartketPlace3Banner() {
                             </Link>
                         </div>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-5/2.jpg"
                                     alt="martfury"
@@ -37,7 +37,7 @@ export default function MartketPlace3Banner() {
                             </Link>
                         </div>
                         <div className="item">
-                            <Link href={'/shop'}>
+                            <Link href={'/shops'}>
                                 <img
                                     src="/static/img/slider/home-5/3.jpg"
                                     alt="martfury"
@@ -46,7 +46,7 @@ export default function MartketPlace3Banner() {
                         </div>
                         <div className="item"></div>
                     </Slider>
-                    <Link href={'/shop'}>
+                    <Link href={'/shops'}>
                         <img
                             src="/static/img/slider/home-5/promotion-6.jpg"
                             alt="martfury"
@@ -54,31 +54,31 @@ export default function MartketPlace3Banner() {
                     </Link>
                 </div>
                 <div className="ps-section__right">
-                    <Link href={'/shop'}>
+                    <Link href={'/shops'}>
                         <img
                             src="/static/img/slider/home-5/promotion-1.jpg"
                             alt="martfury"
                         />
                     </Link>
-                    <Link href={'/shop'}>
+                    <Link href={'/shops'}>
                         <img
                             src="/static/img/slider/home-5/promotion-2.jpg"
                             alt="martfury"
                         />
                     </Link>
-                    <Link href={'/shop'} className="wide">
+                    <Link href={'/shops'} className="wide">
                         <img
                             src="/static/img/slider/home-5/promotion-3.jpg"
                             alt="martfury"
                         />
                     </Link>
-                    <Link href={'/shop'}>
+                    <Link href={'/shops'}>
                         <img
                             src="/static/img/slider/home-5/promotion-4.jpg"
                             alt="martfury"
                         />
                     </Link>
-                    <Link href={'/shop'}>
+                    <Link href={'/shops'}>
                         <img
                             src="/static/img/slider/home-5/promotion-5.jpg"
                             alt="martfury"

@@ -22,7 +22,7 @@ const PostGrid = ({ data }) => {
             <div className="ps-post__content">
                 <div className="ps-post__meta">
                     {data.categories.map((category) => (
-                        <Link href={'/shop'} key={category.id + category.text}>
+                        <Link href={'/shops'} key={category.id + category.text}>
                             {category.text}
                         </Link>
                     ))}
