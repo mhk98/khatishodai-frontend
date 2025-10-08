@@ -123,7 +123,7 @@ const PanelCartMobile = () => {
         return carts.map((cart) => ({
             id: cart.id,
             title: cart.title || 'Untitled Product',
-            thumbnailImage: cart.default_image || null,
+            default_image: cart.default_image || null,
             price: cart.price || 0,
             quantity: cart.quantity || 1,
             product_id: cart.product_id,
