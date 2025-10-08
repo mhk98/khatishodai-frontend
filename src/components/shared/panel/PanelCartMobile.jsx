@@ -171,7 +171,7 @@ const PanelCartMobile = () => {
                                     View Cart
                                 </Link>
                                 {userLoggedIn ? (
-                                    <Link href="/account/checkout" className="ps-btn ps-btn--fullwidth">
+                                    <Link href="/account/checkout" className="ps-btn ps-btn--fullwidth mt-3">
                                         Checkout
                                     </Link>
                                 ) : (

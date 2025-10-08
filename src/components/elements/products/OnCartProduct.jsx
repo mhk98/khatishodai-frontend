@@ -6,7 +6,7 @@ import Image from 'next/image';
 const OnCartProduct = ({ product, children }) => {
     const { thumbnailImage } = useProduct(product.attributes, product.id);
 
-    console.log("default_image", product.default_image)
+    console.log("default_image", product)
 
 
     return (
@@ -22,7 +22,7 @@ const OnCartProduct = ({ product, children }) => {
 
                                                   <img
                             src={`https://backend.eaconsultancy.info${product.default_image}`}
-                            alt={product.title || 'Product Image'}
+                            alt={product.title}
                             width={80}
                             height={80}
                             layout="responsive"
