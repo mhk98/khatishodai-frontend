@@ -11,11 +11,13 @@ const SearchResultProduct = ({ product }) => {
     // );
 
     const { title, price, default_image } = product;
+
+    console.log('search result product', product);
     return (
         <div className="ps-product ps-product--wide ps-product--search-result">
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-                    <Image
+                    <img
                         src={`https://backend.eaconsultancy.info/${default_image}`}
                         width={120}
                         height={80}
@@ -29,7 +31,7 @@ const SearchResultProduct = ({ product }) => {
                         <Rating />
                         <span>{product.ratingCount || 0}</span>
                     </div>
-                    {price}
+                    ৳{price}
                 </div>
             </Link>
         </div>

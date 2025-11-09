@@ -6,7 +6,7 @@ const WidgetSaleOnSite = () => {
         <aside className="widget widget_sell-on-site">
             <p>
                 <i className="icon-store" /> Sell on Khatishodai?
-                <Link href="/account/login">Register Now !</Link>
+                <Link style={{marginLeft:"5px"}} href="/account/login">Register Now !</Link>
             </p>
         </aside>
     );

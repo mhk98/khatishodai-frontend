@@ -78,16 +78,18 @@ const OnHeaderProduct = ({ product }) => {
         <div className="ps-product--header-sticky">
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-                    {<img src={`http://localhost:5000/${product?.default_image}`} alt="Khatishodai" />}
+                    {<img src={`https://backend.eaconsultancy.info/${product?.default_image}`} alt="Khatishodai" />}
                 </Link>
             </div>
             <div className="ps-product__wrapper">
                 <div className="ps-product__content">{product.title}</div>
                 <div className="ps-product__shopping">
-                    {product.price}
+                    ৳{product.price}
                     <a
                         className="ps-btn"
-                        href="#"
+                        style={{ marginLeft: '10px', backgroundColor: '#333', color: '#fff' }}
+                        type="button"
+
                         onClick={() => handleAddItemToCart(product)}
                     >
 
