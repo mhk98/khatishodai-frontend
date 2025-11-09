@@ -213,6 +213,8 @@ export default function Login() {
     const Router = useRouter();
     const searchParams = useSearchParams();
 
+    console.log("searchParams", searchParams)
+
     const [selectedCode, setSelectedCode] = useState('+880');
     const [loading, setLoading] = useState(false);
     const inputRef = useRef(null);

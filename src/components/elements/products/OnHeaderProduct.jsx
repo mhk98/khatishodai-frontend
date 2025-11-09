@@ -5,6 +5,8 @@ import useProduct from '~/hooks/useProduct';
 import useEcomerce from '~/hooks/useEcomerce';
 import { useCreateCartMutation } from '~/react-redux/features/cart/cart';
 import { notification } from 'antd';
+import { isLoggedIn } from '~/components/services/auth.service';
+import { useRouter } from 'next/navigation';
 
 const OnHeaderProduct = ({ product }) => {
     // const ecomerce = useSelector(({ ecomerce }) => ecomerce);
@@ -18,10 +20,14 @@ const OnHeaderProduct = ({ product }) => {
     //     e.preventDefault();
     //     addItem({ id: product.id, quantity: 1 }, ecomerce.cartItems, 'cart');
     // }
+    const userLoggedIn = isLoggedIn();
+    const router = useRouter()
+
     const [cart, setCart] = useState([]);
 
 
     const [createCart] = useCreateCartMutation();
+  console.log("OnHeaderProduct", product)
     
         const handleAddItemToCart = async (product) => {
             if (cart.some((item) => item.product_id === product.id)) {

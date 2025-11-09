@@ -1,38 +1,4 @@
-// 'use client';
-// import React from 'react';
 
-// import BreadCrumb from '~/components/elements/BreadCrumb';
-// import Login from '~/components/partials/account/Login';
-// import PageContainer from '~/components/layouts/PageContainer';
-// import FooterDefault from '~/components/shared/footers/FooterDefault';
-// import Newletters from '~/components/partials/commons/Newletters';
-
-// export default function LoginPage() {
-//     const breadCrumb = [
-//         {
-//             text: 'Home',
-//             url: '/',
-//         },
-//         {
-//             text: 'Login',
-//         },
-//     ];
-//     return (
-//         <>
-//             <PageContainer footer={<FooterDefault />} title="Login">
-//                 <div className="ps-page--my-account">
-//                     <BreadCrumb breacrumb={breadCrumb} />
-//                     <Login />
-//                 </div>
-//                 <Newletters layout="container" />
-//             </PageContainer>
-//         </>
-//     );
-// }
-
-
-
-// pages/account/login/page.jsx (or similar)
 
 'use client'; 
 import React from 'react';
@@ -67,7 +33,7 @@ export default function LoginPage() {
                 <DynamicLogin />
                 
             </div>
-            <Newletters layout="container" />
+            {/* <Newletters layout="container" /> */}
         </PageContainer>
     );
 }

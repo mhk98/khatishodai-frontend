@@ -102,7 +102,7 @@ class OrganicClientSay extends Component {
                                 <div className="ps-block__content">
                                     <i className="icon-quote-close" />
                                     <h4>
-                                        Kanye West
+                                        Meher Afroz Khan
                                         <span>Head Chef at BBQ Restaurant</span>
                                     </h4>
                                     <p>
@@ -123,8 +123,8 @@ class OrganicClientSay extends Component {
                                 <div className="ps-block__content">
                                     <i className="icon-quote-close" />
                                     <h4>
-                                        Anabella Kleva
-                                        <span>Boss at TocoToco</span>
+                                        Mr. Kazi Nazmus Shakib
+                                        <span>Boss at EA Consultancy</span>
                                     </h4>
                                     <p>
                                         Sed elit quam, iaculis sed semper sit
