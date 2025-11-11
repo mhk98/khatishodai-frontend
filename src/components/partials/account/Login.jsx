@@ -102,42 +102,87 @@ export default function Login() {
     };
 
     // Submit handler
-  const handleLogin = async (values) => {
-    const { phoneNumber } = values;
-    // const redirectTo = searchParams.get('redirect') || '/';
-    const redirectTo = new URLSearchParams(searchParams?.toString()).get('redirect') || '/';
-    setLoading(true);
+//   const handleLogin = async (values) => {
+//     const { phoneNumber } = values;
+//     const redirectTo = searchParams.get('redirect') || '/';
+//     // const redirectTo = new URLSearchParams(searchParams?.toString()).get('redirect') || '/';
+//     setLoading(true);
 
-    try {
-        const fullPhone = `${selectedCode}${phoneNumber}`;
-        const data = { Phone: fullPhone };
+//     try {
+//         const fullPhone = `${selectedCode}${phoneNumber}`;
+//         const data = { Phone: fullPhone };
 
-        console.log("📤 Sending to backend:", data);
+//         console.log("📤 Sending to backend:", data);
 
-        const response = await userLogin(data).unwrap();
+//         const response = await userLogin(data).unwrap();
 
-        console.log("✅ Response from server:", response);
+//         console.log("✅ Response from server:", response);
 
-        if (response.success) {
-            notification.success({
-                message: 'Success',
-                description: response.message,
-            });
+//         if (response.success) {
+//             notification.success({
+//                 message: 'Success',
+//                 description: response.message,
+//             });
 
-            storgeUserInfo({ accessToken: response.data.accessToken });
-            Router.push(redirectTo);
-        } else {
-            notification.error({
-                message: 'Login Failed',
-                description: response.message || 'Unexpected response format!',
-            });
-        }
-    } catch (err) {
-        console.error("❌ API Error:", err);
+//             storgeUserInfo({ accessToken: response.data.accessToken });
+//             Router.push(redirectTo);
+//         } else {
+//             notification.error({
+//                 message: 'Login Failed',
+//                 description: response.message || 'Unexpected response format!',
+//             });
+//         }
+//     } catch (err) {
+//         console.error("❌ API Error:", err);
 
-    } finally {
-        setLoading(false);
+//     } finally {
+//         setLoading(false);
+//     }
+// };
+
+
+const handleLogin = async (values) => {
+  const { phoneNumber } = values;
+  const redirectTo = searchParams?.get('redirect') || '/';
+  setLoading(true);
+
+  try {
+    const fullPhone = `${selectedCode}${phoneNumber}`;
+    const data = { Phone: fullPhone };
+
+    console.log("📤 Sending to backend:", data);
+
+    const response = await userLogin(data).unwrap();
+
+    console.log("✅ Response from server:", response);
+
+    if (response.success) {
+      notification.success({
+        message: 'Success',
+        description: response.message,
+      });
+
+      storgeUserInfo({ accessToken: response.data.accessToken });
+
+      // ✅ Ensure router push happens after token is stored and param resolved
+        setTimeout(() => {
+        Router.push(redirectTo.startsWith('/') ? redirectTo : '/');
+      }, 200);
+    } else {
+      notification.error({
+        message: 'Login Failed',
+        description: response.message || 'Unexpected response format!',
+      });
     }
+  } catch (err) {
+    console.error("❌ API Error:", err);
+    notification.error({
+      message: 'Error',
+      description: err?.data?.message || 'Something went wrong. Try again!',
+    });
+  } finally {
+    setLoading(false);
+  }
 };
 
 

@@ -88,6 +88,7 @@ const DefaultMenu = ({ source, className }) => {
 
     // Map through source array and render DefaultMenuItem
     const menuItems = source.map((item) => (
+        console.log('Category', item.text),
         <DefaultMenuItem item={item} key={item.text} /> // Use item.text as key
     ));
 
