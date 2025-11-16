@@ -1,4 +1,4 @@
-export const SITE_URL = 'localhost';
+export const SITE_URL = 'https://www.khatishodai.com/';
 export const SITE_NAME = 'Martfury ';
 export const AUTHOR = 'Nouthemes';
 export const CREATOR_ID = 'Nouthemes';
@@ -33,7 +33,7 @@ export default function getHeadData(path) {
 export const generatePageMetadata = (seoData) => ({
     title: seoData.title,
     description: seoData.desc,
-    metadataBase: 'http://localhost:3000',
+    metadataBase: 'https://www.khatishodai.com/',
     generator: AUTHOR,
     applicationName: SITE_NAME,
     referrer: 'origin-when-cross-origin',
