@@ -64,7 +64,8 @@ export default function Page() {
                                                         href="mailto@contact@martfury.com"
                                                         className="ps-highlight">
                                                         <strong>
-                                                            {order.emailOrPhone}
+                                                            {/* {order.emailOrPhone} */}
+                                                            info@khatishodai.com
                                                         </strong>
                                                     </a>
                                                 </p>
