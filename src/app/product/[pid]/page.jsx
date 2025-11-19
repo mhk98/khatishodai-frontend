@@ -13,6 +13,7 @@ import HeaderMobileProduct from '~/components/shared/header-mobile/HeaderMobileP
 import useGetProducts from '~/hooks/useGetProducts';
 import ProductWidgets from '~/components/partials/product/ProductWidgets';
 import { useGetDataByIdQuery } from '~/react-redux/features/products/products';
+import FooterSecond from '~/components/shared/footers/FooterSecond';
 
 const ProductDefaultPage = () => {
     const params = useParams();
@@ -92,7 +93,8 @@ const ProductDefaultPage = () => {
                     {/* <RelatedProduct /> */}
                 </div>
             </div>
-            <Newletters />
+            {/* <Newletters /> */}
+            <FooterSecond />
         </PageContainer>
     );
 };

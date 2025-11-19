@@ -1,116 +1,136 @@
+// "use client";
 // import React, { useEffect, useState } from 'react';
 // import { useCreateCartMutation, useGetAllCartQuery } from '~/react-redux/features/cart/cart';
 // import { getUserInfo, isLoggedIn } from '~/components/services/auth.service';
 // import { useRouter } from 'next/navigation';
 // import { notification } from 'antd';
 
-// const ModuleDetailShoppingActions = ({product}) => {
-//     // const [quantity, setQuantity] = useState(1);
-//     const router = useRouter();
-//       const userLoggedIn = isLoggedIn();
-//     const token = getUserInfo();
-//     const id = token?.userId; // user id যদি থাকে
+// const ModuleDetailShoppingActions = ({ product }) => {
+//   const router = useRouter();
+//   const userLoggedIn = isLoggedIn();
+//   const token = getUserInfo();
+//   const id = token?.userId;
 
+//   const { data, isLoading, isError, error } = useGetAllCartQuery();
+//   const [cart, setCart] = useState([]);
+//   const [createCart] = useCreateCartMutation();
 
-//     const { data, isLoading, isError, error } = useGetAllCartQuery();
-//     const [cart, setCart] = useState([]);
-  
+//   // Load cart from API or localStorage
+//   // useEffect(() => {
+//   //   if (isError) {
+//   //     console.error("Error fetching cart data:", error);
+//   //   } else if (!isLoading) {
+//   //     const apiCart = data?.data || [];
+//   //     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//   //     // Merge API cart and localStorage cart (remove duplicates)
+//   //     const mergedCart = [...apiCart];
+//   //     storedCart.forEach(item => {
+//   //       if (!mergedCart.some(i => Number(i.product_id) === Number(item.product_id))) {
+//   //         mergedCart.push(item);
+//   //       }
+//   //     });
+//   //     setCart(mergedCart);
+//   //     localStorage.setItem("cart", JSON.stringify(mergedCart));
+//   //   }
+//   // }, [data, isLoading, isError, error]);
+
+//    // ✅ LocalStorage থেকে cart লোড করো
 //     useEffect(() => {
-//       if (isError) {
-//         // Handle error, you can log it or display an error message.
-//         console.error2("Error fetching cart data:", error);
-//       } else if (!isLoading) {
-//         // Only set the cart if there is data and it's not already set to avoid infinite re-renders.
-//         if (data && data.data) {
-//           setCart(data.data);
-//         }
-//       }
-//     }, [data, isLoading, isError, error]);
+//       const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//       setCart(storedCart);
+//     }, []);
+
+
+//      const handleAddItemToCart = async (product) => {
+//           // ✅ Check login first
+//           if (!userLoggedIn) {
+//               router.push("/account/login");
+//               return;
+//           }
   
-//     const [createCart] = useCreateCartMutation();
-    
-//  const handleAddItemToCart = async(product) => {
-//     console.log('productAction', product)
-//     if (cart.some((item) => Number(item.product_id) === Number(product.id))) {
-//       notification.warning({
-//               message: "Already in cart",
-//               description: "This product is already in your cart.",
-//             });
-//     } else if(!userLoggedIn){
-//       router.push("/account/login");
-
-//     }else {
-//       // Create a new cart with the added product
-//       const updatedCart = [...cart, product];
-
-//       setCart(updatedCart);
-//       const data = {
-//         title: product.title,
-//         price: product.price,
-//         default_image: product.default_image,
-//         weight:1,
-//         product_id:product.id,
-//         user_id:id,
-       
-//       };
-
-
-//        try {
-//               const res = await createCart(data);
-//               console.log("createCart response:", res);
-      
-//               if (res?.data?.success) {
-//                 localStorage.setItem("cart", JSON.stringify(updatedCart));
-      
-//                 notification.success({
-//                   message: "Success",
-//                   description: "Product added to your cart successfully!",
-//                 });
-//               } else {
-//                 notification.error({
-//                   message: "Error",
-//                   description:
-//                     res?.error?.data?.message || "Failed to add product to cart.",
-//                 });
-//               }
-//             } catch (err) {
-//               console.error("Cart add error:", err);
-//               notification.error({
-//                 message: "Error",
-//                 description: "Something went wrong while adding to cart.",
+//           // ✅ Ensure same ID type (int comparison)
+//           const alreadyInCart = cart.some(
+//               (item) => Number(item.product_id) === Number(product.id)
+//           );
+  
+//           if (alreadyInCart) {
+//               notification.warning({
+//                   message: "Already in cart",
+//                   description: "This product is already in your cart.",
 //               });
-//             }
-//     }
-//   };
-
-
-//     return (
-//         <div className="ps-product__shopping extend">
-//             <div className="ps-product__btn-group">
+//               return;
+//           }
+  
+//           // ✅ New cart item
+//           const newCartItem = {
+//               title: product.title,
+//               price: product.price,
+//               default_image: product.default_image,
+//               weight: 1,
+//               quantity: 1,
+//               product_id: product.id,
+//               user_id: id,
+//           };
+  
+//           try {
+//               const res = await createCart(newCartItem);
+  
+//               if (res?.data?.success) {
+//                   notification.success({
+//                       message: "Success",
+//                       description: "Product added to your cart successfully!",
+//                   });
+  
+//                   // ✅ Update local state instantly
+//                   setCart((prev) => [...prev, newCartItem]);
+  
+//                   // ✅ Refresh data from server to stay synced
+//                   await refetch();
+//               } else {
+//                   notification.error({
+//                       message: "Error",
+//                       description:
+//                           res?.error?.data?.message ||
+//                           "Failed to add product to cart.",
+//                   });
+//               }
+//           } catch (err) {
+//               console.error("Cart add error:", err);
+//           }
+//       };
+//   return (
+//      <div className="ps-product__shopping">
+//                 <figure>
+//                     <figcaption>Quantity</figcaption>
+//                     <div className="form-group--number">
+//                         <button
+//                             className="up"
+//                             onClick={(e) => handleIncreaseItemQty(e)}>
+//                             <i className="fa fa-plus" />
+//                         </button>
+//                         <button
+//                             className="down"
+//                             onClick={(e) => handleDecreaseItemQty(e)}>
+//                             <i className="fa fa-minus" />
+//                         </button>
+//                         <input
+//                             className="form-control"
+//                             type="text"
+//                             placeholder={quantity}
+//                             disabled
+//                         />
+//                     </div>
+//                 </figure>
 //                 <a
 //                     className="ps-btn ps-btn--black"
-//                             type="button"
-
-//                     // onClick={() => handleAddItemToCart(product)}
-//                     onClick={() => handleAddItemToCart(product)}>
-                    
+//                     type="button"
+//                     onClick={() => handleAddItemToCart(product)}
+//                     >
 //                     Add to cart
 //                 </a>
-//                 {/* <div className="ps-product__actions">
-//                     <a href="#" onClick={(e) => handleAddItemToWishlist(e)}>
-//                         <i className="icon-heart" />
-//                     </a>
-//                     <a href="#" onClick={(e) => handleAddItemToCompare(e)}>
-//                         <i className="icon-chart-bars" />
-//                     </a>
-//                 </div> */}
 //             </div>
-//         </div>
-//     );
+//   );
 // };
-
-// // export default connect((state) => state)(ModuleDetailShoppingActions);
-
 
 // export default ModuleDetailShoppingActions;
 
@@ -123,170 +143,119 @@ import { useRouter } from 'next/navigation';
 import { notification } from 'antd';
 
 const ModuleDetailShoppingActions = ({ product }) => {
-  const router = useRouter();
-  const userLoggedIn = isLoggedIn();
-  const token = getUserInfo();
-  const id = token?.userId;
+    const router = useRouter();
+    const userLoggedIn = isLoggedIn();
+    const token = getUserInfo();
+    const id = token?.userId;
 
-  const { data, isLoading, isError, error } = useGetAllCartQuery();
-  const [cart, setCart] = useState([]);
-  const [createCart] = useCreateCartMutation();
+    const { data, isLoading, isError, error, refetch } = useGetAllCartQuery();
+    const [cart, setCart] = useState([]);
+    const [createCart] = useCreateCartMutation();
 
-  // Load cart from API or localStorage
-  // useEffect(() => {
-  //   if (isError) {
-  //     console.error("Error fetching cart data:", error);
-  //   } else if (!isLoading) {
-  //     const apiCart = data?.data || [];
-  //     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-  //     // Merge API cart and localStorage cart (remove duplicates)
-  //     const mergedCart = [...apiCart];
-  //     storedCart.forEach(item => {
-  //       if (!mergedCart.some(i => Number(i.product_id) === Number(item.product_id))) {
-  //         mergedCart.push(item);
-  //       }
-  //     });
-  //     setCart(mergedCart);
-  //     localStorage.setItem("cart", JSON.stringify(mergedCart));
-  //   }
-  // }, [data, isLoading, isError, error]);
+    // Quantity state
+    const [quantity, setQuantity] = useState(1);
 
-   // ✅ LocalStorage থেকে cart লোড করো
+    // Load cart from LocalStorage
     useEffect(() => {
-      const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-      setCart(storedCart);
+        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setCart(storedCart);
     }, []);
 
-  // const handleAddItemToCart = async (product) => {
-  //   if (!product?.id) {
-  //     notification.error({
-  //       message: "Invalid Product",
-  //       description: "Product information is missing.",
-  //     });
-  //     return;
-  //   }
+    // Increase Quantity
+    const handleIncreaseItemQty = () => {
+        setQuantity((prev) => prev + 1);
+    };
 
-  //   const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    // Decrease Quantity
+    const handleDecreaseItemQty = () => {
+        if (quantity > 1) {
+            setQuantity((prev) => prev - 1);
+        }
+    };
 
-  //   // Already in cart check
-  //   if (storedCart.some(item => Number(item.product_id) === Number(product.id))) {
-  //     notification.warning({
-  //       message: "Already in cart",
-  //       description: "This product is already in your cart.",
-  //     });
-  //     return;
-  //   }
+    // Add to Cart
+    const handleAddItemToCart = async (product) => {
+        if (!userLoggedIn) {
+            router.push("/account/login");
+            return;
+        }
 
-  //   // Login check
-  //   if (!userLoggedIn) {
-  //     router.push("/account/login");
-  //     return;
-  //   }
+        const alreadyInCart = cart.some(
+            (item) => Number(item.product_id) === Number(product.id)
+        );
 
-  //   const newCartItem = {
-  //     title: product.title,
-  //     price: product.price,
-  //     default_image: product.default_image,
-  //     weight: 1,
-  //     quantity: 1,
-  //     product_id: product.id,
-  //     user_id: id,
-  //   };
+        if (alreadyInCart) {
+            notification.warning({
+                message: "Already in cart",
+                description: "This product is already in your cart.",
+            });
+            return;
+        }
 
-  //   const updatedCart = [...storedCart, newCartItem];
-  //   setCart(updatedCart);
-  //   localStorage.setItem("cart", JSON.stringify(updatedCart));
+        const newCartItem = {
+            title: product.title,
+            price: product.price,
+            default_image: product.default_image,
+            weight: quantity,
+            quantity: quantity,
+            product_id: product.id,
+            user_id: id,
+        };
 
-  //   try {
-  //     await createCart(newCartItem).unwrap();
-  //     notification.success({
-  //       message: "Success",
-  //       description: "Product added to your cart successfully!",
-  //     });
-  //   } catch (err) {
-  //     console.error("Cart add error:", err);
-  //     notification.error({
-  //       message: "Error",
-  //       description: err?.data?.message || "Failed to add product to cart.",
-  //     });
-  //   }
-  // };
+        try {
+            const res = await createCart(newCartItem);
 
+            if (res?.data?.success) {
+                notification.success({
+                    message: "Success",
+                    description: "Product added to your cart successfully!",
+                });
 
-     const handleAddItemToCart = async (product) => {
-          // ✅ Check login first
-          if (!userLoggedIn) {
-              router.push("/account/login");
-              return;
-          }
-  
-          // ✅ Ensure same ID type (int comparison)
-          const alreadyInCart = cart.some(
-              (item) => Number(item.product_id) === Number(product.id)
-          );
-  
-          if (alreadyInCart) {
-              notification.warning({
-                  message: "Already in cart",
-                  description: "This product is already in your cart.",
-              });
-              return;
-          }
-  
-          // ✅ New cart item
-          const newCartItem = {
-              title: product.title,
-              price: product.price,
-              default_image: product.default_image,
-              weight: 1,
-              quantity: 1,
-              product_id: product.id,
-              user_id: id,
-          };
-  
-          try {
-              const res = await createCart(newCartItem);
-  
-              if (res?.data?.success) {
-                  notification.success({
-                      message: "Success",
-                      description: "Product added to your cart successfully!",
-                  });
-  
-                  // ✅ Update local state instantly
-                  setCart((prev) => [...prev, newCartItem]);
-  
-                  // ✅ Refresh data from server to stay synced
-                  await refetch();
-              } else {
-                  notification.error({
-                      message: "Error",
-                      description:
-                          res?.error?.data?.message ||
-                          "Failed to add product to cart.",
-                  });
-              }
-          } catch (err) {
-              console.error("Cart add error:", err);
-              // notification.error({
-              //     message: "Error",
-              //     description: "Something went wrong while adding to cart.",
-              // });
-          }
-      };
-  return (
-    <div className="ps-product__shopping extend">
-      <div className="ps-product__btn-group">
-        <button
-          className="ps-btn ps-btn--black"
-          type="button"
-          onClick={() => handleAddItemToCart(product)}
-        >
-          Add to cart
-        </button>
-      </div>
-    </div>
-  );
+                setCart((prev) => [...prev, newCartItem]);
+
+                await refetch();
+            } else {
+                notification.error({
+                    message: "Error",
+                    description:
+                        res?.error?.data?.message || "Failed to add product to cart.",
+                });
+            }
+        } catch (err) {
+            console.error("Cart add error:", err);
+        }
+    };
+
+    return (
+        <div className="ps-product__shopping">
+            <figure>
+                <figcaption>Quantity</figcaption>
+                <div className="form-group--number">
+                    <button className="up" onClick={handleIncreaseItemQty}>
+                        <i className="fa fa-plus" />
+                    </button>
+
+                    <button className="down" onClick={handleDecreaseItemQty}>
+                        <i className="fa fa-minus" />
+                    </button>
+
+                    <input
+                        className="form-control"
+                        type="text"
+                        value={quantity}
+                        readOnly
+                    />
+                </div>
+            </figure>
+
+            <a
+                className="ps-btn ps-btn--black"
+                onClick={() => handleAddItemToCart(product)}
+            >
+                Add to cart
+            </a>
+        </div>
+    );
 };
 
 export default ModuleDetailShoppingActions;

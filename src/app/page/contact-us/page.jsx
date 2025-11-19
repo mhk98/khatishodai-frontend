@@ -7,6 +7,7 @@ import ContactMap from '~/components/partials/page/ContactMap';
 import FooterDefault from '~/components/shared/footers/FooterDefault';
 import PageContainer from '~/components/layouts/PageContainer';
 import Newletters from '~/components/partials/commons/Newletters';
+import FooterSecond from '~/components/shared/footers/FooterSecond';
 
 export default function Page() {
     const breadCrumb = [
@@ -25,9 +26,10 @@ export default function Page() {
                 <BreadCrumb breacrumb={breadCrumb} />
                 <ContactMap />
                 <ContactInfo />
-                <ContactForm />
+                {/* <ContactForm /> */}
             </div>
-            <Newletters layout="container" />
+            {/* <Newletters layout="container" /> */}
+            
         </PageContainer>
     );
 }

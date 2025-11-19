@@ -13,19 +13,18 @@ const ContactInfo = () => (
                             <h4>Contact Directly</h4>
                             <p>
                                 <a href="mailto:contact@martfury.com">
-                                    contact@martfury.com
+                                    contact@khatishodai.com
                                 </a>
-                                <span>(+004) 912-3548-07</span>
+                                <span>+880 1643363229</span>
                             </p>
                         </div>
                     </div>
                     <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                         <div className="ps-block--contact-info">
-                            <h4>Head Quater</h4>
+                            <h4>Head Office</h4>
                             <p>
                                 <span>
-                                    17 Queen St, Southbank, Melbourne 10560,
-                                    Australia
+                                    Police plaza Concord ( level -5, Tower- 2),Community Bank, Corporate Branch,Plot- 2,Road -144,Gulshan-1,Dhaka-1212
                                 </span>
                             </p>
                         </div>
@@ -35,7 +34,7 @@ const ContactInfo = () => (
                             <h4>Work With Us</h4>
                             <p>
                                 <span>Send your CV to our email:</span>
-                                <a href="#">career@martfury.com</a>
+                                <a href="#">career@khatishodai.com</a>
                             </p>
                         </div>
                     </div>
@@ -43,8 +42,8 @@ const ContactInfo = () => (
                         <div className="ps-block--contact-info">
                             <h4>Customer Service</h4>
                             <p>
-                                <a href="#">customercare@martfury.com</a>
-                                <span>(800) 843-2446</span>
+                                <a href="#">customercare@khatishodai.com</a>
+                                <span>+880 1643363229</span>
                             </p>
                         </div>
                     </div>
@@ -52,20 +51,20 @@ const ContactInfo = () => (
                         <div className="ps-block--contact-info">
                             <h4>Media Relations</h4>
                             <p>
-                                <a href="#">media@martfury.com</a>
-                                <span>(801) 947-3564</span>
+                                <a href="#">media@khatishodai.com</a>
+                                <span>+880 1643363229</span>
                             </p>
                         </div>
                     </div>
-                    <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                    {/* <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                         <div className="ps-block--contact-info">
                             <h4>Vendor Support</h4>
                             <p>
-                                <a href="#">vendorsupport@martfury.com</a>
+                                <a href="#">vendorsupport@khatishodai.com</a>
                                 <span>(801) 947-3100</span>
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

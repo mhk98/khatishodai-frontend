@@ -42,6 +42,33 @@ const ModuleDetailTopInformation = ({ product }) => {
         return title || 'Untitled Product';
     }, [title]);
 
+
+        const [reviews, setReviews] = useState([]);
+    
+        // Load existing reviews
+        const fetchReviews = async () => {
+            try {
+                const res = await fetch(
+                    `https://backend.eaconsultancy.info/api/v1/review/${product.id}`
+                );
+                const data = await res.json();
+                console.log('fetchReviews', data);
+                if (data) {
+                    setReviews(data?.data || []);
+                } else {
+                    console.error('Failed to load reviews');
+                }
+            } catch (err) {
+                console.error('Error loading reviews:', err);
+            }
+        };
+
+            useEffect(() => {
+                if (product?.id) {
+                    fetchReviews();
+                }
+            }, [product?.id]);
+
     return (
         <header>
             <h1>{productTitle}</h1>
@@ -54,7 +81,7 @@ const ModuleDetailTopInformation = ({ product }) => {
                 </p>
                 <div className="ps-product__rating">
                     <Rating />
-                    <span>(1 review)</span>
+                    <span>({reviews.length} review)</span>
                 </div>
             </div>
              {productPrice}

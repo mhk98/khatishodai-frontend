@@ -410,6 +410,7 @@ import ModuleShopSortBy from '~/components/partials/shop/modules/ModuleShopSortB
 import SkeletonProduct from '~/components/elements/skeletons/SkeletonProduct';
 import BreadCrumb from '~/components/elements/BreadCrumb';
 import { useGetAllProductQuery } from '~/react-redux/features/products/products';
+import FooterSecond from '~/components/shared/footers/FooterSecond';
 
 const breadCrumb = [
     { text: 'Home', url: '/' },
@@ -554,7 +555,8 @@ const productsContent = isLoading ? (
                     </div>
                 </div>
             </div>
-            <Newletters layout="container" />
+            {/* <Newletters layout="container" /> */}
+            <FooterSecond classes="mt-4" />
         </PageContainer>
     );
 }

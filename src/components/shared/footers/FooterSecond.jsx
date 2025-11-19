@@ -49,13 +49,13 @@ const FooterSecond = ({ classes }) => (
                                                 About Us
                                             </Link>
                                         </li>
-                                        <li>
+                                        {/* <li>
                                             <Link href="/product/affiliate">
                                                 Affilate
                                             </Link>
-                                        </li>
+                                        </li> */}
                                         <li>
-                                            <Link href="/page/blank">
+                                            <Link href="/page/contact-us">
                                                 Career
                                             </Link>
                                         </li>

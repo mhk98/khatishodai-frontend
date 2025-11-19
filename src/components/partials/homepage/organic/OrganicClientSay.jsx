@@ -116,7 +116,7 @@ class OrganicClientSay extends Component {
                             <div className="ps-block--testimonial">
                                 <div className="ps-block__header">
                                     <img
-                                        src="/static/img/users/2.png"
+                                        src="/static/img/users/2.jpg"
                                         alt="martfury"
                                     />
                                 </div>
@@ -144,7 +144,7 @@ class OrganicClientSay extends Component {
                                 <div className="ps-block__content">
                                     <i className="icon-quote-close" />
                                     <h4>
-                                        William Roles
+                                        Javed Ali Khan
                                         <span>Head Chef at BBQ Restaurant</span>
                                     </h4>
                                     <p>

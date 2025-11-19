@@ -154,11 +154,13 @@ const OnHeaderProduct = ({ product }) => {
       return;
     }
 
-    // ✅ লগইন চেক
-    if (!userLoggedIn) {
-      router.push("/account/login");
-      return;
-    }
+   // ✅ Redirect to login if not logged in
+if (!userLoggedIn) {
+  alert("Please login first!");
+  router.push("/account/login");
+  return;
+}
+
 
     const newCartItem = {
       title: product.title,

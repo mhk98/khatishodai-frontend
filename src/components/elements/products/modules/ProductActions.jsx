@@ -151,11 +151,13 @@ const ProductActions = ({ product }) => {
     }, [data, isLoading, isError, error]);
 
     const handleAddItemToCart = async (product) => {
-        // ✅ Check login first
-        if (!userLoggedIn) {
-            router.push("/account/login");
-            return;
-        }
+       // ✅ Redirect to login if not logged in
+if (!userLoggedIn) {
+  alert("Please login first!");
+  router.push("/account/login");
+  return;
+}
+
 
         // ✅ Ensure same ID type (int comparison)
         const alreadyInCart = cart.some(

@@ -3,13 +3,16 @@ import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
 import useGetProducts from '~/hooks/useGetProducts';
-import { useGetAllCartQuery } from '~/react-redux/features/cart/cart';
+import { useGetAllCartQuery, useGetCartDataByIdQuery } from '~/react-redux/features/cart/cart';
+import { getUserInfo } from '~/components/services/auth.service';
 
 const ModulePaymentOrderSummary = ({  shipping }) => {
     // const cartItems = useSelector(({ ecomerce }) => ecomerce.cartItems);
     // const { getStrapiProducts, products } = useGetProducts();
+const token = getUserInfo();
+    const userId = token?.userId;
 
-    const { data } = useGetAllCartQuery();
+    const { data, isLoading } = useGetCartDataByIdQuery(userId);
         const products = data?.data || [];
 
 //    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];

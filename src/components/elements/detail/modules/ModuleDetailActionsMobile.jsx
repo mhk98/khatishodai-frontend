@@ -126,10 +126,12 @@ const ModuleDetailActionsMobile = ({ product }) => {
     }
 
     // ✅ Redirect to login if not logged in
-    if (!userLoggedIn) {
-      router.push("/account/login");
-      return;
-    }
+if (!userLoggedIn) {
+  alert("Please login first!");
+  router.push("/account/login");
+  return;
+}
+
 
     const newCartItem = {
       title: product.title,
