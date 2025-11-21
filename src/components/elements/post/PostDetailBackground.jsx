@@ -11,7 +11,7 @@
 //             const fetchBlogs = async () => {
 //                 try {
 //                     const response = await fetch(
-//                         `https://backend.eaconsultancy.info/api/v1/blog/${id}`
+//                         `http://localhost:5000/api/v1/blog/${id}`
 //                     );
 //                     if (!response.ok) {
 //                         throw new Error('Network response was not ok');
@@ -44,7 +44,7 @@
 //         <div
 //             className="ps-post__header bg--parallax"
 
-//               style={{backgroundImage: `url(https://backend.eaconsultancy.info/${post?.image1})`}}>
+//               style={{backgroundImage: `url(http://localhost:5000/${post?.image1})`}}>
 
         
 //             <div className="container">
@@ -82,7 +82,7 @@ const PostDetailBackground = ({ id }) => {
     const fetchBlog = async () => {
       try {
         const response = await fetch(
-          `https://backend.eaconsultancy.info/api/v1/blog/${id}`
+          `http://localhost:5000/api/v1/blog/${id}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -122,7 +122,7 @@ const PostDetailBackground = ({ id }) => {
       <div
   className="ps-post__header bg--parallax"
   style={{
-    backgroundImage: `url(https://backend.eaconsultancy.info/${cleanImagePath})`,
+    backgroundImage: `url(http://localhost:5000/${cleanImagePath})`,
   }}
 >
 

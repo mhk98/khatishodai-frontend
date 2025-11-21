@@ -53,7 +53,7 @@
 //         const fetchUserInfo = async () => {
 //             try {
 //                 const res = await fetch(
-//                     `https://backend.eaconsultancy.info/api/v1/user/${userId}`
+//                     `http://localhost:5000/api/v1/user/${userId}`
 //                 );
 //                 const data = await res.json();
 
@@ -98,7 +98,7 @@
 //                         <div className="ps-section__left">
 //                             <aside className="ps-widget--account-dashboard">
 //                                 <div className="ps-widget__header">
-//                                     <img src={`https://backend.eaconsultancy.info/${user?.image}`} />
+//                                     <img src={`http://localhost:5000/${user?.image}`} />
 //                                     <figure>
 //                                         <figcaption>{user?.FirstName} {user?.LastName}</figcaption>
 //                                         <p>{user?.Email}</p>
@@ -147,6 +147,8 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import FormChangeUserInformation from '~/components/shared/FormChangeUserInformation';
+import { getUserInfo, removeUserInfo } from '~/components/services/auth.service';
+import { useRouter } from 'next/navigation';
 
 
 const UserInformation = () => {
@@ -164,19 +166,22 @@ const UserInformation = () => {
         },
     ];
 
-    const [userId, setUserId] = useState(null);
+     const token = getUserInfo();
+    const id = token?.userId; // ✅ user_id fix করা হলো
+
+    // const [userId, setUserId] = useState(null);
     const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        const storedUserId = localStorage.getItem('userId');
-        setUserId(storedUserId);
-    }, []);
+    // useEffect(() => {
+    //     const storedUserId = localStorage.getItem('userId');
+    //     setUserId(storedUserId);
+    // }, []);
 
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
                 const res = await fetch(
-                    `https://backend.eaconsultancy.info/api/v1/user/${userId}`
+                    `http://localhost:5000/api/v1/user/${id}`
                 );
                 const data = await res.json();
 
@@ -188,8 +193,14 @@ const UserInformation = () => {
             }
         };
 
-        if (userId) fetchUserInfo();
-    }, [userId]);
+        if (id) fetchUserInfo();
+    }, [id]);
+
+        const Router = useRouter()
+        const handleLogout = () => {
+            removeUserInfo('accessToken')
+            Router.push('/account/login');
+        };
 
     return (
         <section className="ps-my-account ps-page--account">
@@ -201,7 +212,7 @@ const UserInformation = () => {
                                 <div className="ps-widget__header">
                                     {user?.image && (
                                         <img
-                                            src={`https://backend.eaconsultancy.info/${user.image}`}
+                                            src={`http://localhost:5000/${user.image}`}
                                             alt="User"
                                         />
                                     )}
@@ -212,7 +223,7 @@ const UserInformation = () => {
                                         <p>{user?.Email}</p>
                                     </figure>
                                 </div>
-                                <div className="ps-widget__content">
+                                {/* <div className="ps-widget__content">
                                     <ul className="ps-list--user-links">
                                         {accountLinks.map((link) => (
                                             <li
@@ -227,13 +238,36 @@ const UserInformation = () => {
                                             </li>
                                         ))}
                                         <li>
-                                            <Link href="/account/my-account">
+                                            <Link onClick={ handleLogout}>
                                                 <i className="icon-power-switch" />
                                                 Logout
                                             </Link>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> */}
+                                <div className="ps-widget__content">
+  <ul className="ps-list--user-links">
+    {accountLinks.map((link) => (
+      <li key={link.text} className={link.active ? 'active' : ''}>
+        <Link href={link.url}>
+          <i className={link.icon} />
+          {link.text}
+        </Link>
+      </li>
+    ))}
+    <li>
+      <a
+        type="button"
+        onClick={handleLogout}
+        className="flex items-center gap-2 text-left w-full"
+      >
+        <i className="icon-power-switch" />
+        Logout
+      </a>
+    </li>
+  </ul>
+</div>
+
                             </aside>
                         </div>
                     </div>

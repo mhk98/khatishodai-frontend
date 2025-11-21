@@ -52,7 +52,7 @@ export default function Page() {
             url: '/',
         },
         {
-            text: 'Notifications',
+            text: 'Order',
         },
     ];
 

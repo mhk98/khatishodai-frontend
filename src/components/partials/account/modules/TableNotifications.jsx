@@ -28,7 +28,7 @@
 //     //   key: 'thumbnailImage',
 //     //   render: (img, record) => (
 //     //     <img
-//     //       src={`https://backend.eaconsultancy.info${img}`}
+//     //       src={`http://localhost:5000${img}`}
 //     //       alt={record.title}
 //     //       className="h-12 w-12 object-cover rounded"
 //     //     />
@@ -76,16 +76,19 @@
 
 import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
+import { getUserInfo } from '~/components/services/auth.service';
 
 const TableNotifications = () => {
   const [order, setOrder] = useState(null);
-  const userId = typeof window !== 'undefined' ? localStorage.getItem('userId') : null;
+
+  const token = getUserInfo();
+          const id = token?.userId; // ✅ user_id fix করা হলো
 
   // Fetch order data
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
+        const res = await fetch(`http://localhost:5000/api/v1/order/${id}`);
         const json = await res.json();
 
         if (res.ok && json.data) {
@@ -100,8 +103,8 @@ const TableNotifications = () => {
       }
     };
 
-    if (userId) fetchOrder();
-  }, [userId]);
+    if (id) fetchOrder();
+  }, [id]);
 
   // Ensure cartProducts exists
   const cartProducts = order?.cartProducts || [];

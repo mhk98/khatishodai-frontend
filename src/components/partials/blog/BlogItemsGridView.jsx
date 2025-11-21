@@ -42,7 +42,7 @@ const BlogItemsGridView = ({ collectionSlug, columns }) => {
             const fetchBlogs = async () => {
                 try {
                     const response = await fetch(
-                        'https://backend.eaconsultancy.info/api/v1/blog'
+                        'http://localhost:5000/api/v1/blog'
                     );
                     if (!response.ok) {
                         throw new Error('Network response was not ok');

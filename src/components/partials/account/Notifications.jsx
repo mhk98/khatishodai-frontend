@@ -50,7 +50,7 @@
 //   useEffect(() => {
 //     const fetchOrder = async () => {
 //         try {
-//             const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
+//             const res = await fetch(`http://localhost:5000/api/v1/order/${userId}`);
 //             const json = await res.json();
 
 //             if (res.ok && json.data) {
@@ -107,6 +107,7 @@
 import React, { useEffect, useState } from 'react';
 import AccountMenuSidebar from './modules/AccountMenuSidebar';
 import TableNotifications from './modules/TableNotifications';
+import { getUserInfo } from '~/components/services/auth.service';
 
 export default function Notifications() {
     const accountLinks = [
@@ -123,18 +124,21 @@ export default function Notifications() {
         },
     ];
 
-    const [userId, setUserId] = useState(null);
+    // const [userId, setUserId] = useState(null);
     const [order, setOrder] = useState(null);
 
-    useEffect(() => {
-        const storedUserId = localStorage.getItem('userId');
-        setUserId(storedUserId);
-    }, []);
+    // useEffect(() => {
+    //     const storedUserId = localStorage.getItem('userId');
+    //     setUserId(storedUserId);
+    // }, []);
+
+     const token = getUserInfo();
+        const id = token?.userId; // ✅ user_id fix করা হলো
 
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${userId}`);
+                const res = await fetch(`http://localhost:5000/api/v1/order/${id}`);
                 const json = await res.json();
 
                 if (res.ok && json.data) {
@@ -149,10 +153,10 @@ export default function Notifications() {
             }
         };
 
-        if (userId) {
+        if (id) {
             fetchOrder();
         }
-    }, [userId]);
+    }, [id]);
 
     return (
         <section className="ps-my-account ps-page--account">

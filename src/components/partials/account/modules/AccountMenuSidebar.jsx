@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { getUserInfo, removeUserInfo } from '~/components/services/auth.service';
+import { useRouter } from 'next/navigation';
 
 const AccountMenuSidebar = ({ data }) => {
 
-            const userId = localStorage.getItem('userId');
+             const token = getUserInfo();
+               const id = token?.userId; // ✅ user_id fix করা হলো
+
         const [user, setUser] = useState(null);
     
         
@@ -12,7 +16,7 @@ const AccountMenuSidebar = ({ data }) => {
             const fetchUserInfo = async () => {
                 try {
                     const res = await fetch(
-                        `https://backend.eaconsultancy.info/api/v1/user/${userId}`
+                        `http://localhost:5000/api/v1/user/${id}`
                     );
                     const data = await res.json();
     
@@ -34,16 +38,28 @@ const AccountMenuSidebar = ({ data }) => {
                 }
             };
     
-            if (userId) fetchUserInfo();
-        }, [userId]);
+            if (id) fetchUserInfo();
+        }, [id]);
     
         console.log('user information', user);
+
+         const Router = useRouter()
+        const handleLogout = () => {
+            removeUserInfo('accessToken')
+            Router.push('/account/login');
+    
+        };
 
 
     return (
      <aside className="ps-widget--account-dashboard">
         <div className="ps-widget__header">
-                                                <img src={`https://backend.eaconsultancy.info/${user?.image}`} />
+                                                {user?.image && (
+                                        <img
+                                            src={`http://localhost:5000/${user.image}`}
+                                            alt="User"
+                                        />
+                                    )}
 
             <figure>
                 <figcaption>{user?.FirstName} {user?.LastName}</figcaption>
@@ -61,7 +77,14 @@ const AccountMenuSidebar = ({ data }) => {
                     </li>
                 ))}
                 <li>
-                    <Link href="/account/my-account">Logout</Link>
+                    <a
+        type="button"
+        onClick={handleLogout}
+        className="flex items-center gap-2 text-left w-full"
+      >
+        <i className="icon-power-switch" />
+        Logout
+      </a>
                 </li>
             </ul>
         </div>

@@ -81,7 +81,7 @@
 
 //         try {
 //             const response = await fetch(
-//                 `https://backend.eaconsultancy.info/api/v1/user/${userId}`,
+//                 `http://localhost:5000/api/v1/user/${userId}`,
 //                 {
 //                     method: 'PUT',
 //                     headers: {
@@ -217,6 +217,7 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, notification, Upload, Avatar } from 'antd';
 import { UploadOutlined, UserOutlined } from '@ant-design/icons';
+import { getUserInfo } from '../services/auth.service';
 
 const FormChangeUserInformation = () => {
     const [form] = Form.useForm();
@@ -227,7 +228,8 @@ const FormChangeUserInformation = () => {
     console.log('imageFile', imageFile);
     console.log('previewUrl', previewUrl);
 
-    const userId = localStorage.getItem('userId');
+    const token = getUserInfo();
+    const id = token?.userId; // ✅ user_id fix করা হলো
 
     const handleUpdateUserInformation = async (values) => {
         const formData = new FormData();
@@ -245,7 +247,7 @@ const FormChangeUserInformation = () => {
 
         try {
             const response = await fetch(
-                `https://backend.eaconsultancy.info/api/v1/user/${userId}`,
+                `http://localhost:5000/api/v1/user/${id}`,
                 {
                     method: 'PUT',
                     body: formData,
