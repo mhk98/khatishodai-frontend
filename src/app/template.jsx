@@ -2,11 +2,11 @@
 import React from 'react';
 import PageLoader from '~/components/elements/common/PageLoader';
 import MobileNavigation from '~/components/shared/navigation/MobileNavigation';
-import { BackTop } from 'antd';
 import getHeadData, {
     generatePageMetadata,
 } from '~/utilities/seo/RoutePathsSEO';
 import Providers from '~/react-redux/provider';
+import GeminiChatbot from '~/components/GeminiChatbot/GeminiChatbot';
 
 export const metadata = generatePageMetadata(getHeadData('/'));
 
@@ -16,11 +16,14 @@ export default function Template({ children }) {
             {children}
             <PageLoader />
             <MobileNavigation />
-            <BackTop>
-                <button className="ps-btn--backtop">
-                    <i className="icon-arrow-up" />
-                </button>
-            </BackTop>
+            {/* <BackTop>
+               
+                  
+                    <WhatsAppButton className="ps-btn--backtop"/>
+                  
+               
+            </BackTop> */}
+            <GeminiChatbot className="ps-btn--backtop"/>
         </Providers>
     );
 }

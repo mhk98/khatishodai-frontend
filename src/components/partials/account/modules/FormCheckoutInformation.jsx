@@ -50,60 +50,69 @@ export default function FormCheckoutInformation() {
 
     const [createOrder, { isLoading, isError, isSuccess }] = useCreateOrderMutation();
 
-    // const handleSubmit = async (values) => {
-    //     try {
-    //         const data = {
-    //             ...values,
-    //             cartProducts,
-    //             total: amount,
-    //             paymentMethod,
-    //             user_id: token.userId,
-    //         };
 
-    //         console.log('Submitted Data:', data);
+//     const handleSubmit = async (values) => {
+//     try {
+//         const data = {
+//             ...values,
+//             cartProducts,
+//             total: amount,
+//             paymentMethod,
+//             user_id: token.userId,
+//         };
 
-    //         const res = await createOrder(data).unwrap();
-    //         console.log('res', res);
+//         console.log('Submitted Data:', data);
 
-    //         if (res.success) {
-    //             alert('Order created successfully!');
-    //             router.push('/account/order-success');
-    //             localstorage.removeItem('cart')
+//         const res = await createOrder(data).unwrap();
+//         console.log('res', res);
 
-    //         }
-    //     } catch (error) {
-    //         console.error('Error creating order:', error);
-    //         alert('Failed to create the order. Please try again.');
-    //     }
-    // };
+//         if (res.success) {
+//             alert('Order created successfully!');
+//             localStorage.removeItem('cart'); // ✅ Corrected
+//             refetch(); // Refetch cart data to update the UI
+//             router.push('/account/order-success');
+//         }
+//     } catch (error) {
+//         console.error('Error creating order:', error);
+//         alert('Failed to create the order. Please try again.');
+//     }
+// };
 
 
-    const handleSubmit = async (values) => {
+
+const handleSubmit = async (values) => {
     try {
+        // 🔵 If Online Payment selected → Show Not Available
+        if (method === 2) {
+            alert("Online payment is not available right now.");
+            return; // ❌ Stop Submission
+        }
+
+        // 🟢 Cash on Delivery → Create Order
         const data = {
             ...values,
             cartProducts,
             total: amount,
-            paymentMethod,
+            paymentMethod: "Cash On Delivery",
             user_id: token.userId,
         };
 
-        console.log('Submitted Data:', data);
+        console.log("Submitted Data:", data);
 
         const res = await createOrder(data).unwrap();
-        console.log('res', res);
 
         if (res.success) {
-            alert('Order created successfully!');
-            localStorage.removeItem('cart'); // ✅ Corrected
-            refetch(); // Refetch cart data to update the UI
-            router.push('/account/order-success');
+            alert("Order created successfully!");
+            localStorage.removeItem("cart");
+            refetch();
+            router.push("/account/order-success");
         }
     } catch (error) {
-        console.error('Error creating order:', error);
-        alert('Failed to create the order. Please try again.');
+        console.error("Error creating order:", error);
+        alert("Failed to create the order. Please try again.");
     }
 };
+
 
 
     return (

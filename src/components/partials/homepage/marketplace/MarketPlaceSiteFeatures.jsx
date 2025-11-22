@@ -18,7 +18,7 @@ const MarketPlaceSiteFeatures = () => (
                         <i className="icon-sync" />
                     </div>
                     <div className="ps-block__right">
-                        <h4>90 Days Return</h4>
+                        <h4>15 Days Return</h4>
                         <p>If goods have problems</p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const FooterSecond = ({ classes }) => (
     <footer className={`ps-footer ps-footer--2 ${classes}`}>
-        <div className="container">
+        <div className="container p-5">
             <div className="ps-footer__content">
                 <div className="row">
                     <div className="col-xl-8">
@@ -97,14 +97,13 @@ const FooterSecond = ({ classes }) => (
 
                     <div className="col-xl-4 col-md-6">
                         <aside className="widget widget_newletters">
-                            <h4 className="widget-title">Follow Us</h4>
-                            {/* <h4 className="widget-title">Newsletter</h4> */}
+                            <h4 className="widget-title">Newsletter</h4>
                             <form
                                 className="ps-form--newletter"
                                 action="#"
                                 method="get">
-
-                                {/* <div className="form-group--nest">
+                                    
+                                <div className="form-group--nest">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -113,7 +112,7 @@ const FooterSecond = ({ classes }) => (
                                     <button className="ps-btn">
                                         Subscribe
                                     </button>
-                                </div> */}
+                                </div>
 
                                 <ul className="ps-list--social">
                                     <li>
