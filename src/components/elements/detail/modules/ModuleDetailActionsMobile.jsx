@@ -1,5 +1,5 @@
 // "use client";
-// import React, { useState } from "react";
+// import React, { useState, useEffect } from "react";
 // import { useRouter } from "next/navigation";
 // import { notification } from "antd";
 // import { useCreateCartMutation } from "~/react-redux/features/cart/cart";
@@ -12,56 +12,71 @@
 
 //   const userLoggedIn = isLoggedIn();
 //   const token = getUserInfo();
-//   const id = token?.userId; // user id যদি থাকে
+//   const id = token?.userId;
 
-//   console.log("ModuleDetailActionsMobile", product)
+//   // ✅ Load existing cart from localStorage on component mount
+//   useEffect(() => {
+//     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+//     setCart(storedCart);
+//   }, []);
+
+//   // ✅ Handle Add to Cart
 //   const handleAddItemToCart = async (product) => {
-//     if (cart.some((item) => item.product_id === product.id)) {
+//     if (!product?.id) {
+//       notification.error({
+//         message: "Invalid Product",
+//         description: "Product information is missing.",
+//       });
+//       return;
+//     }
+
+//     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//     // ✅ Check if already in cart (from storedCart, not just state)
+//     if (storedCart.some((item) => Number(item.product_id) === Number(product.id))) {
 //       notification.warning({
 //         message: "Already in cart",
 //         description: "This product is already in your cart.",
 //       });
-//     } else if (!userLoggedIn) {
-//       router.push("/account/login");
-//     } else {
-//       const newCartItem = {
-//         title: product.title,
-//         price: product.price,
-//         default_image: product.default_image,
-//         weight: 1,
-//         quantity: 1,
-//         product_id: product.id, // product_id ফিল্ড backend এর সাথে match করানো হলো
-//         user_id: id,
-//       };
+//       return;
+//     }
 
-//       const updatedCart = [...cart, newCartItem];
-//       setCart(updatedCart);
+//     // ✅ Redirect to login if not logged in
+// // if (!userLoggedIn) {
+// //   alert("Please login first!");
+// //   router.push("/account/login");
+// //   return;
+// // }
 
-//       try {
-//         const res = await createCart(newCartItem);
-//         console.log("createCart response:", res);
 
-//         if (res?.data?.success) {
-//           localStorage.setItem("cart", JSON.stringify(updatedCart));
+//     const newCartItem = {
+//       title: product.title,
+//       price: product.price,
+//       default_image: product.default_image,
+//       weight: 1,
+//       quantity: 1,
+//       product_id: product.id,
+//       user_id: id,
+//     };
 
-//           notification.success({
-//             message: "Success",
-//             description: "Product added to your cart successfully!",
-//           });
-//         } else {
-//           notification.error({
-//             message: "Error",
-//             description:
-//               res?.error?.data?.message || "Failed to add product to cart.",
-//           });
-//         }
-//       } catch (err) {
-//         console.error("Cart add error:", err);
-//         notification.error({
-//           message: "Error",
-//           description: "Something went wrong while adding to cart.",
-//         });
-//       }
+//     const updatedCart = [...storedCart, newCartItem];
+//     setCart(updatedCart);
+//     localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+//     try {
+//       // ✅ Use unwrap() for cleaner async handling
+//       await createCart(newCartItem).unwrap();
+
+//       notification.success({
+//         message: "Success",
+//         description: "Product added to your cart successfully!",
+//       });
+//     } catch (err) {
+//       console.error("Cart add error:", err);
+//       // notification.error({
+//       //   message: "Error",
+//       //   description: err?.data?.message || "Failed to add product to cart.",
+//       // });
 //     }
 //   };
 
@@ -72,14 +87,13 @@
 //         className="ps-btn ps-btn--black"
 //         onClick={() => handleAddItemToCart(product)}
 //       >
-//         Add to cart
+//         Add to Cart
 //       </button>
 //     </div>
 //   );
 // };
 
 // export default ModuleDetailActionsMobile;
-
 
 
 "use client";
@@ -98,13 +112,17 @@ const ModuleDetailActionsMobile = ({ product }) => {
   const token = getUserInfo();
   const id = token?.userId;
 
-  // ✅ Load existing cart from localStorage on component mount
+  /* ---------------------------------------------------
+      LOAD CART FROM LOCAL STORAGE
+  --------------------------------------------------- */
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const storedCart = JSON.parse(localStorage.getItem("local_cart")) || [];
     setCart(storedCart);
   }, []);
 
-  // ✅ Handle Add to Cart
+  /* ---------------------------------------------------
+      ADD TO CART
+  --------------------------------------------------- */
   const handleAddItemToCart = async (product) => {
     if (!product?.id) {
       notification.error({
@@ -114,24 +132,16 @@ const ModuleDetailActionsMobile = ({ product }) => {
       return;
     }
 
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const storedCart = JSON.parse(localStorage.getItem("local_cart")) || [];
 
-    // ✅ Check if already in cart (from storedCart, not just state)
+    // Already in cart?
     if (storedCart.some((item) => Number(item.product_id) === Number(product.id))) {
       notification.warning({
-        message: "Already in cart",
+        message: "Already in Cart",
         description: "This product is already in your cart.",
       });
       return;
     }
-
-    // ✅ Redirect to login if not logged in
-if (!userLoggedIn) {
-  alert("Please login first!");
-  router.push("/account/login");
-  return;
-}
-
 
     const newCartItem = {
       title: product.title,
@@ -144,23 +154,33 @@ if (!userLoggedIn) {
     };
 
     const updatedCart = [...storedCart, newCartItem];
+
+    // Save to state + localStorage
     setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    localStorage.setItem("local_cart", JSON.stringify(updatedCart));
 
-    try {
-      // ✅ Use unwrap() for cleaner async handling
-      await createCart(newCartItem).unwrap();
+    // 🔥 VERY IMPORTANT — notify all cart components
+        window.dispatchEvent(new Event("local_cart_updated"));
 
+
+    // If logged-in → API call
+    if (userLoggedIn) {
+      try {
+        await createCart(newCartItem).unwrap();
+        notification.success({
+          message: "Success",
+          description: "Product added to your cart!",
+        });
+          window.dispatchEvent(new Event("local_cart_updated"));
+
+      } catch (err) {
+        console.error("Cart add error:", err);
+      }
+    } else {
       notification.success({
-        message: "Success",
-        description: "Product added to your cart successfully!",
+        message: "Added to Cart",
+        description: "Product added to your cart!",
       });
-    } catch (err) {
-      console.error("Cart add error:", err);
-      // notification.error({
-      //   message: "Error",
-      //   description: err?.data?.message || "Failed to add product to cart.",
-      // });
     }
   };
 
