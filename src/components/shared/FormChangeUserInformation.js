@@ -81,7 +81,7 @@
 
 //         try {
 //             const response = await fetch(
-//                 `http://localhost:5000/api/v1/user/${userId}`,
+//                 `https://backend.eaconsultancy.info/api/v1/user/${userId}`,
 //                 {
 //                     method: 'PUT',
 //                     headers: {
@@ -247,7 +247,7 @@ const FormChangeUserInformation = () => {
 
         try {
             const response = await fetch(
-                `http://localhost:5000/api/v1/user/${id}`,
+                `https://backend.eaconsultancy.info/api/v1/user/${id}`,
                 {
                     method: 'PUT',
                     body: formData,

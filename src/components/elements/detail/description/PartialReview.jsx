@@ -114,7 +114,7 @@ const PartialReview = ({ product }) => {
     const fetchReviews = async () => {
         try {
             const res = await fetch(
-                `http://localhost:5000/api/v1/review/${product.id}`
+                `https://backend.eaconsultancy.info/api/v1/review/${product.id}`
             );
             const data = await res.json();
             console.log('fetchReviews', data);
@@ -148,7 +148,7 @@ const PartialReview = ({ product }) => {
         try {
             setLoading(true);
             const res = await fetch(
-                'http://localhost:5000/api/v1/review/create',
+                'https://backend.eaconsultancy.info/api/v1/review/create',
                 {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

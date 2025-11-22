@@ -84,7 +84,7 @@
 //         <div className="ps-product--header-sticky">
 //             <div className="ps-product__thumbnail">
 //                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
-//                     {<img src={`http://localhost:5000/${product?.default_image}`} alt="Khatishodai" />}
+//                     {<img src={`https://backend.eaconsultancy.info/${product?.default_image}`} alt="Khatishodai" />}
 //                 </Link>
 //             </div>
 //             <div className="ps-product__wrapper">
@@ -198,7 +198,7 @@ if (!userLoggedIn) {
       <div className="ps-product__thumbnail">
         <Link href={`/product/${product.id}`}>
           <img
-            src={`http://localhost:5000/${product?.default_image}`}
+            src={`https://backend.eaconsultancy.info/${product?.default_image}`}
             alt={product.title}
           />
         </Link>

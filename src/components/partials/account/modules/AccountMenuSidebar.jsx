@@ -16,7 +16,7 @@ const AccountMenuSidebar = ({ data }) => {
             const fetchUserInfo = async () => {
                 try {
                     const res = await fetch(
-                        `http://localhost:5000/api/v1/user/${id}`
+                        `https://backend.eaconsultancy.info/api/v1/user/${id}`
                     );
                     const data = await res.json();
     
@@ -56,7 +56,7 @@ const AccountMenuSidebar = ({ data }) => {
         <div className="ps-widget__header">
                                                 {user?.image && (
                                         <img
-                                            src={`http://localhost:5000/${user.image}`}
+                                            src={`https://backend.eaconsultancy.info/${user.image}`}
                                             alt="User"
                                         />
                                     )}

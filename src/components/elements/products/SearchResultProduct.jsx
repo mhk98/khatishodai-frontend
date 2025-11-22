@@ -18,7 +18,7 @@ const SearchResultProduct = ({ product }) => {
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     <img
-                        src={`http://localhost:5000/${default_image}`}
+                        src={`https://backend.eaconsultancy.info/${default_image}`}
                         width={120}
                         height={80}
                     />
