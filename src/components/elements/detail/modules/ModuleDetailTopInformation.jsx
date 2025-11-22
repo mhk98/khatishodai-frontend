@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import Rating from '~/components/elements/Rating';
 
@@ -11,22 +11,22 @@ const ModuleDetailTopInformation = ({ product }) => {
     }, [brand_title]);
 
     const productPrice = useMemo(() => {
-        if (sale) {
-            return (
-                <h4 className="ps-product__price sale">
-                    <del className="mr-2">
-                        &
-                        {price.toLocaleString('en-US', {
-                            minimumFractionDigits: 2,
-                        })}
-                    </del>
-                    ৳
-                    {sale_price.toLocaleString('en-US', {
-                        minimumFractionDigits: 2,
-                    })}
-                </h4>
-            );
-        } else {
+        // if (sale) {
+        //     return (
+        //         <h4 className="ps-product__price sale">
+        //             <del className="mr-2">
+        //                 &
+        //                 {price.toLocaleString('en-US', {
+        //                     minimumFractionDigits: 2,
+        //                 })}
+        //             </del>
+        //             ৳
+        //             {sale_price.toLocaleString('en-US', {
+        //                 minimumFractionDigits: 2,
+        //             })}
+        //         </h4>
+        //     );
+        // } else {
             return (
                 <h4 className="ps-product__price">
                     ৳ 
@@ -35,8 +35,8 @@ const ModuleDetailTopInformation = ({ product }) => {
                     })}
                 </h4>
             );
-        }
-    }, [sale, price]);
+        // }
+    }, [ price]);
 
     const productTitle = useMemo(() => {
         return title || 'Untitled Product';
