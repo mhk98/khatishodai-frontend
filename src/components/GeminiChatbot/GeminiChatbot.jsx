@@ -702,7 +702,7 @@ const GeminiChatbot = () => {
         /* Media query for smaller screens */
         @media (max-width: 768px) {
           .chatbot-container {
-            bottom: 25%;
+            bottom: 20%;
             right: 0%;
             transform: translate(50%, 50%);
           }
