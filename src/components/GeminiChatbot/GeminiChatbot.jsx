@@ -703,12 +703,12 @@ const GeminiChatbot = () => {
         @media (max-width: 768px) {
           .chatbot-container {
             bottom: 20%;
-            right: 0%;
-            transform: translate(50%, 50%);
+            right: -3%;
+            transform: translate(-13%, -10%);
           }
 
           .chat-window {
-            width: 100%;
+            // width: 100%;
             max-width: 380px;
           }
           
