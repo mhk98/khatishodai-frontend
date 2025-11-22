@@ -356,7 +356,8 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Send, Loader, Zap, User, MessageSquare, X } from 'lucide-react';
 
 const GeminiChatbot = () => {
-  const apiKey = "AIzaSyBTbcgjPKZPGHE_B15jOFpnVvIOzLVdL04"; // API Key is provided by the environment
+  // const apiKey = "AIzaSyBTbcgjPKZPGHE_B15jOFpnVvIOzLVdL04";
+  const apiKey = "AIzaSyCH14iMoZPlx56R0SVMxEu0vLTx45Nknqw";
   const GEMINI_MODEL = 'gemini-2.5-flash-preview-09-2025';
   const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
 
