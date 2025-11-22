@@ -97,12 +97,14 @@ const FooterSecond = ({ classes }) => (
 
                     <div className="col-xl-4 col-md-6">
                         <aside className="widget widget_newletters">
-                            <h4 className="widget-title">Newsletter</h4>
+                            <h4 className="widget-title">Follow Us</h4>
+                            {/* <h4 className="widget-title">Newsletter</h4> */}
                             <form
                                 className="ps-form--newletter"
                                 action="#"
                                 method="get">
-                                <div className="form-group--nest">
+
+                                {/* <div className="form-group--nest">
                                     <input
                                         className="form-control"
                                         type="text"
@@ -111,7 +113,8 @@ const FooterSecond = ({ classes }) => (
                                     <button className="ps-btn">
                                         Subscribe
                                     </button>
-                                </div>
+                                </div> */}
+
                                 <ul className="ps-list--social">
                                     <li>
                                         <a className="facebook" href="#">
