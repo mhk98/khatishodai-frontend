@@ -85,7 +85,7 @@
 //       <div className="ps-product__thumbnail">
 //         <Link href={`/product/${product.id}`}>
 //           <img
-//             src={`https://backend.eaconsultancy.info/${product?.default_image}`}
+//             src={`http://localhost:5000/${product?.default_image}`}
 //             alt={product.title}
 //           />
 //         </Link>
@@ -206,7 +206,7 @@ const OnHeaderProduct = ({ product }) => {
       <div className="ps-product__thumbnail">
         <Link href={`/product/${product.id}`}>
           <img
-            src={`https://backend.eaconsultancy.info/${product?.default_image}`}
+            src={`http://localhost:5000/${product?.default_image}`}
             alt={product.title}
           />
         </Link>

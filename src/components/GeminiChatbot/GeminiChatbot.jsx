@@ -749,6 +749,7 @@ const GeminiChatbot = () => {
 
     .chatbot-button {
       padding: 14px;
+      margin-bottom: 115px;
     }
   }
 

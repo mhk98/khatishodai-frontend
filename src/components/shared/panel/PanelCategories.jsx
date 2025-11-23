@@ -64,7 +64,7 @@ class PanelCategories extends Component {
     rootSubmenuKeys = []; // updated dynamically after data loads
 
     componentDidMount() {
-        fetch('https://backend.eaconsultancy.info/api/v1/category')
+        fetch('http://localhost:5000/api/v1/category')
             .then((res) => {
                 if (!res.ok) {
                     throw new Error(`HTTP error! status: ${res.status}`);

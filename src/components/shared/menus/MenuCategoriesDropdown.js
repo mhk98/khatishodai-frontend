@@ -11,7 +11,7 @@ const MenuCategoriesDropdown = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    'https://backend.eaconsultancy.info/api/v1/category'
+                    'http://localhost:5000/api/v1/category'
                 );
                 console.log('categories', response);
                 setCategories(response.data.data); // API থেকে ডাটা সেট করা হচ্ছে
