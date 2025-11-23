@@ -85,7 +85,7 @@
 //       <div className="ps-product__thumbnail">
 //         <Link href={`/product/${product.id}`}>
 //           <img
-//             src={`http://localhost:5000/${product?.default_image}`}
+//             src={`https://backend.eaconsultancy.info/${product?.default_image}`}
 //             alt={product.title}
 //           />
 //         </Link>
@@ -182,23 +182,23 @@ const OnHeaderProduct = ({ product }) => {
           window.dispatchEvent(new Event("local_cart_updated"));
 
     // API call only if user logged-in
-    if (userLoggedIn) {
-      try {
-        await createCart(newCartItem).unwrap();
-        notification.success({
-          message: "Success",
-          description: "Product added to your cart successfully!",
-        });
-          window.dispatchEvent(new Event("local_cart_updated"));
-      } catch (err) {
-        console.error("Cart add error:", err);
-      }
-    } else {
+    // if (userLoggedIn) {
+    //   try {
+    //     await createCart(newCartItem).unwrap();
+    //     notification.success({
+    //       message: "Success",
+    //       description: "Product added to your cart successfully!",
+    //     });
+    //       window.dispatchEvent(new Event("local_cart_updated"));
+    //   } catch (err) {
+    //     console.error("Cart add error:", err);
+    //   }
+    // } else {
       notification.success({
         message: "Added to Cart",
         description: "Product added to your cart!",
       });
-    }
+    // }
   };
 
   return (
@@ -206,7 +206,7 @@ const OnHeaderProduct = ({ product }) => {
       <div className="ps-product__thumbnail">
         <Link href={`/product/${product.id}`}>
           <img
-            src={`http://localhost:5000/${product?.default_image}`}
+            src={`https://backend.eaconsultancy.info/${product?.default_image}`}
             alt={product.title}
           />
         </Link>

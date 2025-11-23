@@ -1,15 +1,34 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Form, Input, Checkbox, Radio } from 'antd'; 
 import { useRouter } from 'next/navigation';
-import { useCreateOrderMutation } from '~/react-redux/features/order/order';
-import { useGetCartDataByIdQuery } from '~/react-redux/features/cart/cart';
+import { useGetOrderByIdQuery, useUpdateOrderMutation } from '~/react-redux/features/order/order';
+
 import { getUserInfo } from '~/components/services/auth.service';
 
 export default function FormCheckoutInformation() {
     const token = getUserInfo();
     const id = token.userId;
     const router = useRouter();
+
+
+
+     const [order, setOrder] = useState([]);
+    
+      const { data:data1, isLoading:isLoading1, isError: isError1, error: error1 } = useGetOrderByIdQuery(id);
+    
+      useEffect(() => {
+        if (isError1) {
+          console.error("Error fetching product data", error1);
+        } else if (!isLoading1 && data1) {
+          try {
+            setOrder(data1.data);
+          } catch (e) {
+            console.error("JSON Parse Error", e);
+          }
+        }
+      }, [data1, isLoading1, isError1, error1]);
+
 
     const [method, setMethod] = useState(1); // Initialize the method state with default value
 
@@ -22,33 +41,33 @@ export default function FormCheckoutInformation() {
     // const { data } = useGetAllCartQuery();
     // const products = data?.data || [];
 
-            const { data, refetch } = useGetCartDataByIdQuery(id);
+    //         const { data, refetch } = useGetCartDataByIdQuery(id);
     
-    const products = data?.data || [];
+    // const products = data?.data || [];
 
 
-    const cartProducts = useMemo(() => {
-        return products.map((product) => {
-            const price = product.price || 0;
-            const quantity = product?.quantity || 0;
-            const subTotal = price * quantity;
+    // const cartProducts = useMemo(() => {
+    //     return products.map((product) => {
+    //         const price = product.price || 0;
+    //         const quantity = product?.quantity || 0;
+    //         const subTotal = price * quantity;
 
-            return {
-                id: product.id,
-                title: product.title || 'Untitled Product',
-                thumbnailImage: product.default_image || null,
-                price,
-                quantity,
-                subTotal,
-            };
-        });
-    }, [products]);
+    //         return {
+    //             id: product.id,
+    //             title: product.title || 'Untitled Product',
+    //             thumbnailImage: product.default_image || null,
+    //             price,
+    //             quantity,
+    //             subTotal,
+    //         };
+    //     });
+    // }, [products]);
 
-    const amount = useMemo(() => {
-        return cartProducts.reduce((total, product) => total + product.subTotal, 0);
-    }, [cartProducts]);
+    // const amount = useMemo(() => {
+    //     return cartProducts.reduce((total, product) => total + product.subTotal, 0);
+    // }, [cartProducts]);
 
-    const [createOrder, { isLoading, isError, isSuccess }] = useCreateOrderMutation();
+    const [updateOrder, { isLoading, isError, isSuccess }] = useUpdateOrderMutation();
 
 
 //     const handleSubmit = async (values) => {
@@ -91,15 +110,15 @@ const handleSubmit = async (values) => {
         // 🟢 Cash on Delivery → Create Order
         const data = {
             ...values,
-            cartProducts,
-            total: amount,
+            // cartProducts,
+            // total: amount,
             paymentMethod: "Cash On Delivery",
             user_id: token.userId,
         };
 
         console.log("Submitted Data:", data);
 
-        const res = await createOrder(data).unwrap();
+        const res = await updateOrder({id:order.id, data}).unwrap();
 
         if (res.success) {
             alert("Order created successfully!");

@@ -28,7 +28,7 @@
 //     //   key: 'thumbnailImage',
 //     //   render: (img, record) => (
 //     //     <img
-//     //       src={`http://localhost:5000${img}`}
+//     //       src={`https://backend.eaconsultancy.info${img}`}
 //     //       alt={record.title}
 //     //       className="h-12 w-12 object-cover rounded"
 //     //     />
@@ -88,7 +88,7 @@ const TableNotifications = () => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/v1/order/${id}`);
+        const res = await fetch(`https://backend.eaconsultancy.info/api/v1/order/${id}`);
         const json = await res.json();
 
         if (res.ok && json.data) {

@@ -154,6 +154,7 @@
 // export default MiniCart;
 
 
+
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import OnCartProduct from "~/components/elements/products/OnCartProduct";
@@ -182,20 +183,20 @@ const MiniCart = () => {
     // LOAD CART DATA
     // =====================================================
     const loadCart = () => {
-        if (userLoggedIn) {
-            if (!isLoading && data?.data) {
-                setCarts(data.data);
-                localStorage.setItem("local_cart", JSON.stringify(data.data));
-            }
-        } else {
+        // if (userLoggedIn) {
+        //     if (!isLoading && data?.data) {
+        //         setCarts(data.data);
+        //         localStorage.setItem("local_cart", JSON.stringify(data.data));
+        //     }
+        // } else {
             const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
             setCarts(localCart);
-        }
+        // }
     };
 
     useEffect(() => {
         loadCart();
-    }, [userLoggedIn, data, isLoading]);
+    }, []);
 
     // =====================================================
     // LISTEN FOR LOCAL CART UPDATES (NO RELOAD NEEDED)
@@ -232,26 +233,26 @@ const MiniCart = () => {
         }
 
         // Logged in → Database remove
-        const res = await deleteCart(product_id);
+        // const res = await deleteCart(product_id);
 
-        if (res?.data?.success) {
-            const updated = carts.filter(item => item.product_id !== product_id);
-            setCarts(updated);
-            localStorage.setItem("local_cart", JSON.stringify(updated));
-            refetch();
+        // if (res?.data?.success) {
+        //     const updated = carts.filter(item => item.product_id !== product_id);
+        //     setCarts(updated);
+        //     localStorage.setItem("local_cart", JSON.stringify(updated));
+        //     refetch();
 
-            window.dispatchEvent(new Event("local_cart_updated"));
+        //     window.dispatchEvent(new Event("local_cart_updated"));
 
-            return notification.success({
-                message: "Removed",
-                description: "Item removed from cart.",
-            });
-        }
+        //     return notification.success({
+        //         message: "Removed",
+        //         description: "Item removed from cart.",
+        //     });
+        // }
 
-        notification.error({
-            message: "Error",
-            description: "Failed to remove item.",
-        });
+        // notification.error({
+        //     message: "Error",
+        //     description: "Failed to remove item.",
+        // });
     };
 
     // =====================================================

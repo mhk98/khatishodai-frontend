@@ -148,16 +148,16 @@ const PanelCartMobile = () => {
 
     // Load cart from API (logged-in) or localStorage (guest)
     useEffect(() => {
-        if (userLoggedIn) {
-            if (!isLoading && data?.data) {
-                setCart(data.data);
-                localStorage.setItem("local_cart", JSON.stringify(data.data));
-            }
-        } else {
+        // if (userLoggedIn) {
+        //     if (!isLoading && data?.data) {
+        //         setCart(data.data);
+        //         localStorage.setItem("local_cart", JSON.stringify(data.data));
+        //     }
+        // } else {
             const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
             setCart(localCart);
-        }
-    }, [data, isLoading, userLoggedIn]);
+        // }
+    }, []);
 
     // Listen for cart updates from Add-to-Cart buttons
     useEffect(() => {
@@ -176,13 +176,13 @@ const PanelCartMobile = () => {
         if (!window.confirm("Do you want to remove this item?")) return;
 
         try {
-            if (userLoggedIn) {
-                const res = await deleteCart(product_id);
-                if (!res.data?.success) {
-                    notification.error({ message: 'Failed', description: 'Could not remove item.' });
-                    return;
-                }
-            }
+            // if (userLoggedIn) {
+            //     const res = await deleteCart(product_id);
+            //     if (!res.data?.success) {
+            //         notification.error({ message: 'Failed', description: 'Could not remove item.' });
+            //         return;
+            //     }
+            // }
 
             const updatedCart = cart.filter((item) => item.product_id !== product_id);
             setCart(updatedCart);

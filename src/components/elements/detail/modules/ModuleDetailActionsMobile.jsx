@@ -164,24 +164,24 @@ const ModuleDetailActionsMobile = ({ product }) => {
 
 
     // If logged-in → API call
-    if (userLoggedIn) {
-      try {
-        await createCart(newCartItem).unwrap();
-        notification.success({
-          message: "Success",
-          description: "Product added to your cart!",
-        });
-          window.dispatchEvent(new Event("local_cart_updated"));
+    // if (userLoggedIn) {
+    //   try {
+    //     await createCart(newCartItem).unwrap();
+    //     notification.success({
+    //       message: "Success",
+    //       description: "Product added to your cart!",
+    //     });
+    //       window.dispatchEvent(new Event("local_cart_updated"));
 
-      } catch (err) {
-        console.error("Cart add error:", err);
-      }
-    } else {
+    //   } catch (err) {
+    //     console.error("Cart add error:", err);
+    //   }
+    // } else {
       notification.success({
         message: "Added to Cart",
         description: "Product added to your cart!",
       });
-    }
+    // }
   };
 
   return (

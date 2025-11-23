@@ -180,28 +180,28 @@ const ModuleDetailShoppingActions = ({ product }) => {
      // 🔥 dispatch event to update MiniCart instantly
             window.dispatchEvent(new Event("local_cart_updated"));
 
-    if (userLoggedIn) {
-      try {
-        await createCart(newCartItem).unwrap();
-        notification.success({
-          message: "Success",
-          description: "Product added to your cart successfully!"
-        });
-            window.dispatchEvent(new Event("local_cart_updated"));
+    // if (userLoggedIn) {
+    //   try {
+    //     await createCart(newCartItem).unwrap();
+    //     notification.success({
+    //       message: "Success",
+    //       description: "Product added to your cart successfully!"
+    //     });
+    //         window.dispatchEvent(new Event("local_cart_updated"));
 
-      } catch (err) {
-        console.error(err);
-        notification.error({
-          message: "Error",
-          description: "Failed to sync with server."
-        });
-      }
-    } else {
+    //   } catch (err) {
+    //     console.error(err);
+    //     notification.error({
+    //       message: "Error",
+    //       description: "Failed to sync with server."
+    //     });
+    //   }
+    // } else {
       notification.success({
         message: "Added to Cart",
         description: "Product added to your cart!"
       });
-    }
+    // }
   };
 
   return (

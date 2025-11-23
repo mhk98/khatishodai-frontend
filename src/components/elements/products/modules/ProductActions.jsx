@@ -200,31 +200,31 @@ const ProductActions = ({ product }) => {
         // ============================
         // 2) LOGGED IN → DATABASE CART
         // ============================
-        const dbItem = { ...newItem, user_id: userId };
+        // const dbItem = { ...newItem, user_id: userId };
 
-        try {
-            const res = await createCart(dbItem);
+        // try {
+        //     const res = await createCart(dbItem);
 
-            if (res?.data?.success) {
-                notification.success({
-                    message: "Success",
-                    description: "Product added to cart!",
-                });
+        //     if (res?.data?.success) {
+        //         notification.success({
+        //             message: "Success",
+        //             description: "Product added to cart!",
+        //         });
 
-                // Sync MiniCart
-                window.dispatchEvent(new Event("local_cart_updated"));
-            } else {
-                notification.error({
-                    message: "Error",
-                    description: "Failed to add product!",
-                });
-            }
-        } catch (err) {
-            notification.error({
-                message: "Error",
-                description: "Something went wrong!",
-            });
-        }
+        //         // Sync MiniCart
+        //         window.dispatchEvent(new Event("local_cart_updated"));
+        //     } else {
+        //         notification.error({
+        //             message: "Error",
+        //             description: "Failed to add product!",
+        //         });
+        //     }
+        // } catch (err) {
+        //     notification.error({
+        //         message: "Error",
+        //         description: "Something went wrong!",
+        //     });
+        // }
     };
 
     return (
