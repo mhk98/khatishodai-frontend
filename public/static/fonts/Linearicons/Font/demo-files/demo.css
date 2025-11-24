@@ -33,30 +33,3 @@
 }
 
 
-/* Hide table header on mobile */
-@media (max-width: 768px) {
-  .responsive-table thead {
-    display: none;
-  }
-  .responsive-table tr {
-    display: block;
-    margin-bottom: 20px;
-    border: 1px solid #e5e7eb;
-    padding: 15px;
-    border-radius: 10px;
-  }
-  .responsive-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #f3f4f6;
-  }
-  .responsive-table td:last-child {
-    border-bottom: none;
-  }
-  .responsive-table td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #374151;
-  }
-}
