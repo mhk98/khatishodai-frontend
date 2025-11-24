@@ -310,10 +310,6 @@ function CartContent() {
   const token = getUserInfo();
   const id = token?.userId;
 
-  const { data, isLoading, isError, error } = useGetCartDataByIdQuery(id, {
-    skip: !userLoggedIn, // skip API fetch for guest
-  });
-
   const [cart, setCart] = useState([]);
   const [couponCode, setCouponCode] = useState("");
   const [appliedDiscount, setAppliedDiscount] = useState(0);
@@ -323,17 +319,8 @@ function CartContent() {
 
   // Load cart from API (logged-in) or localStorage (guest)
   useEffect(() => {
-    // if (userLoggedIn) {
-    //   if (!isLoading && data?.data) {
-    //     setCart(data.data);
-    //     localStorage.setItem("local_cart", JSON.stringify(data.data));
-    //   } else if (isError) {
-    //     console.error("Error fetching cart data:", error);
-    //   }
-    // } else {
       const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
       setCart(localCart);
-    // }
   }, []);
 
   // Listen to cart updates (from add-to-cart buttons)
@@ -356,16 +343,6 @@ function CartContent() {
   const handleDelete = async (product_id) => {
     if (window.confirm("Do you want to delete this item?")) {
       try {
-        // if (userLoggedIn) {
-        //   const res = await deleteCart(product_id);
-        //   if (!res?.data?.success) {
-        //     notification.error({
-        //       message: "Failed",
-        //       description: "Could not remove item from cart.",
-        //     });
-        //     return;
-        //   }
-        // }
 
         // Update state & localStorage
         const updatedCart = cart.filter((item) => item.product_id !== product_id);
@@ -433,14 +410,6 @@ function CartContent() {
 
       console.log("orderCreation", res)
       if (res?.data?.success) {
-        // notification.success({
-        //                 message: "Order Created",
-        //                 description: "Order create successfully!",
-        //             });
-
-        // setCart([]);
-        // localStorage.removeItem("local_cart");
-        // window.dispatchEvent(new Event("local_cart_updated"));
 
       router.push("/account/checkout");
 
@@ -463,7 +432,7 @@ function CartContent() {
               <table className="table ps-table--shopping-cart ps-table--responsive">
                 <thead>
                   <tr>
-                    <th>Product</th>
+                    {/* <th>Product</th> */}
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -473,9 +442,9 @@ function CartContent() {
                 <tbody>
                   {cart.map((item) => (
                     <tr key={item.product_id}>
-                      <td>
+                      {/* <td>
                         <CartProduct product={item} />
-                      </td>
+                      </td> */}
                       <td data-label="price" className="price">
                         ৳{item.price}
                       </td>
