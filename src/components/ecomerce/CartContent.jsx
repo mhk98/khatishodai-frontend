@@ -432,7 +432,7 @@ function CartContent() {
               <table className="table ps-table--shopping-cart ps-table--responsive">
                 <thead>
                   <tr>
-                    {/* <th>Product</th> */}
+                    <th>Product</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Total</th>
@@ -442,9 +442,9 @@ function CartContent() {
                 <tbody>
                   {cart.map((item) => (
                     <tr key={item.product_id}>
-                      {/* <td>
+                      <td>
                         <CartProduct product={item} />
-                      </td> */}
+                      </td>
                       <td data-label="price" className="price">
                         ৳{item.price}
                       </td>
