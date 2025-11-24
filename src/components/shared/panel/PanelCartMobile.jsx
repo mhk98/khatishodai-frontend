@@ -131,32 +131,21 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { notification } from 'antd';
-import { useDeleteCartMutation, useGetCartDataByIdQuery } from '~/react-redux/features/cart/cart';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
-import { getUserInfo, isLoggedIn } from '~/components/services/auth.service';
+import { isLoggedIn } from '~/components/services/auth.service';
 import OnCartProduct from '~/components/elements/products/OnCartProduct';
 
 const PanelCartMobile = () => {
     const userLoggedIn = isLoggedIn();
-    const token = getUserInfo();
-    const userId = token?.userId;
 
-    const { data, isLoading } = useGetCartDataByIdQuery(userId, { skip: !userLoggedIn });
+ 
     const [cart, setCart] = useState([]);
-
-    const [deleteCart] = useDeleteCartMutation();
 
     // Load cart from API (logged-in) or localStorage (guest)
     useEffect(() => {
-        // if (userLoggedIn) {
-        //     if (!isLoading && data?.data) {
-        //         setCart(data.data);
-        //         localStorage.setItem("local_cart", JSON.stringify(data.data));
-        //     }
-        // } else {
             const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
             setCart(localCart);
-        // }
+       
     }, []);
 
     // Listen for cart updates from Add-to-Cart buttons
@@ -176,13 +165,6 @@ const PanelCartMobile = () => {
         if (!window.confirm("Do you want to remove this item?")) return;
 
         try {
-            // if (userLoggedIn) {
-            //     const res = await deleteCart(product_id);
-            //     if (!res.data?.success) {
-            //         notification.error({ message: 'Failed', description: 'Could not remove item.' });
-            //         return;
-            //     }
-            // }
 
             const updatedCart = cart.filter((item) => item.product_id !== product_id);
             setCart(updatedCart);

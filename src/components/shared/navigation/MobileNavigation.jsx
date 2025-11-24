@@ -125,17 +125,17 @@ export default function MobileNavigation() {
                     <i className="icon-list4" />
                     <span> Categories</span>
                 </button>
+                {/* <button
+                    className={cx('navigation__item', cartDrawer && 'active')}
+                    onClick={enableCartDrawer}>
+                    <i className="icon-bag2" />
+                    <span> Cart</span>
+                </button> */}
                 <button
                     className={cx('navigation__item', searchDrawer && 'active')}
                     onClick={enableSearchDrawer}>
                     <i className="icon-magnifier" />
                     <span> Search</span>
-                </button>
-                <button
-                    className={cx('navigation__item', cartDrawer && 'active')}
-                    onClick={enableCartDrawer}>
-                    <i className="icon-bag2" />
-                    <span> Cart</span>
                 </button>
             </div>
         </div>

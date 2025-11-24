@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import AccountQuickLinksMobile from './AccountQuickLinksMobile';
@@ -14,11 +14,31 @@ const MobileHeaderActions = ({ auth }) => {
                 const token = getUserInfo()
                     const id = token.userId
                 
-                    const { data, isLoading, isError, error } = useGetCartDataByIdQuery(id);
-            
-                    const carts = data?.data || [];
+const [carts, setCarts] = useState([]);
 
-                    console.log("mobile cart", carts)
+    // =====================================================
+    // LOAD CART DATA
+    // =====================================================
+    const loadCart = () => {
+            const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
+            setCarts(localCart);
+    };
+
+    useEffect(() => {
+        loadCart();
+    }, []);
+
+      useEffect(() => {
+            const updateCart = () => loadCart();
+    
+            window.addEventListener("local_cart_updated", updateCart);
+            window.addEventListener("storage", updateCart);
+    
+            return () => {
+                window.removeEventListener("local_cart_updated", updateCart);
+                window.removeEventListener("storage", updateCart);
+            };
+        }, []);
     
 
     return (

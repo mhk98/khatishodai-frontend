@@ -171,36 +171,21 @@ const MiniCart = () => {
     const token = getUserInfo();
     const userId = token?.userId;
 
-    // DB cart only if logged in
-    const { data, isLoading, refetch } = useGetCartDataByIdQuery(userId, {
-        skip: !userLoggedIn,
-    });
 
-    const [deleteCart] = useDeleteCartMutation();
     const [carts, setCarts] = useState([]);
 
     // =====================================================
     // LOAD CART DATA
     // =====================================================
     const loadCart = () => {
-        // if (userLoggedIn) {
-        //     if (!isLoading && data?.data) {
-        //         setCarts(data.data);
-        //         localStorage.setItem("local_cart", JSON.stringify(data.data));
-        //     }
-        // } else {
             const localCart = JSON.parse(localStorage.getItem("local_cart")) || [];
             setCarts(localCart);
-        // }
     };
 
     useEffect(() => {
         loadCart();
     }, []);
 
-    // =====================================================
-    // LISTEN FOR LOCAL CART UPDATES (NO RELOAD NEEDED)
-    // =====================================================
     useEffect(() => {
         const updateCart = () => loadCart();
 
@@ -213,9 +198,8 @@ const MiniCart = () => {
         };
     }, []);
 
-    // =====================================================
+
     // REMOVE ITEM
-    // =====================================================
     const handleRemoveItem = async (e, product_id) => {
         e.preventDefault();
 
