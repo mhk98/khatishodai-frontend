@@ -17,14 +17,14 @@ export default function Template({ children }) {
             {children}
             <PageLoader />
             <MobileNavigation />
-            <BackTop>
+            {/* <BackTop>
                
                   
-                    {/* <WhatsAppButton className="ps-btn--backtop"/> */}
-            {/* <GeminiChatbot className="ps-btn--backtop"/> */}
+                    <WhatsAppButton className="ps-btn--backtop"/>
+            <GeminiChatbot className="ps-btn--backtop"/>
                   
                
-            </BackTop>
+            </BackTop> */}
         </Providers>
     );
 }
