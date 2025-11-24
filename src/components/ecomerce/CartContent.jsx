@@ -291,14 +291,9 @@
 
 
 "use client";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import {
-  useDeleteCartMutation,
-  useGetCartDataByIdQuery,
-} from "~/react-redux/features/cart/cart";
 import { getUserInfo, isLoggedIn } from "../services/auth.service";
 import { useCreateOrderMutation } from "~/react-redux/features/order/order";
 import CartProduct from "../elements/products/CartProduct";
@@ -313,8 +308,6 @@ function CartContent() {
   const [cart, setCart] = useState([]);
   const [couponCode, setCouponCode] = useState("");
   const [appliedDiscount, setAppliedDiscount] = useState(0);
-
-  const [deleteCart] = useDeleteCartMutation();
   const [createOrder] = useCreateOrderMutation();
 
   // Load cart from API (logged-in) or localStorage (guest)
@@ -428,6 +421,7 @@ function CartContent() {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-11">
+            
             <div className="cart-table">
               <table className="table ps-table--shopping-cart ps-table--responsive">
                 <thead>

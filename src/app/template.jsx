@@ -7,6 +7,7 @@ import getHeadData, {
 } from '~/utilities/seo/RoutePathsSEO';
 import Providers from '~/react-redux/provider';
 import { BackTop } from 'antd';
+import WhatsAppButton from '~/components/whatsapp/WhatsAppButton';
 
 
 export const metadata = generatePageMetadata(getHeadData('/'));
@@ -17,14 +18,14 @@ export default function Template({ children }) {
             {children}
             <PageLoader />
             <MobileNavigation />
-            {/* <BackTop>
+            <BackTop>
                
                   
                     <WhatsAppButton className="ps-btn--backtop"/>
-            <GeminiChatbot className="ps-btn--backtop"/>
+            {/* <GeminiChatbot className="ps-btn--backtop"/> */}
                   
                
-            </BackTop> */}
+            </BackTop>
         </Providers>
     );
 }
